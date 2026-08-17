@@ -1,0 +1,3392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genesis'26 — Inter College Symposium | PSVPEC</title>
+<meta name="description" content="Genesis'26 — Inter College Symposium by the Department of Computer Science & Engineering and Department of Information Technology, Prince Shri Venkateshwara Padmavathy Engineering College. 15th September, PSVPEC Mini Auditorium.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+<script>
+  /* Immediate theme application to prevent FOUC */
+  (function() {
+    try {
+      var saved = localStorage.getItem('genesis_theme') || 'system';
+      var isDark = saved === 'dark' || (saved === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme-setting', saved);
+    } catch(e) {}
+  })();
+</script>
+
+<style>
+:root{
+  --paper:#F7F6F2;
+  --ink:#14161A;
+  --signal:#2F5CFF;      /* blue accent */
+  --signal-hover:#1d46dd;
+  --graphite:#5B5F66;
+  --line:#DDDAD2;
+  --card-bg:rgba(255, 255, 255, 0.92);
+  --meta-panel-bg:rgba(255, 255, 255, 0.94);
+  --input-bg:rgba(255, 255, 255, 0.95);
+  --header-bg:rgba(247,246,242,.92);
+  --shadow:rgba(20,22,26,0.10);
+  --font-display:'Archivo Expanded', sans-serif;
+  --font-body:'Inter', system-ui, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+  --maxw:1240px;
+}
+
+/* ===== DARK THEME (ELECTRIC / MIDNIGHT BLUE CYBER PALETTE) ===== */
+[data-theme="dark"]{
+  --paper:#070b16;          /* deep midnight cyber blue */
+  --ink:#f0f6fc;            /* crisp ice-white text */
+  --signal:#3b82f6;         /* glowing vibrant blue */
+  --signal-hover:#60a5fa;
+  --graphite:#93a4c0;       /* slate blue */
+  --line:#192742;           /* dark navy border */
+  --card-bg:rgba(15, 23, 42, 0.82);        /* elevated glassmorphic blue-black card */
+  --meta-panel-bg:rgba(13, 21, 39, 0.88);  /* elevated panel */
+  --input-bg:rgba(11, 18, 32, 0.90);       /* input field bg */
+  --header-bg:rgba(7, 11, 22, 0.88);
+  --shadow:rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="dark"]){
+    --paper:#070b16;
+    --ink:#f0f6fc;
+    --signal:#3b82f6;
+    --signal-hover:#60a5fa;
+    --graphite:#93a4c0;
+    --line:#192742;
+    --card-bg:rgba(15, 23, 42, 0.82);
+    --meta-panel-bg:rgba(13, 21, 39, 0.88);
+    --input-bg:rgba(11, 18, 32, 0.90);
+    --header-bg:rgba(7, 11, 22, 0.88);
+    --shadow:rgba(0, 0, 0, 0.5);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+}
+body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-body); line-height:1.6; -webkit-font-smoothing:antialiased; transition:background .3s ease, color .3s ease; position:relative; min-height:100vh; }
+
+/* ===== CYBER BACKGROUND ANIMATION & GRID ===== */
+#cyberCanvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  pointer-events:none;
+  z-index:0;
+}
+.cyber-grid-overlay{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image: 
+    linear-gradient(to right, rgba(47, 92, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(47, 92, 255, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.7;
+  mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 90%);
+}
+[data-theme="dark"] .cyber-grid-overlay{
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.12) 1px, transparent 1px);
+  opacity: 0.85;
+}
+
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:.01em; margin:0 0 .4em; line-height:1.05; color:var(--ink); }
+p{ margin:0 0 1em; color:var(--graphite); }
+a{ color:var(--ink); }
+.mono{ font-family:var(--font-mono); }
+.skip-link{ position:absolute; left:-999px; top:0; background:var(--signal); color:#fff; padding:.75em 1.25em; z-index:999; }
+.skip-link:focus{ left:0; }
+:focus-visible{ outline:2px solid var(--signal); outline-offset:3px; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+section{ padding:96px 0; border-bottom:1px solid var(--line); position:relative; }
+@media (max-width:640px){ section{ padding:60px 0; } .wrap{ padding:0 20px; } }
+
+.numeral{
+  font-family:var(--font-display); font-size:clamp(4rem,14vw,9rem); font-weight:700;
+  color:var(--paper); -webkit-text-stroke:1.5px var(--line); position:absolute;
+  top:24px; right:28px; line-height:1; user-select:none; pointer-events:none; z-index:0;
+}
+.section-inner{ position:relative; z-index:1; }
+.eyebrow{ font-family:var(--font-mono); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--signal); margin-bottom:.9em; display:inline-flex; align-items:center; gap:.6em; }
+.eyebrow::before{ content:""; width:22px; height:1px; background:var(--signal); }
+.section-head{ max-width:640px; margin-bottom:52px; }
+.section-head h2{ font-size:clamp(2rem,4.4vw,3rem); }
+
+.btn{ display:inline-flex; align-items:center; gap:.5em; font-family:var(--font-body); font-weight:600; font-size:.95rem; padding:.9em 1.7em; border-radius:2px; text-decoration:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease; border:1.5px solid var(--ink); }
+.btn-primary{ background:var(--signal); color:#fff; border-color:var(--signal); }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 0 0 var(--ink); background:var(--signal-hover); }
+.btn-outline{ background:transparent; color:var(--ink); }
+.btn-outline:hover{ background:var(--ink); color:var(--paper); }
+
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+/* ===== INTRO ANIMATION ===== */
+#intro{ 
+  position:fixed; 
+  inset:0; 
+  background:var(--paper); 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  z-index:1000; 
+  overflow:hidden;
+  transition:opacity .7s ease, visibility .7s ease; 
+}
+#intro.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+
+#introMatrixCanvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+}
+
+.intro-skip-btn{
+  position:absolute;
+  bottom:24px;
+  right:24px;
+  z-index:10;
+  background:rgba(15, 23, 42, 0.4);
+  color:var(--ink);
+  border:1px solid var(--line);
+  padding:7px 16px;
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  border-radius:20px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:all .2s ease;
+  opacity:0;
+  animation:pop .4s 1.2s ease forwards;
+}
+.intro-skip-btn:hover{
+  background:var(--signal);
+  color:#fff;
+  border-color:var(--signal);
+  transform:translateY(-1px);
+}
+
+.intro-mark{ 
+  position:relative;
+  z-index:2;
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  justify-content:center;
+  text-align:center; 
+  padding:24px;
+  max-width:1100px;
+  width:100%;
+}
+
+/* Side-by-side Same Line Container */
+.intro-duo-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(16px, 3.5vw, 36px);
+  position:relative;
+  z-index:2;
+  opacity:0;
+  transform:scale(0.88) translateY(12px);
+  animation:duoPop .75s .1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro-logo-col{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Intro Logos */
+.intro-genesis-img{
+  height:clamp(120px, 18vw, 190px);
+  width:auto;
+  max-width:min(42vw, 380px);
+  object-fit:contain;
+  display:block;
+  transition:filter .3s ease;
+}
+
+/* 2x Sized PSVPEC Logo */
+.intro-psvpec-img{
+  height:clamp(240px, 36vw, 380px);
+  width:auto;
+  max-width:min(50vw, 550px);
+  object-fit:contain;
+  display:block;
+  transition:filter .3s ease;
+}
+
+/* Light Theme Background Blending */
+[data-theme="light"] .intro-genesis-img,
+:root:not([data-theme="dark"]) .intro-genesis-img{
+  filter:drop-shadow(0 10px 24px rgba(47, 92, 255, 0.22));
+}
+
+[data-theme="light"] .intro-psvpec-img,
+:root:not([data-theme="dark"]) .intro-psvpec-img{
+  filter:drop-shadow(0 14px 30px rgba(47, 92, 255, 0.26));
+}
+
+/* Dark Theme Background Blending & Cyber Aura */
+[data-theme="dark"] .intro-genesis-img{
+  filter:drop-shadow(0 0 45px rgba(59, 130, 246, 0.7)) drop-shadow(0 14px 32px rgba(0, 0, 0, 0.7)) brightness(1.08);
+}
+
+[data-theme="dark"] .intro-psvpec-img{
+  filter:drop-shadow(0 0 55px rgba(59, 130, 246, 0.75)) drop-shadow(0 16px 36px rgba(0, 0, 0, 0.75)) brightness(1.08);
+}
+
+/* "in" connector between the two logos */
+.intro-in-connector{
+  font-family:var(--font-mono);
+  font-size:clamp(1.15rem, 2.5vw, 1.7rem);
+  font-weight:700;
+  text-transform:lowercase;
+  letter-spacing:0.12em;
+  color:var(--signal);
+  font-style:italic;
+  padding:0 4px;
+  flex-shrink:0;
+}
+
+.intro-underline{ 
+  width:0; 
+  height:3.5px; 
+  background:var(--signal); 
+  margin:24px auto 0; 
+  border-radius:2px;
+  position:relative;
+  z-index:2;
+  animation:draw .7s .55s ease forwards; 
+}
+
+@keyframes duoPop{ 
+  from{ opacity:0; transform:scale(0.88) translateY(12px); } 
+  to{ opacity:1; transform:scale(1) translateY(0); } 
+}
+@keyframes draw{ to{ width:clamp(220px, 45vw, 420px); } }
+
+/* ===== HEADER ===== */
+header.site{ position:sticky; top:0; z-index:100; background:var(--header-bg); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); transition:background .3s ease; }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 28px; max-width:var(--maxw); margin:0 auto; gap:16px; }
+.brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); }
+.brand img{ height:38px; width:auto; border-radius:3px; object-fit:contain; }
+.brand-text{ font-family:var(--font-display); font-size:1.15rem; line-height:1.1; }
+.brand-text span{ color:var(--signal); }
+.navlinks{ display:flex; gap:24px; list-style:none; margin:0; padding:0; }
+.navlinks a{ text-decoration:none; font-size:.86rem; font-weight:500; color:var(--ink); position:relative; padding-bottom:3px; }
+.navlinks a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--signal); transition:width .2s ease; }
+.navlinks a:hover::after, .navlinks a:focus-visible::after{ width:100%; }
+.nav-actions{ display:flex; align-items:center; gap:12px; }
+.nav-toggle{ display:none; background:none; border:1.5px solid var(--ink); color:var(--ink); padding:.4em .6em; cursor:pointer; }
+
+/* ===== THEME SWITCHER CONTROL ===== */
+.theme-switch{
+  display:inline-flex;
+  align-items:center;
+  background:rgba(20,22,26,0.06);
+  border:1.5px solid var(--line);
+  border-radius:24px;
+  padding:2px 3px;
+  gap:2px;
+  transition:background .2s ease, border-color .2s ease;
+}
+[data-theme="dark"] .theme-switch{
+  background:rgba(255,255,255,0.06);
+}
+.theme-btn{
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:5px 7px;
+  border-radius:16px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--graphite);
+  transition:all .2s ease;
+  line-height:1;
+}
+.theme-btn svg{ width:14px; height:14px; }
+.theme-btn:hover{ color:var(--ink); }
+.theme-btn.active{
+  background:var(--card-bg);
+  color:var(--signal);
+  box-shadow:0 1px 4px rgba(0,0,0,0.18);
+}
+
+@media (max-width:900px){
+  .navlinks{ position:absolute; top:100%; left:0; right:0; background:var(--paper); flex-direction:column; padding:20px 28px; gap:18px; border-bottom:1px solid var(--line); display:none; }
+  .navlinks.open{ display:flex; }
+  .nav-toggle{ display:block; }
+}
+@media (max-width:540px){
+  .nav{ padding:12px 18px; }
+  .brand-text{ font-size:1.05rem; }
+  .nav-actions .btn-primary{ display:none; }
+  .theme-btn{ padding:4px 6px; }
+}
+
+/* ===== HERO ===== */
+.hero{ padding-top:56px; padding-bottom:70px; }
+.hero-grid{ display:grid; grid-template-columns:7fr 5fr; gap:40px; align-items:end; }
+@media (max-width:820px){ .hero-grid{ grid-template-columns:1fr; } }
+.hero h1{ font-size:clamp(3rem,8vw,6rem); }
+.hero-underline{ width:0; height:4px; background:var(--signal); margin:.4em 0 1em; animation:draw2 1s .5s ease forwards; }
+@keyframes draw2{ to{ width:180px; } }
+.hero-sub{ font-size:1.05rem; max-width:46ch; }
+.hero-meta-panel{ border:1.5px solid var(--ink); padding:26px; background:var(--meta-panel-bg); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+.hero-meta-panel .row{ display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:.9rem; gap:12px; }
+.hero-meta-panel .row:last-child{ border-bottom:none; }
+.hero-meta-panel .row span:first-child{ color:var(--graphite); font-family:var(--font-mono); font-size:.78rem; white-space:nowrap; }
+.hero-meta-panel .row span:last-child{ font-weight:600; text-align:right; }
+.hero-actions{ display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; }
+.presented-by{ font-family:var(--font-mono); font-size:.78rem; color:var(--graphite); text-transform:uppercase; letter-spacing:.08em; margin-bottom:1.2em; }
+
+/* Dark mode logo polish */
+[data-theme="dark"] .org-logo,
+[data-theme="dark"] .brand img,
+[data-theme="dark"] .footer-top img {
+  background:#ffffff;
+  padding:2px;
+  border-radius:4px;
+}
+
+/* ===== EVENT CARDS (IMAGE AT TOP, DESCRIPTION AT BOTTOM - 1 PER ROW) ===== */
+.grid{ display:flex; flex-direction:column; gap:40px; }
+.card{ 
+  background:var(--card-bg); 
+  backdrop-filter:blur(10px); 
+  -webkit-backdrop-filter:blur(10px); 
+  border:1.5px solid var(--line); 
+  border-radius:8px; 
+  overflow:hidden; 
+  display:flex; 
+  flex-direction:column; 
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; 
+}
+.card:hover{ 
+  transform:translateY(-5px); 
+  box-shadow:0 20px 40px -12px var(--shadow); 
+  border-color:var(--signal); 
+}
+.card-img-wrap{ 
+  position:relative; 
+  width:100%; 
+  height:clamp(240px, 32vw, 380px); 
+  background:#14161a; 
+  overflow:hidden; 
+}
+.card-img{ 
+  width:100%; 
+  height:100%; 
+  object-fit:cover; 
+  object-position:center; 
+  transition:transform .45s cubic-bezier(0.16, 1, 0.3, 1); 
+  display:block; 
+}
+.card:hover .card-img{ transform:scale(1.04); }
+.card-badge{ 
+  position:absolute; 
+  top:18px; 
+  left:18px; 
+  background:rgba(15,23,42,0.88); 
+  backdrop-filter:blur(6px); 
+  color:#fff; 
+  font-family:var(--font-mono); 
+  font-size:.74rem; 
+  text-transform:uppercase; 
+  letter-spacing:.1em; 
+  padding:6px 14px; 
+  border-radius:3px; 
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+.card-body{ 
+  padding:36px 42px 40px; 
+  display:flex; 
+  flex-direction:column; 
+}
+.card .tag{ 
+  font-family:var(--font-mono); 
+  font-size:.78rem; 
+  text-transform:uppercase; 
+  letter-spacing:.12em; 
+  color:var(--signal); 
+  display:block; 
+  margin-bottom:.5em; 
+  font-weight:600;
+}
+.card h3{ 
+  font-family:var(--font-body); 
+  font-weight:700; 
+  text-transform:none; 
+  font-size:clamp(1.4rem, 2.8vw, 1.85rem); 
+  margin-bottom:.9em; 
+  color:var(--ink); 
+  letter-spacing:-.01em;
+}
+.card-desc-group{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.card p{ 
+  font-size:.95rem; 
+  line-height:1.8; 
+  margin-bottom:0; 
+  color:var(--graphite); 
+  text-align:justify;
+}
+
+@media (max-width:768px){
+  .card-img-wrap{ height:220px; }
+  .card-body{ padding:24px 20px 28px; }
+  .card p{ text-align:left; font-size:.92rem; }
+}
+
+/* ===== ABOUT / ORG BLOCK ===== */
+.orgs-strip{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:40px; padding-top:32px; border-top:1px solid var(--line); }
+.org-logos-wrap{ display:flex; align-items:center; gap:16px; }
+.org-logo{ height:56px; width:auto; max-width:140px; object-fit:contain; border-radius:4px; }
+.orgs-strip .dept-block{ font-family:var(--font-mono); font-size:.78rem; color:var(--graphite); line-height:1.5; }
+.orgs-strip .dept-block strong{ color:var(--ink); display:block; font-size:.85rem; }
+
+/* ===== DEDICATED REGISTRATION PANEL MODAL ===== */
+#regModal{
+  position:fixed;
+  inset:0;
+  z-index:950;
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:24px 20px;
+  overflow-y:auto;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .35s cubic-bezier(0.16, 1, 0.3, 1), visibility .35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#regModal.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+#regMatrixCanvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+}
+
+.reg-modal-topbar{
+  width:100%;
+  max-width:960px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  position:relative;
+  z-index:10;
+  padding:6px 0;
+}
+
+.reg-back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(20,22,26,0.06);
+  border:1.5px solid var(--line);
+  color:var(--ink);
+  font-family:var(--font-mono);
+  font-size:.84rem;
+  font-weight:600;
+  padding:8px 18px;
+  border-radius:24px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:all .2s ease;
+}
+[data-theme="dark"] .reg-back-btn{
+  background:rgba(255,255,255,0.06);
+}
+.reg-back-btn:hover{
+  background:var(--signal);
+  color:#fff;
+  border-color:var(--signal);
+  transform:translateX(-3px);
+}
+
+.reg-close-btn{
+  background:rgba(20,22,26,0.06);
+  border:1.5px solid var(--line);
+  color:var(--ink);
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:all .2s ease;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+[data-theme="dark"] .reg-close-btn{
+  background:rgba(255,255,255,0.06);
+}
+.reg-close-btn:hover{
+  background:#c81e1e;
+  border-color:#c81e1e;
+  color:#fff;
+  transform:rotate(90deg);
+}
+
+.reg-modal-card{
+  width:100%;
+  max-width:960px;
+  background:var(--card-bg);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:44px 48px;
+  position:relative;
+  z-index:10;
+  box-shadow:0 30px 60px -15px var(--shadow);
+  margin-bottom:40px;
+  transform:scale(0.96) translateY(18px);
+  transition:transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#regModal.open .reg-modal-card{
+  transform:scale(1) translateY(0);
+}
+
+/* On-page Registration CTA banner */
+.reg-cta-card{
+  background:var(--card-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  padding:44px 48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  flex-wrap:wrap;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.reg-cta-card:hover{
+  border-color:var(--signal);
+  box-shadow:0 18px 36px -10px var(--shadow);
+}
+.reg-cta-content h3{
+  font-size:1.6rem;
+  margin-bottom:.4em;
+  color:var(--ink);
+}
+.reg-cta-content p{
+  font-size:.95rem;
+  color:var(--graphite);
+  margin:0;
+  max-width:55ch;
+}
+
+@media (max-width:768px){
+  .reg-modal-card{ padding:28px 20px; }
+  .reg-modal-topbar{ margin-bottom:16px; }
+  .reg-cta-card{ padding:28px 22px; flex-direction:column; align-items:flex-start; }
+}
+
+/* ===== REGISTRATION FORM FIELDS ===== */
+.register-layout{ display:grid; grid-template-columns:1fr 1.3fr; gap:48px; }
+@media (max-width:900px){ .register-layout{ grid-template-columns:1fr; } }
+.register-info ul{ list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:14px; }
+.register-info li{ display:flex; gap:.7em; align-items:flex-start; font-size:.9rem; color:var(--graphite); }
+.register-info li svg{ width:18px; height:18px; stroke:var(--signal); flex-shrink:0; margin-top:2px; }
+.field{ margin-bottom:20px; }
+.field label{ display:block; font-size:.82rem; font-weight:600; margin-bottom:.5em; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.06em; }
+.field input, .field select{ width:100%; background:var(--input-bg); border:1.5px solid var(--line); border-radius:0; padding:.85em 1em; color:var(--ink); font-family:var(--font-body); font-size:.95rem; }
+.field input:focus, .field select:focus{ border-color:var(--signal); outline:none; }
+.field input[aria-invalid="true"], .field select[aria-invalid="true"]{ border-color:#C81E1E; }
+.field .err{ color:#C81E1E; font-size:.8rem; margin-top:.4em; display:none; font-family:var(--font-mono); }
+/* ===== MULTI-EVENT SELECTION PICKER ===== */
+.events-picker-wrap{ margin-bottom:24px; }
+.events-picker-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px; }
+.events-picker-header label{ font-size:.82rem; font-weight:600; margin-bottom:0; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.06em; }
+.events-counter-badge{ font-family:var(--font-mono); font-size:.76rem; padding:4px 12px; border-radius:14px; background:rgba(47,92,255,0.12); color:var(--signal); font-weight:600; border:1px solid rgba(47,92,255,0.25); }
+.events-quick-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+.events-quick-btn{ background:transparent; border:1px dashed var(--line); color:var(--graphite); font-family:var(--font-mono); font-size:.72rem; padding:4px 10px; border-radius:4px; cursor:pointer; transition:all .2s ease; }
+.events-quick-btn:hover{ color:var(--signal); border-color:var(--signal); background:rgba(47,92,255,0.06); }
+.events-track-heading{ font-family:var(--font-mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; color:var(--graphite); margin:12px 0 8px; font-weight:600; display:flex; align-items:center; gap:8px; }
+.events-track-heading::after{ content:''; flex:1; height:1px; background:var(--line); }
+.events-chip-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+@media (max-width:580px){ .events-chip-grid{ grid-template-columns:1fr; } }
+.event-chip{ display:flex; align-items:center; gap:10px; padding:10px 12px; background:var(--input-bg); border:1.5px solid var(--line); border-radius:6px; cursor:pointer; transition:all .2s ease; user-select:none; }
+.event-chip:hover{ border-color:var(--signal); background:rgba(47,92,255,0.04); }
+.event-chip.selected{ border-color:var(--signal); background:rgba(47,92,255,0.12); }
+.event-chip input[type="checkbox"]{ width:17px; height:17px; accent-color:var(--signal); cursor:pointer; margin:0; flex-shrink:0; }
+.event-chip-text{ font-size:.86rem; font-weight:600; color:var(--ink); line-height:1.3; }
+.event-chip-track{ font-family:var(--font-mono); font-size:.68rem; color:var(--graphite); display:block; margin-top:2px; font-weight:normal; }
+
+.form-status{ margin-top:16px; padding:.9em 1.1em; font-size:.9rem; display:none; border:1.5px solid; }
+.form-status.success{ display:block; border-color:#1a7a4c; color:#1a7a4c; }
+.form-status.error{ display:block; border-color:#C81E1E; color:#C81E1E; }
+.reg-count{ font-family:var(--font-mono); font-size:.8rem; color:var(--graphite); margin-top:14px; }
+.reg-count strong{ color:var(--signal); }
+
+/* ===== BUILT-IN ADMIN DASHBOARD MODAL ===== */
+#adminModal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(8,11,18,0.85);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:all .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#adminModal.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.admin-window{
+  width:100%;
+  max-width:1160px;
+  max-height:92vh;
+  background:var(--card-bg);
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  box-shadow:0 30px 70px -15px rgba(0,0,0,0.6);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  position:relative;
+  transform:scale(0.96) translateY(16px);
+  transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#adminModal.open .admin-window{
+  transform:scale(1) translateY(0);
+}
+
+.admin-header{
+  padding:22px 28px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  background:rgba(20,22,26,0.03);
+}
+.admin-title-wrap h3{
+  font-size:1.35rem;
+  margin-bottom:2px;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.admin-title-wrap p{
+  font-size:.82rem;
+  color:var(--graphite);
+  margin:0;
+  font-family:var(--font-mono);
+}
+
+.admin-body{
+  padding:24px 28px;
+  overflow-y:auto;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* PIN Lock Screen */
+.admin-lock-screen{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:60px 20px;
+  text-align:center;
+}
+.admin-lock-card{
+  max-width:380px;
+  width:100%;
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  padding:32px 24px;
+}
+.admin-lock-card h4{
+  font-size:1.2rem;
+  margin-bottom:8px;
+  color:var(--ink);
+}
+.admin-lock-card p{
+  font-size:.85rem;
+  color:var(--graphite);
+  margin-bottom:18px;
+}
+
+/* Stat Cards */
+.admin-stats-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:14px;
+}
+.admin-stat-card{
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.admin-stat-label{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--graphite);
+}
+.admin-stat-val{
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--signal);
+  line-height:1.2;
+}
+.admin-stat-sub{
+  font-size:.76rem;
+  color:var(--graphite);
+}
+
+/* Controls & Toolbar */
+.admin-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.admin-search-wrap{
+  display:flex;
+  gap:10px;
+  flex:1;
+  min-width:260px;
+}
+.admin-search-input{
+  width:100%;
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:6px;
+  padding:8px 14px;
+  font-size:.88rem;
+  color:var(--ink);
+}
+.admin-filter-select{
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:6px;
+  padding:8px 12px;
+  font-size:.85rem;
+  color:var(--ink);
+  font-family:var(--font-mono);
+}
+.admin-actions-wrap{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* Table */
+.admin-table-container{
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  overflow:auto;
+  max-height:420px;
+  background:var(--card-bg);
+}
+.admin-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.84rem;
+  text-align:left;
+}
+.admin-table th{
+  background:rgba(20,22,26,0.06);
+  padding:12px 14px;
+  font-family:var(--font-mono);
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--ink);
+  border-bottom:1.5px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+[data-theme="dark"] .admin-table th{
+  background:rgba(255,255,255,0.06);
+}
+.admin-table td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink);
+  vertical-align:middle;
+}
+.admin-table tr:hover td{
+  background:rgba(47,92,255,0.04);
+}
+.admin-event-tag{
+  display:inline-block;
+  background:rgba(47,92,255,0.12);
+  color:var(--signal);
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  padding:2px 7px;
+  border-radius:3px;
+  margin:2px 3px 2px 0;
+  border:1px solid rgba(47,92,255,0.2);
+}
+.admin-paid-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:3px 8px;
+  border-radius:12px;
+  font-size:.72rem;
+  font-family:var(--font-mono);
+  font-weight:600;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+.admin-paid-badge.paid{
+  background:rgba(26,122,76,0.12);
+  color:#1a7a4c;
+  border-color:rgba(26,122,76,0.25);
+}
+.admin-paid-badge.pending{
+  background:rgba(200,30,30,0.12);
+  color:#C81E1E;
+  border-color:rgba(200,30,30,0.25);
+}
+.admin-delete-btn{
+  background:transparent;
+  border:none;
+  color:var(--graphite);
+  cursor:pointer;
+  padding:4px;
+  border-radius:4px;
+  transition:all .2s ease;
+}
+.admin-delete-btn:hover{
+  color:#C81E1E;
+  background:rgba(200,30,30,0.08);
+}
+.admin-empty-state{
+  text-align:center;
+  padding:48px 20px;
+  color:var(--graphite);
+  font-family:var(--font-mono);
+  font-size:.88rem;
+}
+
+.admin-footer-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:transparent;
+  border:1px dashed var(--line);
+  color:var(--graphite);
+  font-family:var(--font-mono);
+  font-size:.74rem;
+  padding:4px 10px;
+  border-radius:4px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.admin-footer-link:hover{
+  color:var(--signal);
+  border-color:var(--signal);
+  background:rgba(47,92,255,0.06);
+}
+
+/* ===== FOOTER & BOTTOM LOGOS ===== */
+footer{ padding:44px 0 36px; border-top:1px solid var(--line); margin-top:40px; }
+.footer-top{ display:flex; align-items:center; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+.footer-top img{ height:38px; width:auto; max-width:110px; border-radius:4px; object-fit:contain; }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:18px; font-size:.8rem; color:var(--graphite); flex-wrap:wrap; gap:12px; }
+.vh{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+.orgs-strip{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:40px; padding-top:32px; border-top:1px solid var(--line); }
+.org-logos-wrap{ display:flex; align-items:center; gap:16px; }
+.org-logo{ height:44px; width:auto; max-width:130px; object-fit:contain; border-radius:4px; }
+.orgs-strip .dept-block{ font-family:var(--font-mono); font-size:.78rem; color:var(--graphite); line-height:1.5; }
+.orgs-strip .dept-block strong{ color:var(--ink); display:block; font-size:.85rem; }
+
+/* ===== MULTI-STEP REGISTRATION & PAYMENT PAGE ===== */
+.reg-steps-indicator{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:28px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+.step-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:.76rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--graphite);
+  padding:6px 14px;
+  border-radius:20px;
+  background:rgba(20,22,26,0.04);
+  border:1px solid var(--line);
+  transition:all .2s ease;
+}
+[data-theme="dark"] .step-pill{
+  background:rgba(255,255,255,0.04);
+}
+.step-pill.active{
+  color:#fff;
+  background:var(--signal);
+  border-color:var(--signal);
+  font-weight:600;
+}
+.step-pill.completed{
+  color:#16a34a;
+  background:rgba(22,163,74,0.12);
+  border-color:rgba(22,163,74,0.3);
+}
+.step-pill-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.1);
+  font-size:.7rem;
+  font-weight:700;
+}
+.step-pill.active .step-pill-num{
+  background:rgba(255,255,255,0.25);
+  color:#fff;
+}
+.step-arrow{
+  color:var(--line);
+  font-size:.9rem;
+}
+
+.reg-step-page{
+  display:none;
+  animation:stepFadeIn .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reg-step-page.active{
+  display:block;
+}
+@keyframes stepFadeIn{
+  from{ opacity:0; transform:translateY(10px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* Payment Step 2 Summary Card */
+.payment-summary-card{
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  padding:22px 24px;
+  margin-bottom:24px;
+  box-shadow:0 10px 25px -10px var(--shadow);
+}
+.payment-summary-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px dashed var(--line);
+  padding-bottom:12px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.payment-summary-title{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--signal);
+  font-weight:600;
+}
+.payment-total-badge{
+  font-family:var(--font-mono);
+  font-size:.95rem;
+  font-weight:700;
+  color:var(--ink);
+  background:rgba(47,92,255,0.12);
+  padding:4px 12px;
+  border-radius:6px;
+  border:1px solid rgba(47,92,255,0.25);
+}
+.summary-details-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 20px;
+  font-size:.88rem;
+  margin-bottom:14px;
+}
+@media (max-width:540px){
+  .summary-details-grid{ grid-template-columns:1fr; }
+}
+.summary-item label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  text-transform:uppercase;
+  color:var(--graphite);
+  margin-bottom:2px;
+}
+.summary-item span{
+  font-weight:600;
+  color:var(--ink);
+}
+.summary-events-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:4px;
+}
+.summary-event-tag{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  padding:3px 8px;
+  border-radius:4px;
+  background:rgba(20,22,26,0.06);
+  border:1px solid var(--line);
+  color:var(--ink);
+}
+[data-theme="dark"] .summary-event-tag{
+  background:rgba(255,255,255,0.06);
+}
+
+/* ===== PAYMENT SELECTOR & PAYPAL SECTION ===== */
+.payment-section{
+  margin-top:10px;
+}
+.payment-title{
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--ink);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.payment-methods-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:18px;
+}
+@media (max-width:580px){
+  .payment-methods-grid{ grid-template-columns:1fr; }
+}
+.payment-method-card{
+  display:flex;
+  flex-direction:column;
+  padding:14px 16px;
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  transition:all .2s ease;
+  user-select:none;
+}
+.payment-method-card:hover{
+  border-color:var(--signal);
+}
+.payment-method-card.active{
+  border-color:var(--signal);
+  background:rgba(47,92,255,0.07);
+  box-shadow:0 0 0 1px var(--signal);
+}
+.payment-method-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:4px;
+}
+.payment-method-name{
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.payment-badge{
+  font-family:var(--font-mono);
+  font-size:.68rem;
+  padding:2px 8px;
+  border-radius:10px;
+  background:rgba(47,92,255,0.12);
+  color:var(--signal);
+  font-weight:600;
+}
+.payment-badge.green{
+  background:rgba(22,163,74,0.12);
+  color:#16a34a;
+}
+.payment-method-desc{
+  font-size:.78rem;
+  color:var(--graphite);
+  margin:0;
+  line-height:1.4;
+}
+
+.paypal-container-box{
+  margin-top:14px;
+  padding:18px;
+  background:var(--input-bg);
+  border:1.5px solid var(--line);
+  border-radius:8px;
+}
+.paypal-security-badge{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--graphite);
+  margin-top:14px;
+  text-align:center;
+}
+.paypal-status-note{
+  font-family:var(--font-mono);
+  font-size:.74rem;
+  color:var(--graphite);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* Digital Pass Receipt */
+.receipt-card{
+  background:var(--input-bg);
+  border:1.5px solid #16a34a;
+  border-radius:10px;
+  padding:26px;
+  margin-top:20px;
+  display:none;
+  animation:fadeIn .4s ease;
+}
+.receipt-card.open{
+  display:block;
+}
+@keyframes fadeIn{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:translateY(0); } }
+.receipt-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px dashed var(--line);
+  padding-bottom:14px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.receipt-title{
+  font-size:1.15rem;
+  font-weight:700;
+  color:#16a34a;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0;
+}
+.receipt-pass-id{
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  font-weight:600;
+  padding:4px 12px;
+  border-radius:4px;
+  background:rgba(22,163,74,0.12);
+  color:#16a34a;
+  border:1px solid rgba(22,163,74,0.3);
+}
+.receipt-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 20px;
+  font-size:.86rem;
+  margin-bottom:18px;
+}
+@media (max-width:540px){
+  .receipt-grid{ grid-template-columns:1fr; }
+}
+.receipt-item label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  text-transform:uppercase;
+  color:var(--graphite);
+  margin-bottom:2px;
+}
+.receipt-item span{
+  font-weight:600;
+  color:var(--ink);
+}
+.receipt-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px dashed var(--line);
+}
+.server-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  padding:3px 8px;
+  border-radius:12px;
+  background:rgba(22,163,74,0.12);
+  color:#16a34a;
+}
+.server-badge.offline{
+  background:rgba(234,179,8,0.12);
+  color:#ca8a04;
+}
+</style>
+</head>
+<body>
+
+<canvas id="cyberCanvas" aria-hidden="true"></canvas>
+<div class="cyber-grid-overlay" aria-hidden="true"></div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div id="intro" aria-hidden="true">
+  <canvas id="introMatrixCanvas" aria-hidden="true"></canvas>
+  <button type="button" class="intro-skip-btn" id="introSkipBtn" aria-label="Skip introduction animation">Skip &rarr;</button>
+
+  <div class="intro-mark">
+    <div class="intro-duo-row">
+      <div class="intro-logo-col">
+        <img src="ref_images/symposis_2026_1.png" alt="Genesis'26 Symposium" class="intro-duo-img intro-genesis-img">
+      </div>
+      
+      <span class="intro-in-connector">in</span>
+
+      <div class="intro-logo-col">
+        <img src="ref_images/psvpec_logo_without_bg.png" alt="PSVPEC Logo" class="intro-duo-img intro-psvpec-img">
+      </div>
+    </div>
+
+    <div class="intro-underline"></div>
+  </div>
+</div>
+
+<!-- ===== DEDICATED REGISTRATION PANEL WITH INTRO MATRIX BACKGROUND ===== -->
+<div id="regModal" role="dialog" aria-modal="true" aria-labelledby="regModalTitle" aria-hidden="true">
+  <canvas id="regMatrixCanvas" aria-hidden="true"></canvas>
+  <div class="cyber-grid-overlay" aria-hidden="true"></div>
+
+  <div class="reg-modal-topbar">
+    <button type="button" class="reg-back-btn" id="regBackBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Website
+    </button>
+    <button type="button" class="reg-back-btn" id="regBackToStep1Btn" style="display:none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      &larr; Back to Details
+    </button>
+    <button type="button" class="reg-close-btn" id="regCloseBtn" aria-label="Close Registration Form">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="reg-modal-card">
+    <!-- STEP PROGRESS INDICATOR -->
+    <div class="reg-steps-indicator" aria-label="Registration Progress">
+      <div class="step-pill active" id="stepPill1">
+        <span class="step-pill-num">1</span>
+        <span>01 &middot; Details &amp; Events</span>
+      </div>
+      <span class="step-arrow">&rarr;</span>
+      <div class="step-pill" id="stepPill2">
+        <span class="step-pill-num">2</span>
+        <span>02 &middot; Payment &amp; Pass</span>
+      </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- STEP 1: PARTICIPANT DETAILS & EVENTS SELECTION       -->
+    <!-- ==================================================== -->
+    <div class="reg-step-page active" id="regStep1">
+      <div class="section-head" style="margin-bottom:32px;">
+        <p class="eyebrow">Official Registration Portal &middot; Step 01</p>
+        <h2 id="regModalTitle" style="font-size:clamp(1.8rem, 3.8vw, 2.5rem);">Register for Genesis'26</h2>
+        <p>Fill out the form below to confirm your participation. One pass grants full access to both Track 01 and Track 02 events.</p>
+      </div>
+
+      <div class="register-layout">
+        <div class="register-info">
+          <h3 style="font-size:1.35rem; margin-bottom:.6em; color:var(--ink);">What to expect</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Instant confirmation stored on this device</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 12 events across 2 tracks, single-day format</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Open to 1st &amp; 2nd year engineering students</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> <strong>Entry Fee: &#8377;200</strong> &middot; Includes food &amp; participation certificate</li>
+          </ul>
+          <p class="reg-count" id="regCount" aria-live="polite"></p>
+        </div>
+
+        <form id="regForm" novalidate aria-describedby="formHelp">
+          <p id="formHelp" class="vh">All fields are required. Errors are announced next to each field.</p>
+          
+          <div class="field" id="field-name">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="e.g. Alex Johnson" required aria-required="true">
+            <p class="err" role="alert">Please enter your full name (min 2 characters).</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-year">
+              <label for="year">Year of Study *</label>
+              <select id="year" name="year" required aria-required="true">
+                <option value="">Select year</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+              </select>
+              <p class="err" role="alert">Please select your year of study (1st or 2nd Year).</p>
+            </div>
+            <div class="field" id="field-dept">
+              <label for="department">Department / Branch *</label>
+              <input type="text" id="department" name="department" placeholder="e.g. CSE, IT, ECE" required aria-required="true">
+              <p class="err" role="alert">Please enter your department or branch.</p>
+            </div>
+          </div>
+
+          <div class="field" id="field-college">
+            <label for="college">College Name *</label>
+            <input type="text" id="college" name="college" placeholder="e.g. PSVPEC, Chennai" required aria-required="true">
+            <p class="err" role="alert">Please enter your college name.</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-email">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="e.g. student@college.edu">
+            </div>
+            <div class="field" id="field-phone">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. +91 98765 43210">
+            </div>
+          </div>
+
+          <div class="events-picker-wrap" id="field-events">
+            <div class="events-picker-header">
+              <label>Select Participating Events (1 or more) *</label>
+              <span class="events-counter-badge" id="eventCounterBadge">0 selected</span>
+            </div>
+
+            <div class="events-quick-actions">
+              <button type="button" class="events-quick-btn" id="selectAllTechBtn">Select All Technical</button>
+              <button type="button" class="events-quick-btn" id="selectAllNonTechBtn">Select All Non-Technical</button>
+              <button type="button" class="events-quick-btn" id="clearAllEventsBtn">Clear All</button>
+            </div>
+
+            <div class="events-track-heading">Track 01 &middot; Technical Events</div>
+            <div class="events-chip-grid" id="techEventChips">
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Paper Presentation"><span class="event-chip-text">Paper Presentation<span class="event-chip-track">Technical &middot; 01</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Coding Challenge"><span class="event-chip-text">Coding Challenge<span class="event-chip-track">Technical &middot; 02</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Web Design Challenge"><span class="event-chip-text">Web Design Challenge<span class="event-chip-track">Technical &middot; 03</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="UIXpert"><span class="event-chip-text">UIXpert<span class="event-chip-track">Technical &middot; 04</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Bug Busters"><span class="event-chip-text">Bug Busters<span class="event-chip-track">Technical &middot; 05</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="CyberQuest"><span class="event-chip-text">CyberQuest<span class="event-chip-track">Technical &middot; 06</span></span></label>
+            </div>
+
+            <div class="events-track-heading">Track 02 &middot; Non-Technical Events</div>
+            <div class="events-chip-grid" id="nonTechEventChips">
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Photo Hunt"><span class="event-chip-text">Photo Hunt<span class="event-chip-track">Non-Technical &middot; 01</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="IPL Auction"><span class="event-chip-text">IPL Auction<span class="event-chip-track">Non-Technical &middot; 02</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Quiz Mania"><span class="event-chip-text">Quiz Mania<span class="event-chip-track">Non-Technical &middot; 03</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Meme Mania"><span class="event-chip-text">Meme Mania<span class="event-chip-track">Non-Technical &middot; 04</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Reel Rush"><span class="event-chip-text">Reel Rush<span class="event-chip-track">Non-Technical &middot; 05</span></span></label>
+              <label class="event-chip"><input type="checkbox" name="eventOptions" value="Best Manager"><span class="event-chip-text">Best Manager<span class="event-chip-track">Non-Technical &middot; 06</span></span></label>
+            </div>
+            <p class="err" id="eventSelectionErr" role="alert" style="display:none; color:#C81E1E; font-size:.8rem; margin-top:.4em; font-family:var(--font-mono);">Please select at least one event to participate in.</p>
+          </div>
+
+          <!-- PROCEED TO PAYMENT BUTTON -->
+          <button type="button" class="btn btn-primary" id="proceedToPayBtn" style="width:100%; justify-content:center; padding:1.15em; font-size:1.02rem; margin-top:10px;">
+            Proceed to Payment &rarr;
+          </button>
+          
+          <div class="form-status" id="step1Status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- STEP 2: PAYMENT SECTION (MATCHING PAGE FORMAT)       -->
+    <!-- ==================================================== -->
+    <div class="reg-step-page" id="regStep2">
+      <div class="section-head" style="margin-bottom:28px;">
+        <p class="eyebrow">Payment &amp; Pass Confirmation &middot; Step 02</p>
+        <h2 style="font-size:clamp(1.8rem, 3.8vw, 2.5rem);">Complete Registration</h2>
+        <p>Review your registration summary below and select your preferred payment option to confirm your pass.</p>
+      </div>
+
+      <!-- PARTICIPANT SUMMARY CARD -->
+      <div class="payment-summary-card" id="paymentSummaryCard">
+        <div class="payment-summary-header">
+          <span class="payment-summary-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Registration Summary
+          </span>
+          <span class="payment-total-badge" id="summaryTotalBadge">&#8377;200 &middot; Full Symposium Pass</span>
+        </div>
+
+        <div class="summary-details-grid">
+          <div class="summary-item">
+            <label>Participant Name</label>
+            <span id="summaryFullName">—</span>
+          </div>
+          <div class="summary-item">
+            <label>Year &amp; Department</label>
+            <span id="summaryYearDept">—</span>
+          </div>
+          <div class="summary-item" style="grid-column:1/-1;">
+            <label>College Name</label>
+            <span id="summaryCollege">—</span>
+          </div>
+          <div class="summary-item" style="grid-column:1/-1;">
+            <label>Selected Participating Events (<span id="summaryEventCount">0</span>)</label>
+            <div class="summary-events-wrap" id="summaryEventsList">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT METHOD SELECTION -->
+      <div class="payment-section">
+        <div class="payment-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Select Payment Method
+        </div>
+
+        <div class="payment-methods-grid">
+          <div class="payment-method-card active" id="payMethodCardPaypal" data-method="paypal">
+            <div class="payment-method-header">
+              <span class="payment-method-name">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                PayPal / Card
+              </span>
+              <span class="payment-badge">Instant Pass</span>
+            </div>
+            <p class="payment-method-desc">Pay securely via PayPal, Debit, or Credit card. Instant digital pass receipt.</p>
+          </div>
+
+          <div class="payment-method-card" id="payMethodCardDesk" data-method="desk">
+            <div class="payment-method-header">
+              <span class="payment-method-name">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Pay at Desk
+              </span>
+              <span class="payment-badge green">Cash / Spot</span>
+            </div>
+            <p class="payment-method-desc">Register spot now, pay &#8377;200 cash at the registration desk on arrival.</p>
+          </div>
+        </div>
+
+        <!-- PAYPAL SMART BUTTONS CONTAINER -->
+        <div id="paypal-section" class="paypal-container-box">
+          <div class="paypal-status-note" id="paypalStatusNote">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span>Amount: <strong id="paypalDisplayAmount">&#8377;200 / $2.50 USD</strong> &middot; Entry Fee</span>
+          </div>
+          
+          <div id="paypal-button-container"></div>
+          
+          <div class="paypal-security-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>256-Bit SSL Encrypted &middot; Verified Server Protection</span>
+          </div>
+        </div>
+
+        <!-- DESK SUBMIT CONTAINER -->
+        <div id="desk-section" style="display:none; margin-top:14px;">
+          <button type="button" class="btn btn-primary" id="deskSubmitBtn" style="width:100%; justify-content:center; padding:1.15em; font-size:1rem;">
+            Confirm Registration &middot; Pay &#8377;200 at Desk
+          </button>
+        </div>
+      </div>
+
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+      <!-- DIGITAL PASS RECEIPT (RENDERED AFTER SUCCESS) -->
+      <div class="receipt-card" id="digitalPassReceipt" aria-live="polite">
+        <div class="receipt-header">
+          <h4 class="receipt-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Registration &amp; Payment Confirmed!
+          </h4>
+          <span class="receipt-pass-id" id="receiptPassId">GEN26-PASS</span>
+        </div>
+
+        <div class="receipt-grid">
+          <div class="receipt-item">
+            <label>Participant Name</label>
+            <span id="receiptName">—</span>
+          </div>
+          <div class="receipt-item">
+            <label>College &amp; Dept</label>
+            <span id="receiptCollege">—</span>
+          </div>
+          <div class="receipt-item">
+            <label>Year of Study</label>
+            <span id="receiptYear">—</span>
+          </div>
+          <div class="receipt-item">
+            <label>Payment Status</label>
+            <span id="receiptPaymentStatus" style="color:#16a34a; font-weight:700;">✓ Paid (PayPal)</span>
+          </div>
+          <div class="receipt-item" style="grid-column:1/-1;">
+            <label>Registered Events</label>
+            <span id="receiptEvents">—</span>
+          </div>
+          <div class="receipt-item" style="grid-column:1/-1;">
+            <label>Transaction Reference</label>
+            <span id="receiptTxnId" style="font-family:var(--font-mono); font-size:.8rem; color:var(--graphite);">TXN-DIRECT</span>
+          </div>
+        </div>
+
+        <div class="receipt-actions">
+          <button type="button" class="btn btn-primary" onclick="window.print()" style="font-size:.85rem; padding:.6em 1.2em;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print / Save Pass
+          </button>
+          <button type="button" class="btn btn-outline" id="receiptRegisterAnotherBtn" style="font-size:.85rem; padding:.6em 1.2em;">
+            Register Another Student
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <nav class="nav" aria-label="Primary">
+    <a href="#home" class="brand">
+      <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo" style="height:38px; width:auto; border-radius:3px; object-fit:contain;">
+      <span class="brand-text">GENESIS<span>'26</span></span>
+    </a>
+    <ul class="navlinks" id="navLinks">
+      <li><a href="#technical">Technical</a></li>
+      <li><a href="#non-technical">Non-Technical</a></li>
+      <li><a href="#register">Register</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="theme-switch" role="radiogroup" aria-label="Theme preference">
+        <button type="button" class="theme-btn" data-theme-set="light" title="Light theme" aria-label="Light theme" aria-checked="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button type="button" class="theme-btn" data-theme-set="system" title="System theme (Default)" aria-label="System theme (Default)" aria-checked="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </button>
+        <button type="button" class="theme-btn" data-theme-set="dark" title="Dark Blue theme" aria-label="Dark Blue theme" aria-checked="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <a href="#register" class="btn btn-primary">Register</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="numeral">01</div>
+    <div class="wrap section-inner">
+      <div class="hero-grid">
+        <div>
+          <p class="presented-by">Dept. of CSE &amp; Dept. of IT, PSVPEC present</p>
+          <h1>GENESIS'26</h1>
+          <div class="hero-underline"></div>
+          <p class="hero-sub">The inter-college symposium of Prince Shri Venkateshwara Padmavathy Engineering College — six technical events, six non-technical events, one day.</p>
+          <div class="hero-actions">
+            <a href="#register" class="btn btn-primary">Register your spot</a>
+            <a href="#technical" class="btn btn-outline">Explore events</a>
+          </div>
+        </div>
+        <div class="hero-meta-panel">
+          <div class="row"><span>EVENT</span><span>Genesis'26, Inter College Symposium</span></div>
+          <div class="row"><span>DATE</span><span>15th September</span></div>
+          <div class="row"><span>VENUE</span><span>PSVPEC Mini Auditorium</span></div>
+          <div class="row"><span>HOSTS</span><span>Dept. of CSE &amp; Dept. of IT</span></div>
+          <div class="row"><span>ELIGIBILITY</span><span>1st &amp; 2nd Year Students</span></div>
+          <div class="row"><span>ENTRY FEE</span><span>&#8377;200 per participant</span></div>
+          <div class="row"><span>COLLEGE</span><span>Prince Shri Venkateshwara Padmavathy Engineering College</span></div>
+        </div>
+      </div>
+
+      <div class="orgs-strip">
+        <div class="org-logos-wrap">
+          <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo" class="org-logo">
+          <img src="ref_images/prince_logo_shield.jpeg" alt="Prince Crest Shield" class="org-logo">
+        </div>
+        <div class="dept-block"><strong>Department of Computer Science &amp; Engineering</strong>PSVPEC, Ponmar, Chennai</div>
+        <div class="dept-block"><strong>Department of Information Technology</strong>PSVPEC, Ponmar, Chennai</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECHNICAL EVENTS ===== -->
+  <section id="technical">
+    <div class="numeral">02</div>
+    <div class="wrap section-inner">
+      <div class="section-head reveal">
+        <p class="eyebrow">Track 01</p>
+        <h2>Technical Events</h2>
+        <p>Six events built for builders, breakers, and debuggers.</p>
+      </div>
+      <div class="grid" id="technicalGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== NON-TECHNICAL EVENTS ===== -->
+  <section id="non-technical">
+    <div class="numeral">03</div>
+    <div class="wrap section-inner">
+      <div class="section-head reveal">
+        <p class="eyebrow">Track 02</p>
+        <h2>Non-Technical Events</h2>
+        <p>Strategy, wit, and chaos-management — no code required.</p>
+      </div>
+      <div class="grid" id="nonTechnicalGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== REGISTRATION SECTION / LAUNCHPAD ===== -->
+  <section id="register">
+    <div class="numeral">04</div>
+    <div class="wrap section-inner">
+      <div class="section-head reveal">
+        <p class="eyebrow">Official Registration</p>
+        <h2>Register for Genesis'26</h2>
+        <p>Ready to compete, present, and showcase your skills? Launch the dedicated registration portal below.</p>
+      </div>
+      <div class="reg-cta-card reveal">
+        <div class="reg-cta-content">
+          <h3>Ready to make your mark at Genesis'26?</h3>
+          <p>12 events across 2 tracks, &#8377;200 entry fee, food, official certificates, and exciting cash prizes. Open to 1st &amp; 2nd year students across all colleges.</p>
+        </div>
+        <button type="button" class="btn btn-primary open-reg-modal-btn" style="padding:1.1em 2.2em; font-size:1rem; cursor:pointer;">
+          Open Registration Form &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="border-bottom:none;">
+    <div class="numeral">05</div>
+    <div class="wrap section-inner">
+      <div class="section-head reveal" style="margin-bottom:24px;">
+        <p class="eyebrow">About</p>
+        <h2>Hosted by PSVPEC</h2>
+        <p>Genesis'26 is organised by the Department of Computer Science &amp; Engineering and the Department of Information Technology at Prince Shri Venkateshwara Padmavathy Engineering College, Ponmar, Chennai — bringing together students from across colleges for a day of building, competing, and connecting. Held on 15th September at the PSVPEC Mini Auditorium.</p>
+      </div>
+      <div class="org-logos-wrap" style="padding-top:16px;">
+        <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo" class="org-logo">
+        <img src="ref_images/prince_logo_shield.jpeg" alt="Prince Shield Crest" class="org-logo">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo">
+      <img src="ref_images/prince_logo_shield.jpeg" alt="Prince Shri Venkateshwara Padmavathy Engineering College crest">
+      <span class="brand-text" style="font-size:1rem;">Prince Shri Venkateshwara Padmavathy Engineering College</span>
+    </div>
+    <div class="footer-bottom">
+      <span>Genesis'26 &middot; Inter College Symposium &middot; 15th September &middot; PSVPEC Mini Auditorium</span>
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <span class="mono">Dept. of CSE &amp; Dept. of IT</span>
+        <button type="button" class="admin-footer-link" id="openAdminModalBtn" title="Coordinator Portal (Shortcut: Ctrl + Shift + A)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Admin Portal
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== INBUILT ADMIN DASHBOARD MODAL ===== -->
+<div id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle" aria-hidden="true">
+  <div class="admin-window">
+    <div class="admin-header">
+      <div class="admin-title-wrap">
+        <h3 id="adminTitle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--signal);"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          Genesis'26 Coordinator &amp; Admin Portal
+        </h3>
+        <p>Real-time registration roster, revenue telemetry, and spot registration tools</p>
+      </div>
+      <button type="button" class="reg-close-btn" id="adminCloseBtn" aria-label="Close Admin Dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Security PIN Lock Screen -->
+    <div class="admin-lock-screen" id="adminLockScreen">
+      <div class="admin-lock-card">
+        <div style="font-size:2.2rem; margin-bottom:12px;">🔐</div>
+        <h4>Coordinator Access</h4>
+        <p>Enter the coordinator PIN to access the attendee roster.</p>
+        <form id="adminPinForm" style="display:flex; flex-direction:column; gap:12px;">
+          <input type="password" id="adminPinInput" placeholder="PIN (Default: 2026)" autocomplete="current-password" style="width:100%; text-align:center; font-family:var(--font-mono); font-size:1.1rem; letter-spacing:0.2em; padding:10px; border:1.5px solid var(--line); background:var(--input-bg); color:var(--ink); border-radius:6px;" required>
+          <button type="submit" class="btn btn-primary" id="adminUnlockBtn" style="width:100%; justify-content:center;">Unlock Dashboard</button>
+          <p id="adminPinErr" style="color:#C81E1E; font-size:.78rem; font-family:var(--font-mono); display:none; margin:0;">Incorrect PIN. Default is: 2026</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Unlocked Admin Control Center -->
+    <div class="admin-body" id="adminDashboardContent" style="display:none;">
+      <!-- Stats Cards -->
+      <div class="admin-stats-row">
+        <div class="admin-stat-card">
+          <span class="admin-stat-label">Total Participants</span>
+          <span class="admin-stat-val" id="adminStatTotal">0</span>
+          <span class="admin-stat-sub">Registered across all events</span>
+        </div>
+        <div class="admin-stat-card">
+          <span class="admin-stat-label">Total Revenue (&#8377;200 / head)</span>
+          <span class="admin-stat-val" id="adminStatRevenue">&#8377;0</span>
+          <span class="admin-stat-sub" id="adminStatPaidSub">0 collected</span>
+        </div>
+        <div class="admin-stat-card">
+          <span class="admin-stat-label">1st vs 2nd Year</span>
+          <span class="admin-stat-val" id="adminStatYearRatio">0 / 0</span>
+          <span class="admin-stat-sub">1st Year / 2nd Year</span>
+        </div>
+        <div class="admin-stat-card">
+          <span class="admin-stat-label">Colleges Represented</span>
+          <span class="admin-stat-val" id="adminStatColleges">0</span>
+          <span class="admin-stat-sub">Distinct institutions</span>
+        </div>
+      </div>
+
+      <!-- Controls & Actions Toolbar -->
+      <div class="admin-toolbar">
+        <div class="admin-search-wrap">
+          <input type="text" id="adminSearchInput" class="admin-search-input" placeholder="Search by name, college, branch, or event...">
+          <select id="adminYearFilter" class="admin-filter-select">
+            <option value="all">All Years</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+          </select>
+        </div>
+        <div class="admin-actions-wrap">
+          <button type="button" class="btn btn-primary" id="adminExportCsvBtn" style="padding:8px 16px; font-size:.84rem;">
+            Export to Excel (.CSV)
+          </button>
+          <button type="button" class="btn btn-outline" id="adminAddSpotBtn" style="padding:8px 14px; font-size:.84rem;">
+            + Spot Entry
+          </button>
+          <button type="button" class="btn btn-outline" id="adminClearAllBtn" style="padding:8px 14px; font-size:.84rem; color:#C81E1E; border-color:rgba(200,30,30,0.3);">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Participant Table -->
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:40px;">#</th>
+              <th>Full Name</th>
+              <th>Year</th>
+              <th>Department</th>
+              <th>College</th>
+              <th>Registered Events</th>
+              <th>Fee (&#8377;200)</th>
+              <th>Registered At</th>
+              <th style="text-align:right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <!-- Rendered dynamically by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== EVENT DATA WITH IMAGES & EXPANDED 2-PARAGRAPH DESCRIPTIONS ===== */
+const technicalEvents = [
+  { 
+    title: "Paper Presentation", 
+    image: "ref_images/paper_presentation.jpg",
+    desc1: "Paper Presentation at Genesis'26 invites aspiring researchers, student engineers, and technical innovators to present their original findings, theoretical insights, and implementation prototypes before a distinguished jury of senior academicians and industry veterans. Participants are encouraged to explore cutting-edge engineering domains including Generative Artificial Intelligence, Quantum Computing architectures, Next-Generation Blockchain systems, Cloud-Native Distributed Systems, Internet of Things (IoT) hardware frameworks, Edge Analytics, and Sustainable Computing. Each registered team must submit their IEEE formatted manuscript prior to the event, ensuring strict compliance with scientific writing rigor, novelty of methodology, structured experimentation, and citation integrity. The preliminary screening shortlists the most promising papers for live presentation on stage, where teams deliver a structured 8-minute slide deck presentation followed by a rigorous 4-minute defense session addressing targeted questions from the jury and audience.",
+    desc2: "The judging rubric is weighted heavily on conceptual originality, real-world engineering feasibility, depth of mathematical and empirical validation, and clarity of articulation. Presenters must demonstrate a thorough literature survey, articulate the distinct gap their solution bridges, and provide concrete benchmark metrics or working proof-of-concept demonstrations. Teams of up to three members are permitted, and all participants must be prepared with both offline slide backups and relevant code repositories or analytical charts. Critical emphasis is placed on the presenter's ability to defend algorithmic assumptions, time-complexity trade-offs, and scalability bottlenecks during the interactive panel interrogation. Outstanding presentations that demonstrate groundbreaking research merit will receive top honors, publication recommendations, cash awards, and certificates of excellence."
+  },
+  { 
+    title: "Coding Challenge", 
+    image: "ref_images/coding_challenge.jpg",
+    desc1: "The Coding Challenge is the flagship algorithmic battleground of Genesis'26, designed to push competitive programmers, software crafters, and problem-solvers to their absolute intellectual limits in a high-intensity timed environment. Spread across multi-tiered rounds of increasing computational complexity, the contest features an eclectic spectrum of problem statements spanning dynamic programming, graph theory traversal algorithms, advanced tree structures, combinatorial optimization, greedy heuristics, bit manipulation, and number theory. Competitors are required to implement optimized solutions under strict execution time limits (sub-second bounds) and stringent memory constraints, with instant automated judging on hidden edge cases, boundary conditions, and stress tests. Whether you are tackling intricate shortest-path queries on weighted directed graphs or optimizing multi-dimensional memoization states, every single keystroke counts toward your leaderboard standing.",
+    desc2: "Participants can choose their preferred programming language from industry-standard options including C++, Java, Python 3, and Kotlin, running in a sandboxed, cheat-monitored IDE environment. The scoring mechanism adopts a dynamic penalty-time matrix where speed, first-attempt accuracy, and submission efficiency directly dictate final rankings on the live tournament leaderboard. Plagiarism detection algorithms and real-time screen audits operate throughout the contest window to preserve competitive integrity. In the nerve-wracking final lightning round, ties are broken through blind optimization tests and code-golf constraint challenges where clean, idiomatic, and minimal-overhead code reigns supreme. The top three algorithmic architects will walk away with prestigious trophies, merit mementos, cash rewards, and direct commendations."
+  },
+  { 
+    title: "Web Design Challenge", 
+    image: "ref_images/web_designs.jpg",
+    desc1: "The Web Design Challenge is an exhilarating creative and technical hack-sprint where front-end developers, UI designers, and web enthusiasts are tasked with building visually stunning, accessible, and high-performance digital experiences from the ground up within a pressurized countdown window. At the opening whistle, teams are unveiled a classified real-world theme—ranging from modern Web3 dApp landing interfaces and interactive AI dashboard portals to next-gen fintech workflows and futuristic cyber-symposium microsites. Armed with modern web technologies such as HTML5, CSS3, modern JavaScript, and responsive layout paradigms like CSS Grid and Flexbox, participants must conceptualize, wireframe, and code fully functional web applications that wow both users and technical judges from the first glance.",
+    desc2: "Judges evaluate submissions across a holistic matrix encompassing visual aesthetic excellence, typography hierarchy, color harmony, fluid micro-interactions, mobile-first responsive adaptability across all screen viewports, and clean modular code architecture. Extra points are awarded for adhering to semantic HTML standards, WCAG accessibility guidelines, blazing-fast asset optimization, and innovative glassmorphic or dark-mode styling. External CSS frameworks and pre-built templates are strictly prohibited to ensure that every visual component and animation is handcrafted directly on site. Teams of up to two members must pitch their deployed live site during the final review round, explaining their design philosophy, DOM performance considerations, and UX rationale to secure top podium honors."
+  },
+  { 
+    title: "UIXpert", 
+    image: "ref_images/UIXpert.jpg",
+    desc1: "UIXpert is a premier design thinking and user experience arena crafted for visionary product designers, interaction architects, and design strategists who believe great software begins with human empathy and intuitive interfaces. Participants are plunged into an authentic product discovery scenario where they are given a multifaceted problem statement reflecting modern digital bottlenecks—such as redesigning healthcare emergency tele-consultation workflows, architecting gamified micro-investment apps for Gen-Z, or building universal accessibility tools for neurodivergent individuals. Working individually or in duos, competitors must deconstruct user friction, map out user personas, construct comprehensive information architecture maps, and build end-to-end interactive prototypes.",
+    desc2: "Deliverables are submitted using leading collaborative prototyping software such as Figma, Adobe XD, or Penpot, encompassing low-fidelity wireframes, high-fidelity UI screens, design token systems, and interactive clickable prototypes. The judging panel—comprising seasoned industry UI/UX practitioners—evaluates entries based on user research rigor, design system consistency, typographic balance, intuitive cognitive affordance, and overall visual polish. During the concluding showcase pitch, designers present their end-to-end Figma workflows, justifying their user journey decisions, design tradeoffs, and visual psychology choices. Final winners are rewarded with industry acclaim, merit trophies, cash prizes, and digital portfolio endorsements."
+  },
+  { 
+    title: "Bug Busters", 
+    image: "ref_images/bug_finder.jpg",
+    desc1: "Bug Busters is the ultimate software triage and diagnostic sprint designed to test participants' code comprehension, debugging intuition, and troubleshooting speed across complex real-world codebases. Participants are thrust into heavily flawed source code repositories written in C, C++, Java, and Python, riddled with subtle memory leaks, off-by-one errors, dangling pointers, null-pointer dereferences, race conditions, concurrency deadlocks, and algorithmic logic traps. The challenge is partitioned into multiple escalating stages: from rapid-fire code inspection and spot-the-error trivia to full-scale stack trace analysis and live patching under an unforgiving ticking clock. Every round demands deep knowledge of language runtimes, compiler behaviors, and edge-case execution environments.",
+    desc2: "Contestants must not only identify and eradicate the hidden flaws but also ensure that their repaired code passes a comprehensive battery of regression unit tests without introducing new performance overhead or breaking existing functionality. The use of debugging tools, memory profilers, compiler flags, and systematic root-cause analysis is heavily rewarded. Scoring is dynamically calculated based on the number of successfully resolved test suites, time elapsed per bug, and the elegance of the patch applied. In the event of a tie, an intense blind-debugging knockout round requires competitors to diagnose compiled binary outputs and obfuscated scripts to determine the champions of the debugging arena."
+  },
+  { 
+    title: "CyberQuest", 
+    image: "ref_images/CyberQuest.jpg",
+    desc1: "CyberQuest is an electrifying Capture-The-Flag (CTF) and ethical security quest engineered for cybersecurity enthusiasts, penetration testers, and digital forensics detectives. Set within an isolated, sandboxed virtual network environment, teams are confronted with diverse security challenges spanning Web Application Security (SQLi, XSS, CSRF, IDOR, SSRF), Cryptography (ciphers, hashing weaknesses, RSA factoring), Reverse Engineering, Memory Exploitation, Network Packet Forensics (PCAP analysis), and OSINT recon. Participants must systematically inspect vulnerable server instances, decode obscure cryptographic payloads, exploit backend misconfigurations, and retrieve hidden flags obscured deep inside servers, databases, and network traffic.",
+    desc2: "The contest follows a dynamic-scoring CTF format where harder challenges yield higher point allocations, with real-time score adjustments based on the number of team solves. Competitors are encouraged to leverage industry-standard defensive and analytical tooling such as Wireshark, Burp Suite, Ghidra, GDB, John the Ripper, and Python scripting libraries. Strict ethical guidelines are enforced: automated DoS attacks against infrastructure, flag sharing, and out-of-scope subnet scanning lead to immediate disqualification. The team that exhibits the most methodical analytical mindset, tactical exploit chain execution, and persistent problem-solving under pressure will be crowned the CyberQuest Champion of Genesis'26."
+  }
+];
+
+const nonTechnicalEvents = [
+  { 
+    title: "Photo Hunt", 
+    image: "ref_images/photography.jpg",
+    desc1: "Photo Hunt is a high-octane campus-wide visual scavenger hunt that blends sharp observation, speed, photographic artistry, and riddle-solving prowess across the expansive grounds of PSVPEC. Registered teams receive a cryptic dossier containing a sequence of poetic riddles, architectural clues, perspective puzzles, and lighting challenges that describe concealed landmarks, distinctive campus geometry, and spontaneous moments. Participants must sprint across designated safe campus zones, decode the riddles to pinpoint the exact location or subject, and capture compelling high-resolution photographs that satisfy both the conceptual clue and professional aesthetic standards of photography.",
+    desc2: "Photographs are evaluated on framing composition (rule of thirds, leading lines, golden ratio), lighting balance, color grading, perspective storytelling, and fidelity to the riddle criteria. Teams may use DSLRs, mirrorless cameras, or modern smartphone cameras, provided that all submissions are captured live during the official event time window without downloading pre-existing images or using generative AI augmentations. A jury of visual artists reviews the photo metadata, timestamp logs, and artistic merit to select the winning teams. The fastest and most creative teams take home cash rewards, photography gear vouchers, and framed showcase exhibitions."
+  },
+  { 
+    title: "IPL Auction", 
+    image: "ref_images/IPL Auction.webp",
+    desc1: "The IPL Auction is a thrilling, high-stakes sports management simulation that immerses cricket aficionados and data strategists into the frantic, tactical boardroom environment of an official Indian Premier League bidding war. Each team steps into the shoes of franchise owners and head coaches, equipped with a fixed virtual purse, strict squad composition constraints (including overseas player limits, uncapped Indian talents, specialized wicketkeepers, all-rounders, and bowling arsenals), and a massive roster of international and domestic cricket superstars. The auctioneer introduces player cards across marquee, capped, and emerging sets, challenging teams to manage their financial capital, read opposing franchise intentions, and bid strategically.",
+    desc2: "Success in the IPL Auction demands far more than raw cricket trivia; it requires intricate probabilistic budgeting, dynamic bidding strategy, composure under intense bidding wars, and acute awareness of squad synergy. Overbidding on marquee superstars can deplete crucial funds needed for balanced middle-order depth, while over-conservatism can leave teams with unspent purse and weak match-winners. Upon the conclusion of the bidding rounds, franchises must submit their final playing XI and full 15-player squads, which are mathematically evaluated against historical T20 performance metrics, player chemistry ratings, balance indexes, and simulated tournament fixtures to crown the Ultimate IPL Franchise of Genesis'26."
+  },
+  { 
+    title: "Quiz Mania", 
+    image: "ref_images/Quiz_Mania.jpg",
+    desc1: "Quiz Mania is the quintessential multi-disciplinary battle of wits and intellectual quickness, drawing the sharpest minds to battle across a spectrum of trivia domains. The quiz spans an exhilarating variety of rounds encompassing Global Current Affairs, Landmark Scientific Breakthroughs, Pop Culture & Cinema Lore, Tech History, Business & Brand Titans, Geography, Sports Chronicles, and Mind-Bending Visual Connects. The preliminary written elimination round filters the top-scoring teams into a high-stakes grand finale hosted on the main auditorium stage, featuring interactive media rounds, audio clues, deciphering anagrams, and high-risk bidding question matrices.",
+    desc2: "The final stage introduces the dreaded buzzer round with negative marking, where lightning-fast reaction speed combined with absolute factual confidence can make or break a team's championship dreams. Teams of two or three members must coordinate seamlessly, knowing when to take calculated risks on half-hints and when to hold back to protect their point lead. The quizmaster commands a vibrant, suspenseful atmosphere with sudden-death tiebreakers and audience rounds ensuring non-stop engagement. Top-ranked quiz teams receive grand trophies, cash prizes, and the revered Quiz Mania Championship title."
+  },
+  { 
+    title: "Meme Mania", 
+    image: "ref_images/Meme_Mania.png",
+    desc1: "Meme Mania is a vibrant celebration of internet culture, satirical storytelling, and creative humor where digital creators and wit masters compete to craft the most relatable, hilarious, and viral memes of the year. Upon registration, participants are provided a set of live surprise themes touching on college life, engineering struggles, bug fixing at 3 AM, AI taking over the world, corporate work culture, and current trending news events. Given a fixed creation window, competitors must draft original, punchy captioning and visual pairings using popular templates or custom graphic designs that deliver maximum comedic impact in a split second.",
+    desc2: "Submissions are reviewed by a jury of creative directors and social media strategists, judging on originality, comedic timing, contextual relevance to the prompt, visual typography, and punchline delivery without relying on offensive, derogatory, or plagiarized content. Participants are encouraged to submit single-panel formats, comic strips, or carousel meme formats. In the final exhibition round, shortlisted creators present their memes on the auditorium big screen to gauge organic audience laughter and applause metrics. The funniest meme architects earn cash prizes, creative merchandise, and the title of Genesis Meme Champion."
+  },
+  { 
+    title: "Reel Rush", 
+    image: "ref_images/Reel_Rush.png",
+    desc1: "Reel Rush is a fast-paced, high-energy short-form cinematic challenge tailored for content creators, videographers, video editors, and social media influencers. Teams are tasked with conceptualizing, scripting, directing, shooting, and editing a captivating 30-to-60 second vertical video (9:16 aspect ratio) based on a surprise symposium theme revealed on the spot. From cinematic slow-motion campus transitions and humorous narrative sketches to high-energy promotional montages and tech-fest vlogs, creators must utilize the campus environment as their film set, capturing crisp B-roll, dynamic angles, and punchy hooks.",
+    desc2: "Entries can be produced using smartphone cameras or professional mirrorless rigs, and edited using mobile or desktop suites (Premiere Pro, CapCut, DaVinci Resolve, VN). Judging evaluates storytelling coherence, visual pacing, audio synchronization, color grading, seamless transitions, visual effects, and overall virality potential. Plagiarism of pre-shot clips is strictly prohibited; all footage must be recorded on-site during the designated time block. The most visually magnetic reels will be screened live in the auditorium, with winning creators awarded cash rewards, creator toolkits, and featured spots on college media channels."
+  },
+  { 
+    title: "Best Manager", 
+    image: "ref_images/Best_Manager.jpg",
+    desc1: "Best Manager is the premier leadership crucible and corporate management simulation designed to identify, test, and crown the ultimate student executive of Genesis'26. Designed to replicate the intense, unpredictable pressures of C-suite corporate governance, the event puts candidates through a series of demanding individual challenges: ranging from crisis management case studies and corporate turnaround strategies to hostile stakeholder negotiations, budget allocation dilemmas, and spontaneous stress interviews conducted by veteran corporate leaders and professors.",
+    desc2: "Participants are assessed across multiple competencies: strategic thinking, emotional intelligence, vocal articulation, crisis composure, ethical decision-making, and situational adaptability under ticking clocks and hostile cross-examination. Candidates must defend their managerial frameworks, explain risk mitigation tactics, and showcase charismatic leadership presence under fire. The top finalists battle it out in a live board-of-directors mock summit where spontaneous disruptions test their ability to lead and negotiate effectively. The winning candidate is honored with the prestigious 'Best Manager of Genesis'26' trophy, substantial cash rewards, and professional leadership commendations."
+  }
+];
+
+function renderCards(list, containerId, isTechnical){
+  const container = document.getElementById(containerId);
+  container.innerHTML = list.map((ev,i) => `
+    <article class="card reveal">
+      <div class="card-img-wrap">
+        <img src="${ev.image}" alt="${ev.title}" class="card-img" loading="lazy">
+        <span class="card-badge">${isTechnical ? 'Technical' : 'Non-Technical'}</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Track ${isTechnical ? '01' : '02'} · 0${i+1}</span>
+        <h3>${ev.title}</h3>
+        <div class="card-desc-group">
+          <p>${ev.desc1}</p>
+          <p>${ev.desc2}</p>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+renderCards(technicalEvents, 'technicalGrid', true);
+renderCards(nonTechnicalEvents, 'nonTechnicalGrid', false);
+
+function populateSelect(list, optgroupId){
+  const el = document.getElementById(optgroupId);
+  if (el) el.innerHTML = list.map(ev => `<option value="${ev.title}">${ev.title}</option>`).join('');
+}
+populateSelect(technicalEvents, 'techOptions');
+populateSelect(nonTechnicalEvents, 'nonTechOptions');
+
+/* ===== INTRO MATRIX BINARY RAIN & 6S SEQUENCE ===== */
+(function initIntroMatrix() {
+  const introEl = document.getElementById('intro');
+  const canvas = document.getElementById('introMatrixCanvas');
+  if (!canvas || !introEl) return;
+  const ctx = canvas.getContext('2d');
+  let width, height, columns, drops = [];
+  let animId = null;
+  const fontSize = 16;
+  const binaryChars = '0100101011010110010101010110010101010110101101010100110101';
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    columns = Math.floor(width / fontSize);
+    drops = [];
+    for (let i = 0; i < columns; i++) {
+      drops[i] = {
+        y: Math.random() * -80,
+        speed: 0.3 + Math.random() * 0.45,
+        chars: [],
+        length: 14 + Math.floor(Math.random() * 18)
+      };
+    }
+  }
+
+  function draw() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+      (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    // Smooth fade trail for half-speed rainfall
+    ctx.fillStyle = isDark ? 'rgba(7, 11, 22, 0.12)' : 'rgba(247, 246, 242, 0.12)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.font = `${fontSize}px 'JetBrains Mono', 'Courier New', monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+      const drop = drops[i];
+      if (Math.random() > 0.3 || drop.chars.length === 0) {
+        const char = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+        drop.chars.unshift(char);
+        if (drop.chars.length > drop.length) drop.chars.pop();
+      }
+
+      const x = i * fontSize;
+
+      for (let j = 0; j < drop.chars.length; j++) {
+        const y = (drop.y - j) * fontSize;
+        if (y < -fontSize || y > height + fontSize) continue;
+
+        const progress = j / drop.chars.length;
+        if (j === 0) {
+          // Leading binary character glow
+          ctx.fillStyle = isDark ? '#ffffff' : '#1e3a8a';
+          ctx.shadowColor = isDark ? '#38bdf8' : '#3b82f6';
+          ctx.shadowBlur = isDark ? 8 : 2;
+        } else {
+          // Trailing digits fading out
+          const alpha = (1 - progress) * (isDark ? 0.75 : 0.55);
+          ctx.fillStyle = isDark 
+            ? `rgba(56, 189, 248, ${alpha})` 
+            : `rgba(47, 92, 255, ${alpha})`;
+          ctx.shadowBlur = 0;
+        }
+        ctx.fillText(drop.chars[j], x, y);
+      }
+
+      drop.y += drop.speed;
+      if (drop.y - drop.length > height / fontSize && Math.random() > 0.97) {
+        drop.y = 0;
+        drop.speed = 0.3 + Math.random() * 0.45;
+        drop.chars = [];
+        drop.length = 14 + Math.floor(Math.random() * 18);
+      }
+    }
+
+    if (!introEl.classList.contains('hide')) {
+      animId = requestAnimationFrame(draw);
+    }
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+  animId = requestAnimationFrame(draw);
+
+  // Release animation resources once intro finishes
+  const observer = new MutationObserver(() => {
+    if (introEl.classList.contains('hide')) {
+      if (animId) cancelAnimationFrame(animId);
+      observer.disconnect();
+    }
+  });
+  observer.observe(introEl, { attributes: true, attributeFilter: ['class'] });
+})();
+
+/* ===== INTRO RUNNER (6 SECONDS DURATION) ===== */
+window.addEventListener('load', () => {
+  const intro = document.getElementById('intro');
+  let hideTimeout = setTimeout(() => {
+    if (intro) intro.classList.add('hide');
+  }, 6000);
+
+  const skipBtn = document.getElementById('introSkipBtn');
+  if (skipBtn && intro) {
+    skipBtn.addEventListener('click', () => {
+      clearTimeout(hideTimeout);
+      intro.classList.add('hide');
+    });
+  }
+
+  if (window.lucide) lucide.createIcons();
+});
+
+/* ===== REGISTRATION PANEL MATRIX RAIN & MODAL CONTROLLER ===== */
+(function initRegistrationPanel() {
+  const modal = document.getElementById('regModal');
+  const canvas = document.getElementById('regMatrixCanvas');
+  const closeBtn = document.getElementById('regCloseBtn');
+  const backBtn = document.getElementById('regBackBtn');
+  if (!modal || !canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width, height, columns, drops = [];
+  let animId = null;
+  const fontSize = 16;
+  const binaryChars = '0100101011010110010101010110010101010110101101010100110101';
+
+  function resizeCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    columns = Math.floor(width / fontSize);
+    drops = [];
+    for (let i = 0; i < columns; i++) {
+      const dropLen = 14 + Math.floor(Math.random() * 18);
+      const initialChars = [];
+      for (let k = 0; k < dropLen; k++) {
+        initialChars.push(binaryChars[Math.floor(Math.random() * binaryChars.length)]);
+      }
+      drops[i] = {
+        y: Math.random() * -80,
+        speed: 0.3 + Math.random() * 0.45,
+        chars: initialChars,
+        length: dropLen
+      };
+    }
+  }
+
+  function drawMatrix() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+      (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    // Smoother trail fade with zero strobing or abrupt flickers
+    ctx.fillStyle = isDark ? 'rgba(7, 11, 22, 0.16)' : 'rgba(247, 246, 242, 0.16)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.font = `${fontSize}px 'JetBrains Mono', 'Courier New', monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+      const drop = drops[i];
+      
+      // Extremely low mutation rate prevents rapid character blinking/flickering
+      if (Math.random() > 0.985) {
+        const replaceIdx = Math.floor(Math.random() * drop.chars.length);
+        drop.chars[replaceIdx] = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+      }
+
+      const x = i * fontSize;
+
+      for (let j = 0; j < drop.chars.length; j++) {
+        const y = (drop.y - j) * fontSize;
+        if (y < -fontSize || y > height + fontSize) continue;
+
+        const progress = j / drop.chars.length;
+        if (j === 0) {
+          // Steady leading character without pulsating blur
+          ctx.fillStyle = isDark ? '#ffffff' : '#1e3a8a';
+          ctx.shadowColor = isDark ? '#38bdf8' : '#3b82f6';
+          ctx.shadowBlur = isDark ? 3 : 1;
+        } else {
+          // Smooth gradient trailing digits
+          const alpha = (1 - progress) * (isDark ? 0.65 : 0.48);
+          ctx.fillStyle = isDark 
+            ? `rgba(56, 189, 248, ${alpha})` 
+            : `rgba(47, 92, 255, ${alpha})`;
+          ctx.shadowBlur = 0;
+        }
+        ctx.fillText(drop.chars[j] || '1', x, y);
+      }
+
+      drop.y += drop.speed;
+      if (drop.y - drop.length > height / fontSize && Math.random() > 0.97) {
+        drop.y = 0;
+        drop.speed = 0.3 + Math.random() * 0.45;
+        drop.length = 14 + Math.floor(Math.random() * 18);
+        drop.chars = [];
+        for (let k = 0; k < drop.length; k++) {
+          drop.chars.push(binaryChars[Math.floor(Math.random() * binaryChars.length)]);
+        }
+      }
+    }
+
+    if (modal.classList.contains('open')) {
+      animId = requestAnimationFrame(drawMatrix);
+    }
+  }
+
+  function openRegModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    resizeCanvas();
+    if (!animId) animId = requestAnimationFrame(drawMatrix);
+    const firstInput = document.getElementById('fullName');
+    if (firstInput) setTimeout(() => firstInput.focus(), 150);
+  }
+
+  function closeRegModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+  }
+
+  // Bind close buttons
+  if (closeBtn) closeBtn.addEventListener('click', closeRegModal);
+  if (backBtn) backBtn.addEventListener('click', closeRegModal);
+
+  // Close when clicking modal backdrop outside card
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeRegModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeRegModal();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (modal.classList.contains('open')) resizeCanvas();
+  }, { passive: true });
+
+  // Attach open trigger to all register links & buttons
+  document.querySelectorAll('a[href="#register"], .open-reg-modal-btn').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openRegModal();
+    });
+  });
+
+  // Expose global if needed
+  window.openGenesisRegistration = openRegModal;
+  window.closeGenesisRegistration = closeRegModal;
+})();
+
+/* ===== NAV TOGGLE ===== */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded', false);
+}));
+
+/* ===== SCROLL REVEAL ===== */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+}, { threshold:0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.querySelectorAll('.card.reveal').forEach(el => io.observe(el));
+
+/* ===== REGISTRATION FORM & MULTI-EVENT SELECTOR ===== */
+const form = document.getElementById('regForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('formStatus');
+const regCountEl = document.getElementById('regCount');
+const eventCounterBadge = document.getElementById('eventCounterBadge');
+const eventSelectionErr = document.getElementById('eventSelectionErr');
+const STORAGE_KEY = 'genesis26_registrations';
+
+// Multi-event chips sync & counter update
+function updateEventsSelectionUI() {
+  const checkboxes = document.querySelectorAll('input[name="eventOptions"]');
+  let checkedCount = 0;
+  checkboxes.forEach(cb => {
+    const chip = cb.closest('.event-chip');
+    if (cb.checked) {
+      checkedCount++;
+      if (chip) chip.classList.add('selected');
+    } else {
+      if (chip) chip.classList.remove('selected');
+    }
+  });
+
+  if (eventCounterBadge) {
+    eventCounterBadge.textContent = checkedCount === 1 
+      ? '1 event selected' 
+      : `${checkedCount} events selected`;
+  }
+  if (checkedCount > 0 && eventSelectionErr) {
+    eventSelectionErr.style.display = 'none';
+  }
+  return checkedCount;
+}
+
+document.querySelectorAll('input[name="eventOptions"]').forEach(cb => {
+  cb.addEventListener('change', updateEventsSelectionUI);
+});
+
+// Quick action buttons
+const selectAllTechBtn = document.getElementById('selectAllTechBtn');
+if (selectAllTechBtn) {
+  selectAllTechBtn.addEventListener('click', () => {
+    document.querySelectorAll('#techEventChips input[name="eventOptions"]').forEach(cb => cb.checked = true);
+    updateEventsSelectionUI();
+  });
+}
+
+const selectAllNonTechBtn = document.getElementById('selectAllNonTechBtn');
+if (selectAllNonTechBtn) {
+  selectAllNonTechBtn.addEventListener('click', () => {
+    document.querySelectorAll('#nonTechEventChips input[name="eventOptions"]').forEach(cb => cb.checked = true);
+    updateEventsSelectionUI();
+  });
+}
+
+const clearAllEventsBtn = document.getElementById('clearAllEventsBtn');
+if (clearAllEventsBtn) {
+  clearAllEventsBtn.addEventListener('click', () => {
+    document.querySelectorAll('input[name="eventOptions"]').forEach(cb => cb.checked = false);
+    updateEventsSelectionUI();
+  });
+}
+
+const fieldIdMap = { fullName:'name', year:'year', department:'dept', college:'college' };
+const validators = {
+  fullName: v => v.trim().length >= 2,
+  year: v => v.trim().length > 0,
+  department: v => v.trim().length >= 2,
+  college: v => v.trim().length >= 2
+};
+function setFieldError(wrap, hasError){
+  if (!wrap) return;
+  wrap.classList.toggle('has-error', hasError);
+  wrap.querySelector('input, select')?.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+}
+function validateField(name){
+  const input = form.elements[name];
+  if (!input) return true;
+  const wrap = document.getElementById('field-' + (fieldIdMap[name] || name));
+  const valid = validators[name] ? validators[name](input.value) : true;
+  setFieldError(wrap, !valid);
+  return valid;
+}
+Object.keys(validators).forEach(name => {
+  const input = form.elements[name];
+  if (input) {
+    input.addEventListener('blur', () => validateField(name));
+    input.addEventListener('input', () => {
+      const wrap = document.getElementById('field-' + (fieldIdMap[name] || name));
+      if (wrap && wrap.classList.contains('has-error')) validateField(name);
+    });
+  }
+});
+
+function getRegistrationPayload(showStepError = true) {
+  let allValid = true;
+  Object.keys(validators).forEach(name => { if (!validateField(name)) allValid = false; });
+
+  const selectedEvents = Array.from(document.querySelectorAll('input[name="eventOptions"]:checked')).map(cb => cb.value);
+  if (selectedEvents.length === 0) {
+    allValid = false;
+    if (eventSelectionErr) eventSelectionErr.style.display = 'block';
+  } else {
+    if (eventSelectionErr) eventSelectionErr.style.display = 'none';
+  }
+
+  if (!allValid) {
+    if (showStepError) {
+      const step1Status = document.getElementById('step1Status');
+      if (step1Status) {
+        step1Status.textContent = 'Please complete all required fields and select at least 1 event.';
+        step1Status.className = 'form-status error';
+        step1Status.style.display = 'block';
+      }
+      form.querySelector('.has-error input, .has-error select')?.focus();
+    }
+    return null;
+  }
+
+  const step1Status = document.getElementById('step1Status');
+  if (step1Status) step1Status.style.display = 'none';
+
+  return {
+    fullName: form.fullName.value.trim(),
+    year: form.year.value,
+    department: form.department.value.trim(),
+    college: form.college.value.trim(),
+    email: (form.email?.value || '').trim(),
+    phone: (form.phone?.value || '').trim(),
+    events: selectedEvents,
+    eventSummary: selectedEvents.join(', '),
+    submittedAt: new Date().toISOString()
+  };
+}
+
+// Multi-Step Registration & Payment Page Controller
+function goToRegStep(step) {
+  const step1 = document.getElementById('regStep1');
+  const step2 = document.getElementById('regStep2');
+  const pill1 = document.getElementById('stepPill1');
+  const pill2 = document.getElementById('stepPill2');
+  const backBtn = document.getElementById('regBackBtn');
+  const backToStep1Btn = document.getElementById('regBackToStep1Btn');
+  const modal = document.getElementById('regModal');
+
+  if (step === 1) {
+    if (step2) step2.classList.remove('active');
+    if (step1) step1.classList.add('active');
+    if (pill2) pill2.classList.remove('active');
+    if (pill1) {
+      pill1.classList.remove('completed');
+      pill1.classList.add('active');
+    }
+    if (backToStep1Btn) backToStep1Btn.style.display = 'none';
+    if (backBtn) backBtn.style.display = 'inline-flex';
+  } else if (step === 2) {
+    if (step1) step1.classList.remove('active');
+    if (step2) step2.classList.add('active');
+    if (pill1) {
+      pill1.classList.remove('active');
+      pill1.classList.add('completed');
+    }
+    if (pill2) pill2.classList.add('active');
+    if (backBtn) backBtn.style.display = 'none';
+    if (backToStep1Btn) backToStep1Btn.style.display = 'inline-flex';
+  }
+
+  if (modal) {
+    const card = modal.querySelector('.reg-modal-card');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// Proceed Button Handler (Step 1 -> Step 2)
+const proceedToPayBtn = document.getElementById('proceedToPayBtn');
+if (proceedToPayBtn) {
+  proceedToPayBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const payload = getRegistrationPayload(true);
+    if (!payload) return;
+
+    // Populate Step 2 Summary Card
+    const summaryFullName = document.getElementById('summaryFullName');
+    const summaryYearDept = document.getElementById('summaryYearDept');
+    const summaryCollege = document.getElementById('summaryCollege');
+    const summaryEventCount = document.getElementById('summaryEventCount');
+    const summaryEventsList = document.getElementById('summaryEventsList');
+
+    if (summaryFullName) summaryFullName.textContent = payload.fullName;
+    if (summaryYearDept) summaryYearDept.textContent = `${payload.year} · ${payload.department}`;
+    if (summaryCollege) summaryCollege.textContent = payload.college;
+    if (summaryEventCount) summaryEventCount.textContent = payload.events.length;
+    if (summaryEventsList) {
+      summaryEventsList.innerHTML = payload.events.map(ev => `<span class="summary-event-tag">${ev}</span>`).join('');
+    }
+
+    goToRegStep(2);
+  });
+}
+
+// Back to Step 1 Button Handler
+const regBackToStep1Btn = document.getElementById('regBackToStep1Btn');
+if (regBackToStep1Btn) {
+  regBackToStep1Btn.addEventListener('click', () => {
+    goToRegStep(1);
+  });
+}
+
+// Payment Mode Selection Toggle
+let selectedPaymentMethod = 'paypal';
+const cardPaypal = document.getElementById('payMethodCardPaypal');
+const cardDesk = document.getElementById('payMethodCardDesk');
+const paypalSection = document.getElementById('paypal-section');
+const deskSection = document.getElementById('desk-section');
+
+function setPaymentMethod(method) {
+  selectedPaymentMethod = method;
+  if (method === 'paypal') {
+    cardPaypal?.classList.add('active');
+    cardDesk?.classList.remove('active');
+    if (paypalSection) paypalSection.style.display = 'block';
+    if (deskSection) deskSection.style.display = 'none';
+  } else {
+    cardDesk?.classList.add('active');
+    cardPaypal?.classList.remove('active');
+    if (paypalSection) paypalSection.style.display = 'none';
+    if (deskSection) deskSection.style.display = 'block';
+  }
+}
+
+if (cardPaypal) cardPaypal.addEventListener('click', () => setPaymentMethod('paypal'));
+if (cardDesk) cardDesk.addEventListener('click', () => setPaymentMethod('desk'));
+
+// Digital Pass Display Controller
+const receiptCard = document.getElementById('digitalPassReceipt');
+const receiptPassId = document.getElementById('receiptPassId');
+const receiptName = document.getElementById('receiptName');
+const receiptCollege = document.getElementById('receiptCollege');
+const receiptYear = document.getElementById('receiptYear');
+const receiptPaymentStatus = document.getElementById('receiptPaymentStatus');
+const receiptEvents = document.getElementById('receiptEvents');
+const receiptTxnId = document.getElementById('receiptTxnId');
+const registerAnotherBtn = document.getElementById('receiptRegisterAnotherBtn');
+
+function showDigitalPass(reg, txnId = null) {
+  if (!receiptCard) return;
+  if (receiptPassId) receiptPassId.textContent = reg.id || 'GEN26-REG';
+  if (receiptName) receiptName.textContent = reg.fullName || '—';
+  if (receiptCollege) receiptCollege.textContent = `${reg.department} · ${reg.college}`;
+  if (receiptYear) receiptYear.textContent = reg.year || '—';
+  if (receiptEvents) receiptEvents.textContent = reg.eventSummary || (reg.events ? reg.events.join(', ') : '—');
+  
+  if (receiptPaymentStatus) {
+    if (reg.paid) {
+      receiptPaymentStatus.innerHTML = '<span style="color:#16a34a; font-weight:700;">✓ Paid (' + (reg.paymentMethod === 'paypal' ? 'PayPal' : 'Desk') + ')</span>';
+    } else {
+      receiptPaymentStatus.innerHTML = '<span style="color:#ca8a04; font-weight:700;">⏳ Pay ₹200 on Event Day</span>';
+    }
+  }
+
+  if (receiptTxnId) {
+    receiptTxnId.textContent = txnId || reg.paymentId || reg.orderId || ('GEN26-DESK-' + Date.now().toString(36).toUpperCase());
+  }
+
+  receiptCard.classList.add('open');
+  if (formStatus) formStatus.style.display = 'none';
+  receiptCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+if (registerAnotherBtn) {
+  registerAnotherBtn.addEventListener('click', () => {
+    form.reset();
+    updateEventsSelectionUI();
+    receiptCard.classList.remove('open');
+    if (formStatus) {
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+      formStatus.style.display = 'none';
+    }
+    const step1Status = document.getElementById('step1Status');
+    if (step1Status) step1Status.style.display = 'none';
+    setPaymentMethod('paypal');
+    goToRegStep(1);
+  });
+}
+
+function updateRegCount(){
+  if (!regCountEl) return;
+  fetch('/api/admin/registrations', { headers: { 'x-admin-pin': '2026' } })
+    .then(r => r.json())
+    .then(d => {
+      if (d && Array.isArray(d.registrations)) {
+        regCountEl.innerHTML = `<strong>${d.registrations.length}</strong> participants registered for Genesis'26.`;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(d.registrations));
+        return;
+      }
+      throw new Error();
+    })
+    .catch(() => {
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      regCountEl.innerHTML = data.length
+        ? `<strong>${data.length}</strong> participant${data.length===1?'':'s'} registered so far.`
+        : 'Official registration portal open — secure your pass.';
+    });
+}
+updateRegCount();
+
+// Pay at Desk Button Submission
+const deskBtn = document.getElementById('deskSubmitBtn');
+if (deskBtn) {
+  deskBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (selectedPaymentMethod !== 'desk') return;
+
+    const payload = getRegistrationPayload(true);
+    if (!payload) {
+      goToRegStep(1);
+      return;
+    }
+
+    deskBtn.disabled = true;
+    deskBtn.textContent = 'Registering…';
+
+    try {
+      const res = await fetch('/api/registrations/desk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to submit registration');
+
+      // Update local cache
+      const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      existing.unshift(data.registration);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+
+      showDigitalPass(data.registration);
+      updateRegCount();
+    } catch (err) {
+      if (formStatus) {
+        formStatus.textContent = err.message || 'Error processing registration. Please try again.';
+        formStatus.className = 'form-status error';
+        formStatus.style.display = 'block';
+      }
+    } finally {
+      deskBtn.disabled = false;
+      deskBtn.textContent = 'Confirm Registration · Pay ₹200 at Desk';
+    }
+  });
+}
+
+// -------------------------------------------------------------
+// PAYPAL SDK & SMART BUTTON INITIALIZER
+// -------------------------------------------------------------
+let paypalConfig = null;
+let currentPendingRegId = null;
+
+async function initPayPalIntegration() {
+  try {
+    const res = await fetch('/api/config');
+    paypalConfig = await res.json();
+
+    const displayAmount = document.getElementById('paypalDisplayAmount');
+    if (displayAmount && paypalConfig) {
+      displayAmount.textContent = `₹${paypalConfig.feeInr} / $${paypalConfig.paypalAmount} ${paypalConfig.paypalCurrency}`;
+    }
+
+    const clientId = paypalConfig.paypalClientId || 'sb';
+    const currency = paypalConfig.paypalCurrency || 'USD';
+
+    // Inject PayPal JS SDK
+    const script = document.createElement('script');
+    script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=${encodeURIComponent(currency)}&components=buttons&enable-funding=card`;
+    script.async = true;
+
+    script.onload = () => {
+      if (!window.paypal || !window.paypal.Buttons) {
+        console.warn('PayPal SDK loaded without Buttons component');
+        return;
+      }
+
+      window.paypal.Buttons({
+        style: {
+          layout: 'vertical',
+          color: 'blue',
+          shape: 'rect',
+          label: 'pay',
+          height: 44
+        },
+
+        // Client-side pre-validation
+        onClick: (data, actions) => {
+          formStatus.className = 'form-status';
+          formStatus.textContent = '';
+          const payload = getRegistrationPayload();
+          if (!payload) {
+            return actions.reject();
+          }
+          return actions.resolve();
+        },
+
+        // Server-Side Order Creation
+        createOrder: async () => {
+          const payload = getRegistrationPayload();
+          if (!payload) throw new Error('Incomplete registration fields');
+
+          formStatus.textContent = 'Connecting securely to PayPal…';
+          formStatus.className = 'form-status';
+          formStatus.style.display = 'block';
+
+          const orderRes = await fetch('/api/paypal/create-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          const orderData = await orderRes.json();
+          if (!orderRes.ok) {
+            throw new Error(orderData.details || orderData.error || 'Could not initialize PayPal order');
+          }
+
+          currentPendingRegId = orderData.registrationId;
+          return orderData.id;
+        },
+
+        // Server-Side Payment Capture
+        onApprove: async (data) => {
+          formStatus.textContent = 'Verifying and capturing payment with PayPal…';
+          formStatus.className = 'form-status';
+
+          const captureRes = await fetch('/api/paypal/capture-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderId: data.orderID,
+              registrationId: currentPendingRegId
+            })
+          });
+
+          const captureData = await captureRes.json();
+          if (!captureRes.ok) {
+            throw new Error(captureData.details || captureData.error || 'Payment capture failed');
+          }
+
+          // Cache record locally
+          const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          existing.unshift(captureData.registration);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+
+          showDigitalPass(captureData.registration, captureData.transactionId);
+          updateRegCount();
+        },
+
+        onError: (err) => {
+          console.error('PayPal Checkout error:', err);
+          formStatus.textContent = 'PayPal transaction could not be completed. Please try again or choose Pay at Desk.';
+          formStatus.className = 'form-status error';
+        },
+
+        onCancel: () => {
+          formStatus.textContent = 'Payment cancelled. You can retry payment anytime or switch to Pay at Desk.';
+          formStatus.className = 'form-status';
+          formStatus.style.display = 'block';
+        }
+      }).render('#paypal-button-container');
+    };
+
+    script.onerror = () => {
+      console.warn('Failed to load PayPal JS SDK from CDN. Falling back to desk registration.');
+      const btnBox = document.getElementById('paypal-button-container');
+      if (btnBox) {
+        btnBox.innerHTML = '<p style="font-size:.85rem; color:var(--graphite); text-align:center;">Online payment gateway loading... Please select <strong>Pay at Desk</strong> to proceed immediately.</p>';
+      }
+    };
+
+    document.head.appendChild(script);
+  } catch (e) {
+    console.error('PayPal init error:', e);
+  }
+}
+
+initPayPalIntegration();
+
+/* ===== BUILT-IN ADMIN DASHBOARD CONTROLLER (SERVER SYNCED) ===== */
+(function initAdminDashboard() {
+  const adminModal = document.getElementById('adminModal');
+  const openBtn = document.getElementById('openAdminModalBtn');
+  const closeBtn = document.getElementById('adminCloseBtn');
+  const lockScreen = document.getElementById('adminLockScreen');
+  const pinForm = document.getElementById('adminPinForm');
+  const pinInput = document.getElementById('adminPinInput');
+  const pinErr = document.getElementById('adminPinErr');
+  const content = document.getElementById('adminDashboardContent');
+
+  const statTotal = document.getElementById('adminStatTotal');
+  const statRevenue = document.getElementById('adminStatRevenue');
+  const statPaidSub = document.getElementById('adminStatPaidSub');
+  const statYearRatio = document.getElementById('adminStatYearRatio');
+  const statColleges = document.getElementById('adminStatColleges');
+
+  const searchInput = document.getElementById('adminSearchInput');
+  const yearFilter = document.getElementById('adminYearFilter');
+  const tableBody = document.getElementById('adminTableBody');
+
+  const exportBtn = document.getElementById('adminExportCsvBtn');
+  const addSpotBtn = document.getElementById('adminAddSpotBtn');
+  const clearAllBtn = document.getElementById('adminClearAllBtn');
+
+  if (!adminModal) return;
+
+  let enteredPin = '2026';
+  let isAuthenticated = false;
+  let cachedRegistrations = [];
+
+  function openModal() {
+    adminModal.classList.add('open');
+    adminModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    if (!isAuthenticated) {
+      lockScreen.style.display = 'flex';
+      content.style.display = 'none';
+      if (pinInput) setTimeout(() => pinInput.focus(), 150);
+    } else {
+      lockScreen.style.display = 'none';
+      content.style.display = 'flex';
+      loadServerRegistrations();
+    }
+  }
+
+  function closeModal() {
+    adminModal.classList.remove('open');
+    adminModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  adminModal.addEventListener('click', (e) => {
+    if (e.target === adminModal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+      e.preventDefault();
+      if (adminModal.classList.contains('open')) closeModal();
+      else openModal();
+    }
+    if (e.key === 'Escape' && adminModal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  if (pinForm) {
+    pinForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const pin = pinInput.value.trim();
+      
+      // Test PIN against server
+      try {
+        const res = await fetch(`/api/admin/registrations`, {
+          headers: { 'x-admin-pin': pin }
+        });
+
+        if (res.ok) {
+          enteredPin = pin;
+          isAuthenticated = true;
+          pinErr.style.display = 'none';
+          lockScreen.style.display = 'none';
+          content.style.display = 'flex';
+          const data = await res.json();
+          cachedRegistrations = data.registrations || [];
+          renderDashboard();
+        } else {
+          pinErr.style.display = 'block';
+          pinInput.focus();
+          pinInput.select();
+        }
+      } catch (err) {
+        // Fallback to local pin check if offline
+        if (pin === '2026') {
+          enteredPin = pin;
+          isAuthenticated = true;
+          pinErr.style.display = 'none';
+          lockScreen.style.display = 'none';
+          content.style.display = 'flex';
+          cachedRegistrations = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          renderDashboard();
+        } else {
+          pinErr.style.display = 'block';
+        }
+      }
+    });
+  }
+
+  async function loadServerRegistrations() {
+    try {
+      const res = await fetch(`/api/admin/registrations`, {
+        headers: { 'x-admin-pin': enteredPin }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        cachedRegistrations = data.registrations || [];
+      } else {
+        cachedRegistrations = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      }
+    } catch (e) {
+      cachedRegistrations = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    }
+    renderDashboard();
+  }
+
+  function renderDashboard() {
+    const rawData = cachedRegistrations;
+    const q = (searchInput?.value || '').trim().toLowerCase();
+    const yearVal = yearFilter?.value || 'all';
+
+    const totalCount = rawData.length;
+    const paidCount = rawData.filter(r => r.paid === true).length;
+    const year1Count = rawData.filter(r => r.year === '1st Year').length;
+    const year2Count = rawData.filter(r => r.year === '2nd Year').length;
+    const uniqueColleges = new Set(rawData.map(r => (r.college || '').trim().toLowerCase()).filter(Boolean)).size;
+
+    if (statTotal) statTotal.textContent = totalCount;
+    if (statRevenue) statRevenue.textContent = `\u20B9${totalCount * 200}`;
+    if (statPaidSub) statPaidSub.textContent = `\u20B9${paidCount * 200} collected (${paidCount}/${totalCount} paid)`;
+    if (statYearRatio) statYearRatio.textContent = `${year1Count} / ${year2Count}`;
+    if (statColleges) statColleges.textContent = uniqueColleges;
+
+    const filtered = rawData.filter(r => {
+      const matchYear = yearVal === 'all' || r.year === yearVal;
+      const searchStr = `${r.fullName} ${r.college} ${r.department} ${r.eventSummary || (r.events ? r.events.join(' ') : '')} ${r.id || ''}`.toLowerCase();
+      const matchSearch = !q || searchStr.includes(q);
+      return matchYear && matchSearch;
+    });
+
+    if (!tableBody) return;
+
+    if (filtered.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="9" class="admin-empty-state">
+            ${rawData.length === 0 
+              ? 'No participant registrations recorded yet.' 
+              : 'No matching registrations found for your search filter.'}
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tableBody.innerHTML = filtered.map((r, i) => {
+      const eventsList = r.events || (r.eventChoice ? [r.eventChoice] : []);
+      const eventBadges = eventsList.map(ev => `<span class="admin-event-tag">${ev}</span>`).join('');
+      const isPaid = r.paid === true;
+      const paymentTag = r.paymentMethod === 'paypal' ? 'PayPal' : 'Desk';
+      const timeStr = r.submittedAt ? new Date(r.submittedAt).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', month:'short', day:'numeric' }) : 'Recent';
+
+      return `
+        <tr>
+          <td style="font-family:var(--font-mono); color:var(--graphite);">${i + 1}</td>
+          <td>
+            <strong>${r.fullName || '—'}</strong>
+            ${r.id ? `<div style="font-family:var(--font-mono); font-size:.7rem; color:var(--graphite);">${r.id}</div>` : ''}
+          </td>
+          <td><span style="font-family:var(--font-mono); font-size:.8rem;">${r.year || '—'}</span></td>
+          <td>${r.department || '—'}</td>
+          <td>${r.college || '—'}</td>
+          <td>${eventBadges || '—'}</td>
+          <td>
+            <button type="button" class="admin-paid-badge ${isPaid ? 'paid' : 'pending'}" data-id="${r.id || i}" data-paid="${isPaid}" title="Click to toggle payment status">
+              ${isPaid ? `✓ Paid (${paymentTag})` : '⏳ Pending (₹200)'}
+            </button>
+          </td>
+          <td style="font-family:var(--font-mono); font-size:.76rem; color:var(--graphite);">${timeStr}</td>
+          <td style="text-align:right;">
+            <button type="button" class="admin-delete-btn" data-delete-id="${r.id || i}" title="Delete entry">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    // Attach Payment Status Toggle Handlers
+    tableBody.querySelectorAll('.admin-paid-badge').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-id');
+        const currentPaid = btn.getAttribute('data-paid') === 'true';
+        const newPaid = !currentPaid;
+
+        try {
+          await fetch(`/api/admin/registrations/${id}/payment`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json', 'x-admin-pin': enteredPin },
+            body: JSON.stringify({ paid: newPaid, paymentMethod: newPaid ? 'manual_override' : 'cash_on_desk' })
+          });
+        } catch (e) {}
+
+        const item = cachedRegistrations.find(r => (r.id || '') === id);
+        if (item) item.paid = newPaid;
+        renderDashboard();
+      });
+    });
+
+    // Attach Delete Handlers
+    tableBody.querySelectorAll('[data-delete-id]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-delete-id');
+        const target = cachedRegistrations.find(r => (r.id || '') === id);
+        if (target && confirm(`Are you sure you want to remove ${target.fullName} from the roster?`)) {
+          try {
+            await fetch(`/api/admin/registrations/${id}`, {
+              method: 'DELETE',
+              headers: { 'x-admin-pin': enteredPin }
+            });
+          } catch (e) {}
+
+          cachedRegistrations = cachedRegistrations.filter(r => (r.id || '') !== id);
+          renderDashboard();
+        }
+      });
+    });
+  }
+
+  if (searchInput) searchInput.addEventListener('input', renderDashboard);
+  if (yearFilter) yearFilter.addEventListener('change', renderDashboard);
+
+  if (addSpotBtn) {
+    addSpotBtn.addEventListener('click', () => {
+      closeModal();
+      if (window.openGenesisRegistration) window.openGenesisRegistration();
+    });
+  }
+
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const data = cachedRegistrations;
+      if (!data.length) {
+        alert('No registered participants to export.');
+        return;
+      }
+
+      const headers = ['#', 'Pass ID', 'Full Name', 'Year of Study', 'Department', 'College', 'Selected Events', 'Fee Status', 'Payment Method', 'Txn ID', 'Registration Timestamp'];
+      const rows = data.map((r, i) => [
+        i + 1,
+        `"${r.id || ''}"`,
+        `"${(r.fullName || '').replace(/"/g, '""')}"`,
+        `"${(r.year || '').replace(/"/g, '""')}"`,
+        `"${(r.department || '').replace(/"/g, '""')}"`,
+        `"${(r.college || '').replace(/"/g, '""')}"`,
+        `"${(r.eventSummary || (r.events ? r.events.join(', ') : '')).replace(/"/g, '""')}"`,
+        `"${r.paid ? 'Paid' : 'Pending'}"`,
+        `"${r.paymentMethod || 'desk'}"`,
+        `"${r.paymentId || r.orderId || ''}"`,
+        `"${r.submittedAt ? new Date(r.submittedAt).toLocaleString() : ''}"`
+      ]);
+
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(e => e.join(','))].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `genesis26_participants_${new Date().toISOString().slice(0,10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  if (clearAllBtn) {
+    clearAllBtn.addEventListener('click', async () => {
+      if (!cachedRegistrations.length) {
+        alert('Roster is already empty.');
+        return;
+      }
+      if (confirm(`⚠️ Warning: This will permanently delete all ${cachedRegistrations.length} registrations from the server. Proceed?`)) {
+        try {
+          await fetch(`/api/admin/registrations/clear`, {
+            method: 'POST',
+            headers: { 'x-admin-pin': enteredPin }
+          });
+        } catch (e) {}
+        cachedRegistrations = [];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
+        renderDashboard();
+      }
+    });
+  }
+
+  window.openGenesisAdmin = openModal;
+})();
+
+/* ===== THEME SWITCHER ===== */
+const themeButtons = document.querySelectorAll('.theme-btn');
+const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+function applyTheme(setting) {
+  let effectiveTheme = setting;
+  if (setting === 'system') {
+    effectiveTheme = mediaQueryDark.matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', effectiveTheme);
+  document.documentElement.setAttribute('data-theme-setting', setting);
+  localStorage.setItem('genesis_theme', setting);
+
+  themeButtons.forEach(btn => {
+    const isActive = btn.getAttribute('data-theme-set') === setting;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+  });
+}
+
+// Initial sync with stored preference or default system
+const activeSetting = localStorage.getItem('genesis_theme') || 'system';
+applyTheme(activeSetting);
+
+themeButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    applyTheme(btn.getAttribute('data-theme-set'));
+  });
+});
+
+// React if user is on system mode and OS theme changes
+mediaQueryDark.addEventListener('change', () => {
+  const current = localStorage.getItem('genesis_theme') || 'system';
+  if (current === 'system') {
+    applyTheme('system');
+  }
+});
+
+/* ===== CYBER NETWORK BACKGROUND ANIMATION ===== */
+(function initCyberBackground() {
+  const canvas = document.getElementById('cyberCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let nodes = [];
+  let packets = [];
+  let shockwaves = [];
+  let animId = null;
+  let mouse = { x: -1000, y: -1000, active: false, radius: 170 };
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    initNodes();
+  }
+
+  function initNodes() {
+    nodes = [];
+    packets = [];
+    const count = Math.max(32, Math.min(70, Math.floor((width * height) / 20000)));
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        radius: Math.random() > 0.85 ? 3 : Math.random() > 0.4 ? 2 : 1.2,
+        isHub: Math.random() > 0.82,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.02 + Math.random() * 0.03
+      });
+    }
+  }
+
+  function spawnPacket(fromNode, toNode) {
+    if (packets.length > 25) return;
+    packets.push({
+      from: fromNode,
+      to: toNode,
+      progress: 0,
+      speed: 0.016 + Math.random() * 0.025,
+      size: 2.2
+    });
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, width, height);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    
+    // Cyber Color Palette
+    const nodeColor = isDark ? '#38bdf8' : '#2F5CFF';
+    const hubColor = isDark ? '#60a5fa' : '#1d46dd';
+    const lineColorBase = isDark ? '56, 189, 248' : '47, 92, 255';
+    const packetColor = isDark ? '#e0f2fe' : '#2563eb';
+    const maxDist = 140;
+    const maxDistSq = maxDist * maxDist;
+
+    // 1. Shockwaves
+    for (let s = shockwaves.length - 1; s >= 0; s--) {
+      const sw = shockwaves[s];
+      sw.radius += sw.speed;
+      sw.alpha -= 0.02;
+      if (sw.alpha <= 0 || sw.radius > sw.maxRadius) {
+        shockwaves.splice(s, 1);
+        continue;
+      }
+      ctx.beginPath();
+      ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${lineColorBase}, ${sw.alpha * (isDark ? 0.7 : 0.45)})`;
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+
+      // Push nodes gently
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        const dx = n.x - sw.x;
+        const dy = n.y - sw.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (Math.abs(dist - sw.radius) < 30 && dist > 1) {
+          n.vx += (dx / dist) * 0.45;
+          n.vy += (dy / dist) * 0.45;
+        }
+      }
+    }
+
+    // 2. Nodes & Mouse Connections
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      if (!prefersReducedMotion.matches) {
+        n.x += n.vx;
+        n.y += n.vy;
+        n.pulse += n.pulseSpeed;
+
+        if (n.x < 0 || n.x > width) n.vx *= -1;
+        if (n.y < 0 || n.y > height) n.vy *= -1;
+
+        n.vx *= 0.99;
+        n.vy *= 0.99;
+        if (Math.abs(n.vx) < 0.2) n.vx += (Math.random() - 0.5) * 0.08;
+        if (Math.abs(n.vy) < 0.2) n.vy += (Math.random() - 0.5) * 0.08;
+      }
+
+      // Mouse attraction & connection
+      if (mouse.active) {
+        const mdx = mouse.x - n.x;
+        const mdy = mouse.y - n.y;
+        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+        if (mdist < mouse.radius) {
+          const force = (1 - mdist / mouse.radius) * 0.35;
+          n.vx += (mdx / mdist) * force;
+          n.vy += (mdy / mdist) * force;
+
+          const mouseLineAlpha = (1 - mdist / mouse.radius) * (isDark ? 0.45 : 0.25);
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(${lineColorBase}, ${mouseLineAlpha})`;
+          ctx.lineWidth = 1.1;
+          ctx.stroke();
+        }
+      }
+
+      // Draw Node
+      const currentRadius = n.radius + (n.isHub ? Math.sin(n.pulse) * 0.8 : 0);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, currentRadius, 0, Math.PI * 2);
+      ctx.fillStyle = n.isHub ? hubColor : nodeColor;
+      ctx.fill();
+
+      // Glowing Halo on Hub nodes
+      if (n.isHub) {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, currentRadius * 2.8, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${lineColorBase}, ${isDark ? 0.22 : 0.12})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        const ch = 5;
+        ctx.beginPath();
+        ctx.moveTo(n.x - ch, n.y);
+        ctx.lineTo(n.x + ch, n.y);
+        ctx.moveTo(n.x, n.y - ch);
+        ctx.lineTo(n.x, n.y + ch);
+        ctx.strokeStyle = `rgba(${lineColorBase}, ${isDark ? 0.35 : 0.2})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+
+    // 3. Circuit Lines
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const distSq = dx * dx + dy * dy;
+
+        if (distSq < maxDistSq) {
+          const dist = Math.sqrt(distSq);
+          const alpha = (1 - dist / maxDist) * (isDark ? 0.32 : 0.16);
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(${lineColorBase}, ${alpha})`;
+          ctx.lineWidth = 0.9;
+          ctx.stroke();
+
+          // Spawn data packet
+          if (!prefersReducedMotion.matches && Math.random() < 0.00045) {
+            spawnPacket(nodes[i], nodes[j]);
+          }
+        }
+      }
+    }
+
+    // 4. Data Packets
+    for (let p = packets.length - 1; p >= 0; p--) {
+      const pkt = packets[p];
+      pkt.progress += pkt.speed;
+      if (pkt.progress >= 1) {
+        packets.splice(p, 1);
+        continue;
+      }
+      const curX = pkt.from.x + (pkt.to.x - pkt.from.x) * pkt.progress;
+      const curY = pkt.from.y + (pkt.to.y - pkt.from.y) * pkt.progress;
+
+      ctx.beginPath();
+      ctx.arc(curX, curY, pkt.size, 0, Math.PI * 2);
+      ctx.fillStyle = packetColor;
+      ctx.shadowColor = packetColor;
+      ctx.shadowBlur = isDark ? 8 : 4;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    // 5. Mouse reticle
+    if (mouse.active) {
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, 16, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${lineColorBase}, ${isDark ? 0.4 : 0.2})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? '#38bdf8' : '#2F5CFF';
+      ctx.fill();
+    }
+
+    if (!prefersReducedMotion.matches) {
+      animId = requestAnimationFrame(render);
+    }
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.active = true;
+  }, { passive: true });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.active = false;
+  });
+
+  window.addEventListener('click', (e) => {
+    shockwaves.push({
+      x: e.clientX,
+      y: e.clientY,
+      radius: 5,
+      maxRadius: 180,
+      speed: 4.5,
+      alpha: 1
+    });
+    nodes.forEach(n => {
+      const dx = n.x - e.clientX;
+      const dy = n.y - e.clientY;
+      if (dx * dx + dy * dy < 200 * 200) {
+        const partner = nodes[Math.floor(Math.random() * nodes.length)];
+        if (partner !== n) spawnPacket(n, partner);
+      }
+    });
+  });
+
+  window.addEventListener('resize', resize, { passive: true });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (animId) cancelAnimationFrame(animId);
+    } else {
+      if (!prefersReducedMotion.matches) animId = requestAnimationFrame(render);
+    }
+  });
+
+  resize();
+  if (!prefersReducedMotion.matches) {
+    animId = requestAnimationFrame(render);
+  } else {
+    render();
+  }
+})();
+</script>
+</body>
+</html>
