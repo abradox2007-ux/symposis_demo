@@ -55,7 +55,7 @@ async function getAccessToken() {
 /**
  * Create a PayPal Order (Server-Side)
  */
-async function createOrder({ amount, currency = 'USD', description = "Genesis'26 Symposium Registration", customId = '' }) {
+async function createOrder({ amount, currency = 'USD', description = "AuraFeast'26 Symposium Registration", customId = '' }) {
   const accessToken = await getAccessToken();
   const url = `${getBaseUrl()}/v2/checkout/orders`;
 
@@ -72,7 +72,7 @@ async function createOrder({ amount, currency = 'USD', description = "Genesis'26
       }
     ],
     application_context: {
-      brand_name: "Genesis'26 Symposium - PSVPEC",
+      brand_name: "AuraFeast'26 Symposium - PSVPEC",
       landing_page: 'NO_PREFERENCE',
       user_action: 'PAY_NOW',
       shipping_preference: 'NO_SHIPPING'

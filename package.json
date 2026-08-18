@@ -1,7 +1,7 @@
 {
-  "name": "genesis-2026-symposium",
+  "name": "aurafeast-2026-symposium",
   "version": "1.0.0",
-  "description": "Official website and registration backend for Genesis'26 Symposium - PSVPEC",
+  "description": "Official website and registration backend for AuraFeast'26 Symposium - PSVPEC",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,7 @@
   "keywords": [
     "symposium",
     "college",
-    "genesis26",
+    "aurafeast26",
     "paypal",
     "registration"
   ],

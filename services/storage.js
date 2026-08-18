@@ -51,7 +51,7 @@ module.exports = {
   addRegistration(reg) {
     const list = readFile(REGISTRATIONS_FILE);
     const newRecord = {
-      id: 'GEN26-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase(),
+      id: 'AF26-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase(),
       fullName: (reg.fullName || '').trim(),
       year: reg.year,
       department: (reg.department || '').trim(),

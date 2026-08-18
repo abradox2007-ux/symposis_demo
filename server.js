@@ -257,7 +257,7 @@ app.post('/api/paypal/create-order', registrationLimiter, async (req, res) => {
       amount: paypalAmount,
       currency: paypalCurrency,
       customId: regRecord.id,
-      description: `Genesis'26 Symposium Entry: ${fullName}`
+      description: `AuraFeast'26 Symposium Entry: ${fullName}`
     });
 
     // Attach order ID to registration
@@ -435,7 +435,7 @@ app.post('/api/admin/registrations/clear', verifyAdminPin, (req, res) => {
 // Start Server
 app.listen(PORT, () => {
   console.log(`====================================================`);
-  console.log(`  Genesis'26 Backend Server running on port ${PORT}`);
+  console.log(`  AuraFeast'26 Backend Server running on port ${PORT}`);
   console.log(`  Local URL: http://localhost:${PORT}`);
   console.log(`  PayPal Mode: ${process.env.PAYPAL_MODE || 'sandbox'}`);
   console.log(`  PayPal Client ID: ${process.env.PAYPAL_CLIENT_ID ? 'Configured' : 'Not Configured'}`);

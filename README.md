@@ -1,6 +1,6 @@
-# ⚡ Genesis'26 — Inter-College Technical & Non-Technical Symposium
+# ⚡ AuraFeast'26 — Inter-College Technical & Non-Technical Symposium
 
-Official web portal and full-stack registration system for **Genesis'26**, the premier national-level inter-college symposium organized by the **Department of Computer Science & Engineering** and the **Department of Information Technology** at **Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC)**.
+Official web portal and full-stack registration system for **AuraFeast'26**, the premier national-level inter-college symposium organized by the **Department of Computer Science & Engineering** and the **Department of Information Technology** at **Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC)**.
 
 ---
 
@@ -13,7 +13,7 @@ Official web portal and full-stack registration system for **Genesis'26**, the p
 
 - **Multi-Track Events Showcase**  
   - **Technical Track**: Paper Presentation, Coding Challenge, Web Design Challenge, UIXpert, Bug Busters, CyberQuest.
-  - **Non-Technical Track**: Photo Hunt, IPL Auction, Quiz Mania, Meme Mania, Reel Rush, Best Manager.
+  - **Non-Technical Track**: Photo Hunt, IPL Auction, Quiz Mania, Meme Mania, MOVQuiz, Chess.
   - Interactive event picker with quick-select buttons for technical, non-technical, or custom combinations.
 
 - **2-Step Registration & Checkout Flow**  
@@ -21,7 +21,7 @@ Official web portal and full-stack registration system for **Genesis'26**, the p
   - **Step 2: Payment & Pass Issuance**:
     - **PayPal / Debit / Credit Cards**: Integrated PayPal REST API v2 for instant server-verified payments and automatic ticket issuance.
     - **Pay at Desk (Cash / Spot)**: Allows attendees to reserve their spot online and settle the entry fee on-site.
-  - **Digital Symposium Pass**: Instant print-ready digital entry pass with unique pass reference numbers (e.g., `GEN26-XXXX-XXXX`).
+  - **Digital Symposium Pass**: Instant print-ready digital entry pass with unique pass reference numbers (e.g., `AF26-XXXX-XXXX`).
 
 - **Robust & Secure Backend**  
   - Built with **Node.js** and **Express**.
@@ -186,7 +186,7 @@ Once running, access the symposium portal at:
 
 - **Institution**: Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC)
 - **Departments**: Computer Science & Engineering (CSE) & Information Technology (IT)
-- **Symposium**: Genesis'26
+- **Symposium**: AuraFeast'26
 
 ---
 
