@@ -4,1824 +4,678 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AuraFeast'26 — Inter College Symposium | PSVPEC</title>
+  <title>AuraFeast'26 — National-Level Inter College Symposium | PSVPEC</title>
   <meta name="description"
-    content="AuraFeast'26 — Inter College Symposium by the Department of Computer Science & Engineering and Department of Information Technology, Prince Shri Venkateshwara Padmavathy Engineering College. 15th September, PSVPEC Mini Auditorium.">
+    content="AuraFeast'26 — Premier National Level Inter-College Symposium organized by the Department of Computer Science & Engineering and Department of Information Technology, Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), Ponmar, Chennai. 15th September 2026.">
 
+  <!-- Google Fonts Preconnect & Variable Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
 
-  <script>
-    /* Immediate theme application to prevent FOUC */
-    (function () {
-      try {
-        var saved = localStorage.getItem('aurafeast_theme') || localStorage.getItem('genesis_theme') || 'system';
-        var isDark = saved === 'dark' || (saved === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme-setting', saved);
-      } catch (e) { }
-    })();
-  </script>
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    :root {
-      --paper: #F7F6F2;
-      --ink: #14161A;
-      --signal: #2F5CFF;
-      /* blue accent */
-      --signal-hover: #1d46dd;
-      --graphite: #5B5F66;
-      --line: #DDDAD2;
-      --card-bg: rgba(255, 255, 255, 0.92);
-      --meta-panel-bg: rgba(255, 255, 255, 0.94);
-      --input-bg: rgba(255, 255, 255, 0.95);
-      --header-bg: rgba(247, 246, 242, .92);
-      --shadow: rgba(20, 22, 26, 0.10);
-      --font-display: 'Archivo Expanded', sans-serif;
-      --font-body: 'Inter', system-ui, sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
-      --maxw: 1240px;
-    }
-
-    /* ===== DARK THEME (ELECTRIC / MIDNIGHT BLUE CYBER PALETTE) ===== */
-    [data-theme="dark"] {
-      --paper: #070b16;
-      /* deep midnight cyber blue */
-      --ink: #f0f6fc;
-      /* crisp ice-white text */
-      --signal: #3b82f6;
-      /* glowing vibrant blue */
-      --signal-hover: #60a5fa;
-      --graphite: #93a4c0;
-      /* slate blue */
-      --line: #192742;
-      /* dark navy border */
-      --card-bg: rgba(15, 23, 42, 0.82);
-      /* elevated glassmorphic blue-black card */
-      --meta-panel-bg: rgba(13, 21, 39, 0.88);
-      /* elevated panel */
-      --input-bg: rgba(11, 18, 32, 0.90);
-      /* input field bg */
-      --header-bg: rgba(7, 11, 22, 0.88);
-      --shadow: rgba(0, 0, 0, 0.5);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]):not([data-theme="dark"]) {
-        --paper: #070b16;
-        --ink: #f0f6fc;
-        --signal: #3b82f6;
-        --signal-hover: #60a5fa;
-        --graphite: #93a4c0;
-        --line: #192742;
-        --card-bg: rgba(15, 23, 42, 0.82);
-        --meta-panel-bg: rgba(13, 21, 39, 0.88);
-        --input-bg: rgba(11, 18, 32, 0.90);
-        --header-bg: rgba(7, 11, 22, 0.88);
-        --shadow: rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .001ms !important;
-      }
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--font-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      transition: background .3s ease, color .3s ease;
-      position: relative;
-      min-height: 100vh;
-    }
-
-    /* ===== CYBER BACKGROUND ANIMATION & GRID ===== */
-    #cyberCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .cyber-grid-overlay {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image:
-        linear-gradient(to right, rgba(47, 92, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(47, 92, 255, 0.07) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: 0.7;
-      mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 90%);
-      -webkit-mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 90%);
-    }
-
-    [data-theme="dark"] .cyber-grid-overlay {
-      background-image:
-        linear-gradient(to right, rgba(59, 130, 246, 0.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(59, 130, 246, 0.12) 1px, transparent 1px);
-      opacity: 0.85;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .01em;
-      margin: 0 0 .4em;
-      line-height: 1.05;
-      color: var(--ink);
-    }
-
-    p {
-      margin: 0 0 1em;
-      color: var(--graphite);
-    }
-
-    a {
-      color: var(--ink);
-    }
-
-    .mono {
-      font-family: var(--font-mono);
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 0;
-      background: var(--signal);
-      color: #fff;
-      padding: .75em 1.25em;
-      z-index: 999;
-    }
-
-    .skip-link:focus {
-      left: 0;
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--signal);
-      outline-offset: 3px;
-    }
-
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    section {
-      padding: 96px 0;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-    }
-
-    @media (max-width:640px) {
-      section {
-        padding: 60px 0;
-      }
-
-      .wrap {
-        padding: 0 20px;
-      }
-    }
-
-    .numeral {
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 14vw, 9rem);
-      font-weight: 700;
-      color: var(--paper);
-      -webkit-text-stroke: 1.5px var(--line);
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      line-height: 1;
-      user-select: none;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .section-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--signal);
-      margin-bottom: .9em;
-      display: inline-flex;
-      align-items: center;
-      gap: .6em;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 22px;
-      height: 1px;
-      background: var(--signal);
-    }
-
-    .section-head {
-      max-width: 640px;
-      margin-bottom: 52px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 4.4vw, 3rem);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5em;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: .95rem;
-      padding: .9em 1.7em;
-      border-radius: 2px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
-      border: 1.5px solid var(--ink);
-    }
-
-    .btn-primary {
-      background: var(--signal);
-      color: #fff;
-      border-color: var(--signal);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 0 0 var(--ink);
-      background: var(--signal-hover);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .btn-outline:hover {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== INTRO ANIMATION ===== */
-    #intro {
-      position: fixed;
-      inset: 0;
-      background: var(--paper);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      overflow: hidden;
-      transition: opacity .7s ease, visibility .7s ease;
-    }
-
-    #intro.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    #introMatrixCanvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .intro-skip-btn {
-      position: absolute;
-      bottom: 24px;
-      right: 24px;
-      z-index: 10;
-      background: rgba(15, 23, 42, 0.4);
-      color: var(--ink);
-      border: 1px solid var(--line);
-      padding: 7px 16px;
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: all .2s ease;
-      opacity: 0;
-      animation: pop .4s 1.2s ease forwards;
-    }
-
-    .intro-skip-btn:hover {
-      background: var(--signal);
-      color: #fff;
-      border-color: var(--signal);
-      transform: translateY(-1px);
-    }
-
-    .intro-mark {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      max-width: 1100px;
-      width: 100%;
-    }
-
-    /* Side-by-side Same Line Container */
-    .intro-duo-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(16px, 3.5vw, 36px);
-      position: relative;
-      z-index: 2;
-      opacity: 0;
-      transform: scale(0.88) translateY(12px);
-      animation: duoPop .75s .1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .intro-logo-col {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Intro Logos */
-    .intro-aurafeast-img,
-    .intro-genesis-img {
-      height: clamp(120px, 18vw, 190px);
-      width: auto;
-      max-width: min(42vw, 380px);
-      object-fit: contain;
-      display: block;
-      transition: filter .3s ease;
-    }
-
-    /* 2x Sized PSVPEC Logo */
-    .intro-psvpec-img {
-      height: clamp(240px, 36vw, 380px);
-      width: auto;
-      max-width: min(50vw, 550px);
-      object-fit: contain;
-      display: block;
-      transition: filter .3s ease;
-    }
-
-    /* Light Theme Background Blending */
-    [data-theme="light"] .intro-aurafeast-img,
-    [data-theme="light"] .intro-genesis-img,
-    :root:not([data-theme="dark"]) .intro-aurafeast-img,
-    :root:not([data-theme="dark"]) .intro-genesis-img {
-      filter: drop-shadow(0 10px 24px rgba(47, 92, 255, 0.22));
-    }
-
-    [data-theme="light"] .intro-psvpec-img,
-    :root:not([data-theme="dark"]) .intro-psvpec-img {
-      filter: drop-shadow(0 14px 30px rgba(47, 92, 255, 0.26));
-    }
-
-    /* Dark Theme Background Blending & Cyber Aura */
-    [data-theme="dark"] .intro-aurafeast-img,
-    [data-theme="dark"] .intro-genesis-img {
-      filter: drop-shadow(0 0 45px rgba(59, 130, 246, 0.7)) drop-shadow(0 14px 32px rgba(0, 0, 0, 0.7)) brightness(1.08);
-    }
-
-    [data-theme="dark"] .intro-psvpec-img {
-      filter: drop-shadow(0 0 55px rgba(59, 130, 246, 0.75)) drop-shadow(0 16px 36px rgba(0, 0, 0, 0.75)) brightness(1.08);
-    }
-
-    /* "in" connector between the two logos */
-    .intro-in-connector {
-      font-family: var(--font-mono);
-      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
-      font-weight: 700;
-      text-transform: lowercase;
-      letter-spacing: 0.12em;
-      color: var(--signal);
-      font-style: italic;
-      padding: 0 4px;
-      flex-shrink: 0;
-    }
-
-    .intro-underline {
-      width: 0;
-      height: 3.5px;
-      background: var(--signal);
-      margin: 24px auto 0;
-      border-radius: 2px;
-      position: relative;
-      z-index: 2;
-      animation: draw .7s .55s ease forwards;
-    }
-
-    @keyframes duoPop {
-      from {
-        opacity: 0;
-        transform: scale(0.88) translateY(12px);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    @keyframes draw {
-      to {
-        width: clamp(220px, 45vw, 420px);
-      }
-    }
-
-    /* ===== HEADER ===== */
-    header.site {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--header-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-      transition: background .3s ease;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 28px;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .brand img {
-      height: 38px;
-      width: auto;
-      border-radius: 3px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      line-height: 1.1;
-    }
-
-    .brand-text span {
-      color: var(--signal);
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navlinks a {
-      text-decoration: none;
-      font-size: .86rem;
-      font-weight: 500;
-      color: var(--ink);
-      position: relative;
-      padding-bottom: 3px;
-    }
-
-    .navlinks a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--signal);
-      transition: width .2s ease;
-    }
-
-    .navlinks a:hover::after,
-    .navlinks a:focus-visible::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: 1.5px solid var(--ink);
-      color: var(--ink);
-      padding: .4em .6em;
-      cursor: pointer;
-    }
-
-    /* ===== THEME SWITCHER CONTROL ===== */
-    .theme-switch {
-      display: inline-flex;
-      align-items: center;
-      background: rgba(20, 22, 26, 0.06);
-      border: 1.5px solid var(--line);
-      border-radius: 24px;
-      padding: 2px 3px;
-      gap: 2px;
-      transition: background .2s ease, border-color .2s ease;
-    }
-
-    [data-theme="dark"] .theme-switch {
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .theme-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 5px 7px;
-      border-radius: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--graphite);
-      transition: all .2s ease;
-      line-height: 1;
-    }
-
-    .theme-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .theme-btn:hover {
-      color: var(--ink);
-    }
-
-    .theme-btn.active {
-      background: var(--card-bg);
-      color: var(--signal);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
-    }
-
-    @media (max-width:900px) {
-      .navlinks {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--paper);
-        flex-direction: column;
-        padding: 20px 28px;
-        gap: 18px;
-        border-bottom: 1px solid var(--line);
-        display: none;
-      }
-
-      .navlinks.open {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-    }
-
-    @media (max-width:540px) {
-      .nav {
-        padding: 12px 18px;
-      }
-
-      .brand-text {
-        font-size: 1.05rem;
-      }
-
-      .nav-actions .btn-primary {
-        display: none;
-      }
-
-      .theme-btn {
-        padding: 4px 6px;
-      }
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      padding-top: 56px;
-      padding-bottom: 70px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 7fr 5fr;
-      gap: 40px;
-      align-items: end;
-    }
-
-    @media (max-width:820px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-    }
-
-    .hero-underline {
-      width: 0;
-      height: 4px;
-      background: var(--signal);
-      margin: .4em 0 1em;
-      animation: draw2 1s .5s ease forwards;
-    }
-
-    @keyframes draw2 {
-      to {
-        width: 180px;
-      }
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      max-width: 46ch;
-    }
-
-    .hero-meta-panel {
-      border: 1.5px solid var(--ink);
-      padding: 26px;
-      background: var(--meta-panel-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .hero-meta-panel .row {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: .9rem;
-      gap: 12px;
-    }
-
-    .hero-meta-panel .row:last-child {
-      border-bottom: none;
-    }
-
-    .hero-meta-panel .row span:first-child {
-      color: var(--graphite);
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      white-space: nowrap;
-    }
-
-    .hero-meta-panel .row span:last-child {
-      font-weight: 600;
-      text-align: right;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .presented-by {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      color: var(--graphite);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 1.2em;
-    }
-
-    /* Dark mode logo polish */
-    [data-theme="dark"] .org-logo,
-    [data-theme="dark"] .brand img,
-    [data-theme="dark"] .footer-top img {
-      background: #ffffff;
-      padding: 2px;
-      border-radius: 4px;
-    }
-
-    /* ===== EVENT CARDS (IMAGE AT TOP, DESCRIPTION AT BOTTOM - 1 PER ROW) ===== */
-    .grid {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1.5px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px -12px var(--shadow);
-      border-color: var(--signal);
-    }
-
-    .card-img-wrap {
-      position: relative;
-      width: 100%;
-      height: clamp(240px, 32vw, 380px);
-      background: #14161a;
-      overflow: hidden;
-    }
-
-    .card-img-wrap.card-img-wrap-contain {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #080c14;
-      padding: 16px;
-    }
-
-    [data-theme="light"] .card-img-wrap.card-img-wrap-contain {
-      background: #0a0e18;
-    }
-
-    .card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform .45s cubic-bezier(0.16, 1, 0.3, 1);
-      display: block;
-    }
-
-    .card-img.card-img-contain {
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain !important;
-      object-position: center;
-      border-radius: 4px;
-    }
-
-    .card:hover .card-img {
-      transform: scale(1.04);
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(6px);
-      color: #fff;
-      font-family: var(--font-mono);
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      padding: 6px 14px;
-      border-radius: 3px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-body {
-      padding: 36px 42px 40px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card .tag {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--signal);
-      display: block;
-      margin-bottom: .5em;
-      font-weight: 600;
-    }
-
-    .card h3 {
-      font-family: var(--font-body);
-      font-weight: 700;
-      text-transform: none;
-      font-size: clamp(1.4rem, 2.8vw, 1.85rem);
-      margin-bottom: .9em;
-      color: var(--ink);
-      letter-spacing: -.01em;
-    }
-
-    .card-desc-group {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .card p {
-      font-size: .95rem;
-      line-height: 1.8;
-      margin-bottom: 0;
-      color: var(--graphite);
-      text-align: justify;
-    }
-
-    @media (max-width:768px) {
-      .card-img-wrap {
-        height: 220px;
-      }
-
-      .card-body {
-        padding: 24px 20px 28px;
-      }
-
-      .card p {
-        text-align: left;
-        font-size: .92rem;
-      }
-    }
-
-    /* ===== ABOUT / ORG BLOCK ===== */
-    .orgs-strip {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      padding-top: 32px;
-      border-top: 1px solid var(--line);
-    }
-
-    .org-logos-wrap {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .org-logo {
-      height: 56px;
-      width: auto;
-      max-width: 140px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-
-    .orgs-strip .dept-block {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      color: var(--graphite);
-      line-height: 1.5;
-    }
-
-    .orgs-strip .dept-block strong {
-      color: var(--ink);
-      display: block;
-      font-size: .85rem;
-    }
-
-    /* ===== REGISTRATION CTA CARD ===== */
-    .reg-cta-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1.5px solid var(--line);
-      border-radius: 8px;
-      padding: 44px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .reg-cta-card:hover {
-      border-color: var(--signal);
-      box-shadow: 0 18px 36px -10px var(--shadow);
-    }
-
-    .reg-cta-content h3 {
-      font-size: 1.6rem;
-      margin-bottom: .4em;
-      color: var(--ink);
-    }
-
-    .reg-cta-content p {
-      font-size: .95rem;
-      color: var(--graphite);
-      margin: 0;
-      max-width: 55ch;
-    }
-
-    @media (max-width:768px) {
-      .reg-cta-card {
-        padding: 28px 22px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* ===== FOOTER & BOTTOM LOGOS ===== */
-    footer {
-      padding: 44px 0 36px;
-      border-top: 1px solid var(--line);
-      margin-top: 40px;
-    }
-
-    .footer-top {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-top img {
-      height: 38px;
-      width: auto;
-      max-width: 110px;
-      border-radius: 4px;
-      object-fit: contain;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-      font-size: .8rem;
-      color: var(--graphite);
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .vh {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-    }
-  </style>
 </head>
 
 <body>
+  <!-- ===================== CINEMATIC INTRO SCREEN ===================== -->
+  <aside id="introScreen" class="intro-screen" aria-label="AuraFeast'26 Intro Animation" role="dialog" aria-modal="true">
+    <!-- Ambient Sci-Fi Glow Backdrop -->
+    <div class="intro-bg">
+      <div class="intro-glow intro-glow-1"></div>
+      <div class="intro-glow intro-glow-2"></div>
+      <div class="intro-particles" id="introParticles"></div>
+    </div>
 
-  <canvas id="cyberCanvas" aria-hidden="true"></canvas>
-  <div class="cyber-grid-overlay" aria-hidden="true"></div>
+    <!-- Top HUD Bar -->
+    <div class="intro-topbar">
+      <div class="intro-status-chip">
+        <span class="intro-pulse-dot"></span>
+        <span class="intro-sys-text" id="introSysStatus">SYSTEM: INITIALIZING</span>
+      </div>
+      <button type="button" class="intro-skip-btn" id="introSkipBtn" aria-label="Skip Intro Animation">
+        <span>SKIP</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="5 4 15 12 5 20 5 4"></polygon>
+          <line x1="19" y1="5" x2="19" y2="19"></line>
+        </svg>
+      </button>
+    </div>
 
-  <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Sonic Boom Shockwave Ripple -->
+    <div class="intro-shockwave" id="introShockwave" aria-hidden="true"></div>
 
-  <div id="intro" aria-hidden="true">
-    <canvas id="introMatrixCanvas" aria-hidden="true"></canvas>
-    <button type="button" class="intro-skip-btn" id="introSkipBtn" aria-label="Skip introduction animation">Skip
-      &rarr;</button>
-
-    <div class="intro-mark">
-      <div class="intro-duo-row">
-        <div class="intro-logo-col">
-          <img src="ref_images/aurafeast.png" alt="AuraFeast'26 Symposium"
-            class="intro-duo-img intro-aurafeast-img intro-genesis-img">
+    <!-- Left & Right Cyber Subwoofer Speakers -->
+    <div class="intro-speaker-module intro-speaker-left" id="introSpeakerLeft" aria-hidden="true">
+      <div class="speaker-housing">
+        <div class="speaker-led-bar">
+          <span></span><span></span><span></span><span></span><span></span>
         </div>
+        <div class="speaker-driver speaker-tweeter">
+          <div class="speaker-cone"></div>
+        </div>
+        <div class="speaker-driver speaker-woofer">
+          <div class="speaker-cone"></div>
+          <div class="speaker-dust-cap"></div>
+          <div class="speaker-wave-ring r1"></div>
+          <div class="speaker-wave-ring r2"></div>
+        </div>
+        <div class="speaker-status-label">L // BASS CORE</div>
+      </div>
+    </div>
 
-        <span class="intro-in-connector">in</span>
+    <div class="intro-speaker-module intro-speaker-right" id="introSpeakerRight" aria-hidden="true">
+      <div class="speaker-housing">
+        <div class="speaker-led-bar">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="speaker-driver speaker-tweeter">
+          <div class="speaker-cone"></div>
+        </div>
+        <div class="speaker-driver speaker-woofer">
+          <div class="speaker-cone"></div>
+          <div class="speaker-dust-cap"></div>
+          <div class="speaker-wave-ring r1"></div>
+          <div class="speaker-wave-ring r2"></div>
+        </div>
+        <div class="speaker-status-label">R // BASS CORE</div>
+      </div>
+    </div>
 
-        <div class="intro-logo-col">
-          <img src="ref_images/psvpec_logo_without_bg.png" alt="PSVPEC Logo" class="intro-duo-img intro-psvpec-img">
+    <!-- Center Stage Deck -->
+    <div class="intro-container">
+      <!-- College Emblem Logo -->
+      <div class="intro-college-badge">
+        <img src="ref_images/psvpec_logo_without_bg.png" alt="PSVPEC" class="intro-college-logo">
+      </div>
+
+      <!-- Main Holographic Title with Glitch & Chromatic Aberration -->
+      <div class="intro-title-wrapper">
+        <div class="intro-glitch-title" data-text="AURAFEAST'26">
+          <span class="intro-char-layer intro-base">AURAFEAST'26</span>
+          <span class="intro-char-layer intro-glitch-r" aria-hidden="true">AURAFEAST'26</span>
+          <span class="intro-char-layer intro-glitch-b" aria-hidden="true">AURAFEAST'26</span>
         </div>
       </div>
 
-      <div class="intro-underline"></div>
+      <!-- Tagline & Badges -->
+      <div class="intro-tagline-wrap">
+        <span class="intro-tag-pill">NATIONAL LEVEL INTER-COLLEGE SYMPOSIUM</span>
+        <span class="intro-date-pill">⚡ SEPT 15, 2026 &middot; CHENNAI</span>
+      </div>
+
+      <!-- High-Tech Progress HUD Loader -->
+      <div class="intro-hud-loader">
+        <div class="intro-hud-metrics">
+          <span class="intro-hud-step" id="introHudStep">CALIBRATING NEURAL CORES...</span>
+          <span class="intro-hud-percent" id="introHudPercent">00%</span>
+        </div>
+        <div class="intro-progress-track">
+          <div class="intro-progress-bar" id="introProgressBar"></div>
+        </div>
+        <!-- Equalizer Soundwave Matrix -->
+        <div class="intro-equalizer" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cinematic Curtain Panels for Transition -->
+    <div class="intro-curtain intro-curtain-top"></div>
+    <div class="intro-curtain intro-curtain-bottom"></div>
+  </aside>
+
+  <!-- Ambient Interactive Canvas & Vibrant Aurora Background -->
+  <div class="ambient-glow-mesh" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+    <div class="ambient-orb ambient-orb-4"></div>
+  </div>
+  <canvas id="cyberCanvas" aria-hidden="true"></canvas>
+
+  <!-- ===================== HEADER & NAVBAR ===================== -->
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="navbar" aria-label="Primary Navigation">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand" aria-label="AuraFeast'26 Home">
+          <div class="brand-badge">
+            <img src="ref_images/psvpec_logo_final_no_bg.png" alt="PSVPEC Logo">
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navlinks" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <!-- Nav Actions: Replay Intro, Register Button & Mobile Menu -->
+        <div class="nav-actions">
+          <button type="button" class="btn btn-ghost btn-sm replay-intro-btn" id="replayIntroBtn" title="Replay Intro Animation" aria-label="Replay Intro Animation">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="margin-right: 4px; vertical-align: middle;">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Intro
+          </button>
+
+          <!-- Direct Register Button -->
+          <a href="https://forms.gle/aurafeast2026" class="btn btn-primary btn-sm register-link-btn" target="_blank"
+            rel="noopener noreferrer">
+            Register ↗
+          </a>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="main">
+    <!-- ===================== HERO SECTION ===================== -->
+    <section id="home" class="hero">
+      <div class="wrap">
+        <span class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          15th September 2026 &middot; PSVPEC Mini Auditorium
+        </span>
+
+        <div class="hero-grid">
+          <div>
+            <!-- Signature Poster Misregistration Duotone Headline -->
+            <div class="h1-stack">
+              <h1 aria-hidden="true" class="layer l1">AURAFEAST'26</h1>
+              <h1 aria-hidden="true" class="layer l2">AURAFEAST'26</h1>
+              <h1>AURAFEAST'26</h1>
+            </div>
+
+            <p class="hero-sub">
+              The national-level inter-college symposium presented jointly by the <strong>Department of Computer
+                Science &amp; Engineering</strong> and <strong>Department of Information Technology</strong>, Prince
+              Shri Venkateshwara Padmavathy Engineering College — six technical tracks, six non-technical tracks, one
+              unforgettable day.
+            </p>
+
+            <div class="hero-actions">
+              <a href="https://forms.gle/aurafeast2026" class="btn btn-primary btn-lg register-link-btn" target="_blank"
+                rel="noopener noreferrer">
+                Register for Symposium ↗
+              </a>
+              <a href="#events" class="btn btn-outline btn-lg">
+                Explore 12 Events
+              </a>
+            </div>
+
+            <!-- Live Countdown Timer -->
+            <div class="countdown-box">
+              <span class="countdown-label">Event Countdown</span>
+              <div class="countdown-grid">
+                <div class="countdown-unit">
+                  <div class="countdown-num" id="cdDays">00</div>
+                  <div class="countdown-text">Days</div>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                  <div class="countdown-num" id="cdHours">00</div>
+                  <div class="countdown-text">Hours</div>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                  <div class="countdown-num" id="cdMins">00</div>
+                  <div class="countdown-text">Mins</div>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                  <div class="countdown-num" id="cdSecs">00</div>
+                  <div class="countdown-text">Secs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Meta Panel (Ticket style) -->
+          <div class="hero-meta-panel">
+            <div class="meta-row">
+              <span class="label">📅 Date</span>
+              <span class="value">15th September 2026</span>
+            </div>
+            <div class="meta-row">
+              <span class="label">📍 Venue</span>
+              <span class="value">PSVPEC Mini Auditorium</span>
+            </div>
+            <div class="meta-row">
+              <span class="label">🏛️ Organizers</span>
+              <span class="value">Dept. of CSE &amp; Dept. of IT</span>
+            </div>
+            <div class="meta-row">
+              <span class="label">🎓 Eligibility</span>
+              <span class="value">1st &amp; 2nd Year Students</span>
+            </div>
+            <div class="meta-row">
+              <span class="label">🎟️ Entry Fee</span>
+              <span class="value"><span class="meta-badge-fee">&#8377;200 / Participant</span></span>
+            </div>
+            <div class="meta-row">
+              <span class="label">🏆 Perks</span>
+              <span class="value">Cash Prizes, Lunch &amp; Kits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grand Institution Announcement Banner Card (Centered Presentation) -->
+        <div class="orgs-announcement-card center-aligned" role="region" aria-label="Symposium Host Institutions">
+          <div class="announcement-header center-aligned">
+            <span class="announcement-pill">
+              📢 Jointly Organized &amp; Presented By
+            </span>
+          </div>
+
+          <div class="announcement-center-wrap">
+            <!-- Center-aligned 500px Logo -->
+            <div class="main-institution-logo-wrap">
+              <img src="ref_images/psvpec_logo_final_no_bg.png" alt="PSVPEC Logo" class="main-institution-logo">
+            </div>
+
+            <!-- Center-aligned Department Details -->
+            <div class="announcement-details center-aligned">
+              <div class="dept-entry">
+                <h3 class="dept-name">Department of Computer Science &amp; Engineering</h3>
+                <p class="college-name">Prince Shri Venkateshwara Padmavathy Engineering College, Ponmar, Chennai</p>
+              </div>
+
+              <div class="dept-divider center-aligned">
+                <span>&amp;</span>
+              </div>
+
+              <div class="dept-entry">
+                <h3 class="dept-name">Department of Information Technology</h3>
+                <p class="college-name">Prince Shri Venkateshwara Padmavathy Engineering College, Ponmar, Chennai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EVENTS SHOWCASE SECTION ===================== -->
+    <section id="events" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">// EVENTS SHOWCASE</span>
+          <h2 class="section-title">Compete &amp; Innovate Across 12 Events</h2>
+          <p class="section-subtitle">
+            Six technical competitions for sharp engineering minds and six non-technical battles celebrating strategy,
+            trivia, arts, and wit.
+          </p>
+        </div>
+
+        <!-- Category Filter & Search Bar -->
+        <div class="events-filter-bar">
+          <div class="filter-tabs" role="tablist">
+            <button type="button" class="filter-tab active" data-category="all" role="tab">All Events (12)</button>
+            <button type="button" class="filter-tab" data-category="technical" role="tab">⚡ Technical (6)</button>
+            <button type="button" class="filter-tab" data-category="non-technical" role="tab">🎯 Non-Technical
+              (6)</button>
+          </div>
+
+          <div class="filter-search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input type="text" id="eventSearch" placeholder="Search events, topics..." aria-label="Search events">
+          </div>
+        </div>
+
+        <!-- Dynamic Events Grid Container -->
+        <div class="events-grid" id="eventsGrid">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SCHEDULE TIMELINE SECTION ===================== -->
+    <section id="schedule" class="section">
+      <div class="wrap">
+        <div class="section-head" style="text-align: center;">
+          <span class="section-tag">// SYMPOSIUM AGENDA</span>
+          <h2 class="section-title">Schedule of the Day</h2>
+          <p class="section-subtitle" style="margin: 8px auto 0;">
+            A full day of intense challenges, networking sessions, lunch feasts, and celebratory awards.
+          </p>
+        </div>
+
+        <div class="timeline-wrap">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-time">08:30 AM – 09:30 AM</span>
+              <h3 class="timeline-title">Registration Desk &amp; Kit Distribution</h3>
+              <p class="timeline-desc">Check-in at the registration desk, collect your delegate kit, and head to the
+                auditorium.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-time">09:30 AM – 10:15 AM</span>
+              <h3 class="timeline-title">Grand Inaugural Ceremony</h3>
+              <p class="timeline-desc">Welcome address by dignitaries, keynotes from industry leaders, and official
+                opening
+                declaration.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-time">10:30 AM – 01:00 PM</span>
+              <h3 class="timeline-title">Round 1: Technical &amp; Non-Technical Tracks</h3>
+              <p class="timeline-desc">Simultaneous competitive rounds across computer labs, seminar halls, and
+                designated
+                arenas.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-time">01:00 PM – 02:00 PM</span>
+              <h3 class="timeline-title">Networking Lunch &amp; Feast</h3>
+              <p class="timeline-desc">Enjoy complimentary lunch feast and connect with student innovators from across
+                institutions.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-time">02:00 PM – 03:45 PM</span>
+              <h3 class="timeline-title">Final Knockouts &amp; Stage Showdowns</h3>
+              <p class="timeline-desc">High-stakes final rounds for top qualifiers in Paper Defense, Coding Arena, playVerse Arena, and Flip the Channel.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 6 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-time">03:45 PM – 05:00 PM</span>
+              <h3 class="timeline-title">Valedictory Ceremony &amp; Prize Distribution</h3>
+              <p class="timeline-desc">Awarding championship trophies, cash prizes, and certificates of excellence to
+                top
+                performers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REGISTRATION CTA SECTION ===================== -->
+    <section id="register" class="section">
+      <div class="wrap">
+        <div class="register-cta-card">
+          <div class="register-cta-grid">
+            <div>
+              <span class="section-tag" style="color: var(--secondary-br);">// JOIN THE FEAST</span>
+              <h2 class="section-title" style="font-size: clamp(28px, 4vw, 42px);">
+                Ready to make your mark at AuraFeast'26?
+              </h2>
+              <p style="color: var(--graphite); margin-top: 10px; font-size: 1rem; line-height: 1.6;">
+                Grab your spot now! A single registration grants you access to participate across your preferred
+                technical
+                and non-technical tracks.
+              </p>
+
+              <div class="cta-perks">
+                <div class="perk-item">
+                  <div class="perk-icon">✓</div>
+                  <span>Official Certificate</span>
+                </div>
+                <div class="perk-item">
+                  <div class="perk-icon">✓</div>
+                  <span>Delicious Lunch Feast</span>
+                </div>
+                <div class="perk-item">
+                  <div class="perk-icon">✓</div>
+                  <span>Cash Awards &amp; Trophies</span>
+                </div>
+                <div class="perk-item">
+                  <div class="perk-icon">✓</div>
+                  <span>Welcome Delegate Kit</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <a href="https://forms.gle/aurafeast2026" class="btn btn-accent btn-lg register-link-btn"
+                  target="_blank" rel="noopener noreferrer">
+                  Complete Registration on Google Forms ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="cta-fee-box">
+              <span
+                style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--secondary); font-weight: 700;">
+                All-Inclusive Registration Fee
+              </span>
+              <div class="fee-amount">&#8377;200</div>
+              <div class="fee-sub">per participant &middot; unlimited access</div>
+              <p style="font-size: 0.85rem; color: var(--graphite); margin-top: 14px;">
+                On-spot desk verification &amp; instant pass collection upon arrival on September 15.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">// ABOUT INSTITUTION</span>
+          <h2 class="section-title">Departments of CSE &amp; IT, PSVPEC</h2>
+          <p class="section-subtitle">
+            Fostering innovation, engineering excellence, and hands-on technological leadership.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>🏛️ About PSVPEC</h3>
+            <p>
+              Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), situated in Ponmar, Chennai, is an
+              autonomous institution established with the mission to impart quality engineering education, promote
+              applied research, and nurture ethical professionals.
+            </p>
+            <p>
+              Equipped with state-of-the-art computational infrastructure, industry-supported Centers of Excellence,
+              and dedicated faculty mentorship, the college consistently achieves outstanding academic and placement
+              milestones.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>⚡ CSE &amp; IT Departments</h3>
+            <p>
+              The Departments of Computer Science &amp; Engineering and Information Technology represent the epicenters
+              of technological dynamism at PSVPEC.
+            </p>
+            <p>
+              From cloud architectures and artificial intelligence to cybersecurity and modern web engineering, the
+              departments foster a vibrant ecosystem of hackathons, symposiums, technical paper forums, and open-source
+              developer communities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ SECTION ===================== -->
+    <section id="faq" class="section">
+      <div class="wrap">
+        <div class="section-head" style="text-align: center;">
+          <span class="section-tag">// FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title">Everything You Need to Know</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-summary">
+              <span>Who is eligible to participate in AuraFeast'26?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="faq-content">
+              1st and 2nd year undergraduate students belonging to any recognized engineering, technology, arts, and
+              science institutions are eligible to register and participate.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Can I participate in multiple events?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes! You can participate in multiple events as long as the event schedules do not clash. We recommend
+              selecting 1 Technical and 1 or 2 Non-Technical events.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Will lunch and participation certificates be provided?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes. All registered attendees receive an official Certificate of Participation, a welcome kit, and a
+              networking lunch feast.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>What should I bring on the day of the event?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Please bring your valid College ID Card (mandatory for gate entry and verification) , a laptop for tech
+              events
+              and any event-specific
+              materials (such as your presentation slides or camera).
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>How do I reach the college campus?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="faq-content">
+              PSVPEC is conveniently located at Ponmar (near Medavakkam / Mambakkam), Chennai. College buses and public
+              MTC transport routes are readily available from major city hubs including Tambaram, Medavakkam, and
+              Koyambedu.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== EVENT DETAILS MODAL ===================== -->
+  <div id="eventModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalEventTitle">
+    <div class="modal-card">
+      <div id="modalDetailsContainer">
+        <!-- Content injected dynamically via script.js -->
+      </div>
     </div>
   </div>
 
-  <header class="site">
-    <nav class="nav" aria-label="Primary">
-      <a href="#home" class="brand">
-        <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo"
-          style="height:38px; width:auto; border-radius:3px; object-fit:contain;">
-        <span class="brand-text">AURAFEAST<span>'26</span></span>
-      </a>
-      <ul class="navlinks" id="navLinks">
-        <li><a href="#technical">Technical</a></li>
-        <li><a href="#non-technical">Non-Technical</a></li>
-        <li><a href="#register">Register</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-      <div class="nav-actions">
-        <div class="theme-switch" role="radiogroup" aria-label="Theme preference">
-          <button type="button" class="theme-btn" data-theme-set="light" title="Light theme" aria-label="Light theme"
-            aria-checked="false">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5" />
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-          </button>
-          <button type="button" class="theme-btn" data-theme-set="system" title="System theme (Default)"
-            aria-label="System theme (Default)" aria-checked="true">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-          </button>
-          <button type="button" class="theme-btn" data-theme-set="dark" title="Dark Blue theme"
-            aria-label="Dark Blue theme" aria-checked="false">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
-          aria-label="Toggle menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <main id="main">
-
-    <!-- ===== HERO ===== -->
-    <section id="home" class="hero">
-      <div class="numeral">01</div>
-      <div class="wrap section-inner">
-        <div class="hero-grid">
-          <div>
-            <p class="presented-by">Dept. of CSE &amp; Dept. of IT, PSVPEC present</p>
-            <h1>AURAFEAST'26</h1>
-            <div class="hero-underline"></div>
-            <p class="hero-sub">The inter-college symposium of Prince Shri Venkateshwara Padmavathy Engineering College
-              — six technical events, six non-technical events, one day.</p>
-            <div class="hero-actions">
-              <a href="#register" class="btn btn-primary register-btn">Register your spot</a>
-              <a href="#technical" class="btn btn-outline">Explore events</a>
-            </div>
-          </div>
-          <div class="hero-meta-panel">
-            <div class="row"><span>EVENT</span><span>AuraFeast'26, Inter College Symposium</span></div>
-            <div class="row"><span>DATE</span><span>15th September</span></div>
-            <div class="row"><span>VENUE</span><span>PSVPEC Mini Auditorium</span></div>
-            <div class="row"><span>HOSTS</span><span>Dept. of CSE &amp; Dept. of IT</span></div>
-            <div class="row"><span>ELIGIBILITY</span><span>1st &amp; 2nd Year Students</span></div>
-            <div class="row"><span>ENTRY FEE</span><span>&#8377;200 per participant</span></div>
-            <div class="row"><span>COLLEGE</span><span>Prince Shri Venkateshwara Padmavathy Engineering College</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="orgs-strip">
-          <div class="org-logos-wrap">
-            <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo" class="org-logo">
-            <img src="ref_images/prince_logo_shield.jpeg" alt="Prince Crest Shield" class="org-logo">
-          </div>
-          <div class="dept-block"><strong>Department of Computer Science &amp; Engineering</strong>PSVPEC, Ponmar,
-            Chennai</div>
-          <div class="dept-block"><strong>Department of Information Technology</strong>PSVPEC, Ponmar, Chennai</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== TECHNICAL EVENTS ===== -->
-    <section id="technical">
-      <div class="numeral">02</div>
-      <div class="wrap section-inner">
-        <div class="section-head reveal">
-          <p class="eyebrow">Track 01</p>
-          <h2>Technical Events</h2>
-          <p>Six events built for builders, breakers, and debuggers.</p>
-        </div>
-        <div class="grid" id="technicalGrid"></div>
-      </div>
-    </section>
-
-    <!-- ===== NON-TECHNICAL EVENTS ===== -->
-    <section id="non-technical">
-      <div class="numeral">03</div>
-      <div class="wrap section-inner">
-        <div class="section-head reveal">
-          <p class="eyebrow">Track 02</p>
-          <h2>Non-Technical Events</h2>
-          <p>Strategy, wit, and chaos-management — no code required.</p>
-        </div>
-        <div class="grid" id="nonTechnicalGrid"></div>
-      </div>
-    </section>
-
-    <!-- ===== REGISTRATION SECTION / LAUNCHPAD ===== -->
-    <section id="register">
-      <div class="numeral">04</div>
-      <div class="wrap section-inner">
-        <div class="section-head reveal">
-          <p class="eyebrow">Official Registration</p>
-          <h2>Register for AuraFeast'26</h2>
-          <p>Ready to compete, present, and showcase your skills? Join us for an extraordinary symposium experience.</p>
-        </div>
-        <div class="reg-cta-card reveal">
-          <div class="reg-cta-content">
-            <h3>Ready to make your mark at AuraFeast'26?</h3>
-            <p>12 events across 2 tracks, &#8377;200 entry fee, food, official certificates, and exciting cash prizes.
-              Open to 1st &amp; 2nd year students across all colleges.</p>
-          </div>
-          <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-primary register-btn"
-            style="padding:1.1em 2.2em; font-size:1rem; text-decoration:none;">
-            Register Now &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ABOUT ===== -->
-    <section id="about" style="border-bottom:none;">
-      <div class="numeral">05</div>
-      <div class="wrap section-inner">
-        <div class="section-head reveal" style="margin-bottom:24px;">
-          <p class="eyebrow">About</p>
-          <h2>Hosted by PSVPEC</h2>
-          <p>AuraFeast'26 is organised by the Department of Computer Science &amp; Engineering and the Department of
-            Information Technology at Prince Shri Venkateshwara Padmavathy Engineering College, Ponmar, Chennai —
-            bringing together students from across colleges for a day of building, competing, and connecting. Held on
-            15th September at the PSVPEC Mini Auditorium.</p>
-        </div>
-        <div class="org-logos-wrap" style="padding-top:16px;">
-          <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo" class="org-logo">
-          <img src="ref_images/prince_logo_shield.jpeg" alt="Prince Shield Crest" class="org-logo">
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
     <div class="wrap">
-      <div class="footer-top">
-        <img src="ref_images/psvpec_logo.jpeg" alt="PSVPEC Logo">
-        <img src="ref_images/prince_logo_shield.jpeg"
-          alt="Prince Shri Venkateshwara Padmavathy Engineering College crest">
-        <span class="brand-text" style="font-size:1rem;">Prince Shri Venkateshwara Padmavathy Engineering College</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand" style="margin-bottom: 8px;">
+            <div class="brand-badge">
+              <img src="ref_images/psvpec_logo_final_no_bg.png" alt="PSVPEC Logo">
+            </div>
+            <span class="brand-text">AURAFEAST<span>'26</span></span>
+          </a>
+          <p>
+            National-Level Inter-College Symposium organized by the Department of Computer Science &amp; Engineering
+            &amp;
+            Department of Information Technology, Prince Shri Venkateshwara Padmavathy Engineering College.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">All 12 Events</a></li>
+            <li><a href="#schedule">Timeline Agenda</a></li>
+            <li><a href="#register">Register for Symposium</a></li>
+            <li><a href="#faq">FAQ &amp; Guidelines</a></li>
+            <li><a href="#replay-intro" id="footerReplayIntroBtn" style="color: var(--primary); font-weight: 600;">🎬 Replay Intro Animation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Venue &amp; Coordinators</h4>
+          <p style="color: var(--graphite); font-size: 0.9rem; line-height: 1.6; margin-bottom: 12px;">
+            <strong>Prince Shri Venkateshwara Padmavathy Engineering College</strong><br>
+            Medavakkam - Mambakkam Main Road, Ponmar, Chennai &ndash; 600 127.
+          </p>
+          <p style="color: var(--graphite); font-size: 0.88rem;">
+            <strong>Convenors:</strong> HOD CSE &amp; HOD IT<br>
+            <strong>Email:</strong> aurafeast2026@psvpec.in
+          </p>
+        </div>
       </div>
+
       <div class="footer-bottom">
-        <span>AuraFeast'26 &middot; Inter College Symposium &middot; 15th September &middot; PSVPEC Mini
-          Auditorium</span>
-        <span class="mono">Dept. of CSE &amp; Dept. of IT</span>
+        <span>&copy; 2026 AuraFeast. Department of CSE &amp; Department of IT, PSVPEC. All rights reserved.</span>
+        <span>Zero Backend &middot; Static Web Architecture</span>
       </div>
     </div>
   </footer>
 
-  <script>
-    /* ===== EVENT DATA WITH IMAGES & EXPANDED 2-PARAGRAPH DESCRIPTIONS ===== */
-    const technicalEvents = [
-      {
-        title: "Paper Presentation",
-        image: "ref_images/paper_presentation.jpg",
-        desc1: "Paper Presentation at AuraFeast'26 invites aspiring researchers, student engineers, and technical innovators to present their original findings, theoretical insights, and implementation prototypes before a distinguished jury of senior academicians and industry veterans. Participants are encouraged to explore cutting-edge engineering domains including Generative Artificial Intelligence, Quantum Computing architectures, Next-Generation Blockchain systems, Cloud-Native Distributed Systems, Internet of Things (IoT) hardware frameworks, Edge Analytics, and Sustainable Computing. Each registered team must submit their IEEE formatted manuscript prior to the event, ensuring strict compliance with scientific writing rigor, novelty of methodology, structured experimentation, and citation integrity. The preliminary screening shortlists the most promising papers for live presentation on stage, where teams deliver a structured 8-minute slide deck presentation followed by a rigorous 4-minute defense session addressing targeted questions from the jury and audience.",
-        desc2: "The judging rubric is weighted heavily on conceptual originality, real-world engineering feasibility, depth of mathematical and empirical validation, and clarity of articulation. Presenters must demonstrate a thorough literature survey, articulate the distinct gap their solution bridges, and provide concrete benchmark metrics or working proof-of-concept demonstrations. Teams of up to three members are permitted, and all participants must be prepared with both offline slide backups and relevant code repositories or analytical charts. Critical emphasis is placed on the presenter's ability to defend algorithmic assumptions, time-complexity trade-offs, and scalability bottlenecks during the interactive panel interrogation. Outstanding presentations that demonstrate groundbreaking research merit will receive top honors, publication recommendations, cash awards, and certificates of excellence."
-      },
-      {
-        title: "Coding Challenge",
-        image: "ref_images/coding_challenge.jpg",
-        desc1: "The Coding Challenge is the flagship algorithmic battleground of AuraFeast'26, designed to push competitive programmers, software crafters, and problem-solvers to their absolute intellectual limits in a high-intensity timed environment. Spread across multi-tiered rounds of increasing computational complexity, the contest features an eclectic spectrum of problem statements spanning dynamic programming, graph theory traversal algorithms, advanced tree structures, combinatorial optimization, greedy heuristics, bit manipulation, and number theory. Competitors are required to implement optimized solutions under strict execution time limits (sub-second bounds) and stringent memory constraints, with instant automated judging on hidden edge cases, boundary conditions, and stress tests. Whether you are tackling intricate shortest-path queries on weighted directed graphs or optimizing multi-dimensional memoization states, every single keystroke counts toward your leaderboard standing.",
-        desc2: "Participants can choose their preferred programming language from industry-standard options including C++, Java, Python 3, and Kotlin, running in a sandboxed, cheat-monitored IDE environment. The scoring mechanism adopts a dynamic penalty-time matrix where speed, first-attempt accuracy, and submission efficiency directly dictate final rankings on the live tournament leaderboard. Plagiarism detection algorithms and real-time screen audits operate throughout the contest window to preserve competitive integrity. In the nerve-wracking final lightning round, ties are broken through blind optimization tests and code-golf constraint challenges where clean, idiomatic, and minimal-overhead code reigns supreme. The top three algorithmic architects will walk away with prestigious trophies, merit mementos, cash rewards, and direct commendations."
-      },
-      {
-        title: "Web Design Challenge",
-        image: "ref_images/web_designs.jpg",
-        desc1: "The Web Design Challenge is an exhilarating creative and technical hack-sprint where front-end developers, UI designers, and web enthusiasts are tasked with building visually stunning, accessible, and high-performance digital experiences from the ground up within a pressurized countdown window. At the opening whistle, teams are unveiled a classified real-world theme—ranging from modern Web3 dApp landing interfaces and interactive AI dashboard portals to next-gen fintech workflows and futuristic cyber-symposium microsites. Armed with modern web technologies such as HTML5, CSS3, modern JavaScript, and responsive layout paradigms like CSS Grid and Flexbox, participants must conceptualize, wireframe, and code fully functional web applications that wow both users and technical judges from the first glance.",
-        desc2: "Judges evaluate submissions across a holistic matrix encompassing visual aesthetic excellence, typography hierarchy, color harmony, fluid micro-interactions, mobile-first responsive adaptability across all screen viewports, and clean modular code architecture. Extra points are awarded for adhering to semantic HTML standards, WCAG accessibility guidelines, blazing-fast asset optimization, and innovative glassmorphic or dark-mode styling. External CSS frameworks and pre-built templates are strictly prohibited to ensure that every visual component and animation is handcrafted directly on site. Teams of up to two members must pitch their deployed live site during the final review round, explaining their design philosophy, DOM performance considerations, and UX rationale to secure top podium honors."
-      },
-      {
-        title: "UIXpert",
-        image: "ref_images/UIXpert.jpg",
-        desc1: "UIXpert is a premier design thinking and user experience arena crafted for visionary product designers, interaction architects, and design strategists who believe great software begins with human empathy and intuitive interfaces. Participants are plunged into an authentic product discovery scenario where they are given a multifaceted problem statement reflecting modern digital bottlenecks—such as redesigning healthcare emergency tele-consultation workflows, architecting gamified micro-investment apps for Gen-Z, or building universal accessibility tools for neurodivergent individuals. Working individually or in duos, competitors must deconstruct user friction, map out user personas, construct comprehensive information architecture maps, and build end-to-end interactive prototypes.",
-        desc2: "Deliverables are submitted using leading collaborative prototyping software such as Figma, Adobe XD, or Penpot, encompassing low-fidelity wireframes, high-fidelity UI screens, design token systems, and interactive clickable prototypes. The judging panel—comprising seasoned industry UI/UX practitioners—evaluates entries based on user research rigor, design system consistency, typographic balance, intuitive cognitive affordance, and overall visual polish. During the concluding showcase pitch, designers present their end-to-end Figma workflows, justifying their user journey decisions, design tradeoffs, and visual psychology choices. Final winners are rewarded with industry acclaim, merit trophies, cash prizes, and digital portfolio endorsements."
-      },
-      {
-        title: "Bug Busters",
-        image: "ref_images/bug_finder.jpg",
-        desc1: "Bug Busters is the ultimate software triage and diagnostic sprint designed to test participants' code comprehension, debugging intuition, and troubleshooting speed across complex real-world codebases. Participants are thrust into heavily flawed source code repositories written in C, C++, Java, and Python, riddled with subtle memory leaks, off-by-one errors, dangling pointers, null-pointer dereferences, race conditions, concurrency deadlocks, and algorithmic logic traps. The challenge is partitioned into multiple escalating stages: from rapid-fire code inspection and spot-the-error trivia to full-scale stack trace analysis and live patching under an unforgiving ticking clock. Every round demands deep knowledge of language runtimes, compiler behaviors, and edge-case execution environments.",
-        desc2: "Contestants must not only identify and eradicate the hidden flaws but also ensure that their repaired code passes a comprehensive battery of regression unit tests without introducing new performance overhead or breaking existing functionality. The use of debugging tools, memory profilers, compiler flags, and systematic root-cause analysis is heavily rewarded. Scoring is dynamically calculated based on the number of successfully resolved test suites, time elapsed per bug, and the elegance of the patch applied. In the event of a tie, an intense blind-debugging knockout round requires competitors to diagnose compiled binary outputs and obfuscated scripts to determine the champions of the debugging arena."
-      },
-      {
-        title: "CyberQuest",
-        image: "ref_images/CyberQuest.jpg",
-        desc1: "CyberQuest is an electrifying Capture-The-Flag (CTF) and ethical security quest engineered for cybersecurity enthusiasts, penetration testers, and digital forensics detectives. Set within an isolated, sandboxed virtual network environment, teams are confronted with diverse security challenges spanning Web Application Security (SQLi, XSS, CSRF, IDOR, SSRF), Cryptography (ciphers, hashing weaknesses, RSA factoring), Reverse Engineering, Memory Exploitation, Network Packet Forensics (PCAP analysis), and OSINT recon. Participants must systematically inspect vulnerable server instances, decode obscure cryptographic payloads, exploit backend misconfigurations, and retrieve hidden flags obscured deep inside servers, databases, and network traffic.",
-        desc2: "The contest follows a dynamic-scoring CTF format where harder challenges yield higher point allocations, with real-time score adjustments based on the number of team solves. Competitors are encouraged to leverage industry-standard defensive and analytical tooling such as Wireshark, Burp Suite, Ghidra, GDB, John the Ripper, and Python scripting libraries. Strict ethical guidelines are enforced: automated DoS attacks against infrastructure, flag sharing, and out-of-scope subnet scanning lead to immediate disqualification. The team that exhibits the most methodical analytical mindset, tactical exploit chain execution, and persistent problem-solving under pressure will be crowned the CyberQuest Champion of AuraFeast'26."
-      }
-    ];
-
-    const nonTechnicalEvents = [
-      {
-        title: "Photo Hunt",
-        image: "ref_images/photography.jpg",
-        desc1: "Photo Hunt is a high-octane campus-wide visual scavenger hunt that blends sharp observation, speed, photographic artistry, and riddle-solving prowess across the expansive grounds of PSVPEC. Registered teams receive a cryptic dossier containing a sequence of poetic riddles, architectural clues, perspective puzzles, and lighting challenges that describe concealed landmarks, distinctive campus geometry, and spontaneous moments. Participants must sprint across designated safe campus zones, decode the riddles to pinpoint the exact location or subject, and capture compelling high-resolution photographs that satisfy both the conceptual clue and professional aesthetic standards of photography.",
-        desc2: "Photographs are evaluated on framing composition (rule of thirds, leading lines, golden ratio), lighting balance, color grading, perspective storytelling, and fidelity to the riddle criteria. Teams may use DSLRs, mirrorless cameras, or modern smartphone cameras, provided that all submissions are captured live during the official event time window without downloading pre-existing images or using generative AI augmentations. A jury of visual artists reviews the photo metadata, timestamp logs, and artistic merit to select the winning teams. The fastest and most creative teams take home cash rewards, photography gear vouchers, and framed showcase exhibitions."
-      },
-      {
-        title: "IPL Auction",
-        image: "ref_images/IPL Auction.webp",
-        desc1: "The IPL Auction is a thrilling, high-stakes sports management simulation that immerses cricket aficionados and data strategists into the frantic, tactical boardroom environment of an official Indian Premier League bidding war. Each team steps into the shoes of franchise owners and head coaches, equipped with a fixed virtual purse, strict squad composition constraints (including overseas player limits, uncapped Indian talents, specialized wicketkeepers, all-rounders, and bowling arsenals), and a massive roster of international and domestic cricket superstars. The auctioneer introduces player cards across marquee, capped, and emerging sets, challenging teams to manage their financial capital, read opposing franchise intentions, and bid strategically.",
-        desc2: "Success in the IPL Auction demands far more than raw cricket trivia; it requires intricate probabilistic budgeting, dynamic bidding strategy, composure under intense bidding wars, and acute awareness of squad synergy. Overbidding on marquee superstars can deplete crucial funds needed for balanced middle-order depth, while over-conservatism can leave teams with unspent purse and weak match-winners. Upon the conclusion of the bidding rounds, franchises must submit their final playing XI and full 15-player squads, which are mathematically evaluated against historical T20 performance metrics, player chemistry ratings, balance indexes, and simulated tournament fixtures to crown the Ultimate IPL Franchise of AuraFeast'26."
-      },
-      {
-        title: "Quiz Mania",
-        image: "ref_images/Quiz_Mania.jpg",
-        desc1: "Quiz Mania is the quintessential multi-disciplinary battle of wits and intellectual quickness, drawing the sharpest minds to battle across a spectrum of trivia domains. The quiz spans an exhilarating variety of rounds encompassing Global Current Affairs, Landmark Scientific Breakthroughs, Pop Culture & Cinema Lore, Tech History, Business & Brand Titans, Geography, Sports Chronicles, and Mind-Bending Visual Connects. The preliminary written elimination round filters the top-scoring teams into a high-stakes grand finale hosted on the main auditorium stage, featuring interactive media rounds, audio clues, deciphering anagrams, and high-risk bidding question matrices.",
-        desc2: "The final stage introduces the dreaded buzzer round with negative marking, where lightning-fast reaction speed combined with absolute factual confidence can make or break a team's championship dreams. Teams of two or three members must coordinate seamlessly, knowing when to take calculated risks on half-hints and when to hold back to protect their point lead. The quizmaster commands a vibrant, suspenseful atmosphere with sudden-death tiebreakers and audience rounds ensuring non-stop engagement. Top-ranked quiz teams receive grand trophies, cash prizes, and the revered Quiz Mania Championship title."
-      },
-      {
-        title: "Meme Mania",
-        image: "ref_images/Meme_Mania.png",
-        desc1: "Meme Mania is a vibrant celebration of internet culture, satirical storytelling, and creative humor where digital creators and wit masters compete to craft the most relatable, hilarious, and viral memes of the year. Upon registration, participants are provided a set of live surprise themes touching on college life, engineering struggles, bug fixing at 3 AM, AI taking over the world, corporate work culture, and current trending news events. Given a fixed creation window, competitors must draft original, punchy captioning and visual pairings using popular templates or custom graphic designs that deliver maximum comedic impact in a split second.",
-        desc2: "Submissions are reviewed by a jury of creative directors and social media strategists, judging on originality, comedic timing, contextual relevance to the prompt, visual typography, and punchline delivery without relying on offensive, derogatory, or plagiarized content. Participants are encouraged to submit single-panel formats, comic strips, or carousel meme formats. In the final exhibition round, shortlisted creators present their memes on the auditorium big screen to gauge organic audience laughter and applause metrics. The funniest meme architects earn cash prizes, creative merchandise, and the title of AuraFeast Meme Champion."
-      },
-      {
-        title: "MOVQuiz",
-        image: "ref_images/movquiz.png",
-        fit: "contain",
-        desc1: "MOVQuiz is the ultimate cinematic trivia showdown and movie quiz competition designed for passionate cinephiles, film buffs, and pop-culture enthusiasts. The event spans an exciting and diverse range of rounds exploring iconic cinematic universes, cult classics, world cinema, regional blockbusters, Oscar-winning masterpieces, and indie sensations. Participants will be challenged with identifying famous dialogue hooks, deciphering pixelated movie posters, recognizing signature musical scores and OSTs, guessing movies through emojis, and untangling intricate character lore and director filmographies.",
-        desc2: "The competition kicks off with a rapid preliminary written quiz to determine the sharpest film minds, followed by an electrifying on-stage grand finale featuring buzzer-beater rounds, video clip deconstructions, and high-risk audio visual connect puzzles. Teams of two or three must collaborate with lightning-quick reflexes, recalling behind-the-scenes trivia, director easter eggs, and box office records under ticking countdown clocks. The top movie savants will walk away with prestigious trophies, exciting cash prizes, exclusive film merchandise, and the esteemed AuraFeast'26 Cinephile Champion title."
-      },
-      {
-        title: "Chess",
-        image: "ref_images/chess.png",
-        desc1: "Chess at AuraFeast'26 is the ultimate intellectual arena and battle of minds, inviting future grandmasters, tacticians, and strategic thinkers to test their foresight, tactical acumen, and composure across the 64 squares. Played under standard rapid and blitz time controls with digital chess clocks, the tournament brings together passionate players across colleges in a multi-round Swiss-system elimination format. Competitors must calculate complex positional lines, navigate intricate opening repertoires, execute decisive middlegame tactics, and demonstrate flawless endgame technique under the relentless pressure of the ticking clock.",
-        desc2: "Each round demands acute focus, deep calculation, and psychological resilience as players manage their time budgets and exploit opponent weaknesses. The tournament strictly adheres to official tournament regulations, overseen by certified arbiters to ensure fair play and sportsmanlike conduct. From sharp tactical sacrifices to subtle positional maneuvers, every move is a testament to strategic mastery. Top qualifiers advance to the high-stakes knockout finals, where tiebreakers and sudden-death matches decide the tournament victor. The champion will be awarded the prestigious AuraFeast'26 Chess Grand Trophy, cash prizes, and official certificates of championship distinction."
-      }
-    ];
-
-    function renderCards(list, containerId, isTechnical) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = list.map((ev, i) => `
-    <article class="card reveal">
-      <div class="card-img-wrap ${ev.fit === 'contain' ? 'card-img-wrap-contain' : ''}">
-        <img src="${ev.image}" alt="${ev.title}" class="card-img ${ev.fit === 'contain' ? 'card-img-contain' : ''}" loading="lazy">
-        <span class="card-badge">${isTechnical ? 'Technical' : 'Non-Technical'}</span>
-      </div>
-      <div class="card-body">
-        <span class="tag">Track ${isTechnical ? '01' : '02'} · 0${i + 1}</span>
-        <h3>${ev.title}</h3>
-        <div class="card-desc-group">
-          <p>${ev.desc1}</p>
-          <p>${ev.desc2}</p>
-        </div>
-      </div>
-    </article>
-  `).join('');
-    }
-    renderCards(technicalEvents, 'technicalGrid', true);
-    renderCards(nonTechnicalEvents, 'nonTechnicalGrid', false);
-
-
-
-    /* ===== INTRO MATRIX BINARY RAIN & 6S SEQUENCE ===== */
-    (function initIntroMatrix() {
-      const introEl = document.getElementById('intro');
-      const canvas = document.getElementById('introMatrixCanvas');
-      if (!canvas || !introEl) return;
-      const ctx = canvas.getContext('2d');
-      let width, height, columns, drops = [];
-      let animId = null;
-      const fontSize = 16;
-      const binaryChars = '0100101011010110010101010110010101010110101101010100110101';
-
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        columns = Math.floor(width / fontSize);
-        drops = [];
-        for (let i = 0; i < columns; i++) {
-          drops[i] = {
-            y: Math.random() * -80,
-            speed: 0.3 + Math.random() * 0.45,
-            chars: [],
-            length: 14 + Math.floor(Math.random() * 18)
-          };
-        }
-      }
-
-      function draw() {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
-          (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-        // Smooth fade trail for half-speed rainfall
-        ctx.fillStyle = isDark ? 'rgba(7, 11, 22, 0.12)' : 'rgba(247, 246, 242, 0.12)';
-        ctx.fillRect(0, 0, width, height);
-
-        ctx.font = `${fontSize}px 'JetBrains Mono', 'Courier New', monospace`;
-
-        for (let i = 0; i < drops.length; i++) {
-          const drop = drops[i];
-          if (Math.random() > 0.3 || drop.chars.length === 0) {
-            const char = binaryChars[Math.floor(Math.random() * binaryChars.length)];
-            drop.chars.unshift(char);
-            if (drop.chars.length > drop.length) drop.chars.pop();
-          }
-
-          const x = i * fontSize;
-
-          for (let j = 0; j < drop.chars.length; j++) {
-            const y = (drop.y - j) * fontSize;
-            if (y < -fontSize || y > height + fontSize) continue;
-
-            const progress = j / drop.chars.length;
-            if (j === 0) {
-              // Leading binary character glow
-              ctx.fillStyle = isDark ? '#ffffff' : '#1e3a8a';
-              ctx.shadowColor = isDark ? '#38bdf8' : '#3b82f6';
-              ctx.shadowBlur = isDark ? 8 : 2;
-            } else {
-              // Trailing digits fading out
-              const alpha = (1 - progress) * (isDark ? 0.75 : 0.55);
-              ctx.fillStyle = isDark
-                ? `rgba(56, 189, 248, ${alpha})`
-                : `rgba(47, 92, 255, ${alpha})`;
-              ctx.shadowBlur = 0;
-            }
-            ctx.fillText(drop.chars[j], x, y);
-          }
-
-          drop.y += drop.speed;
-          if (drop.y - drop.length > height / fontSize && Math.random() > 0.97) {
-            drop.y = 0;
-            drop.speed = 0.3 + Math.random() * 0.45;
-            drop.chars = [];
-            drop.length = 14 + Math.floor(Math.random() * 18);
-          }
-        }
-
-        if (!introEl.classList.contains('hide')) {
-          animId = requestAnimationFrame(draw);
-        }
-      }
-
-      window.addEventListener('resize', resize, { passive: true });
-      resize();
-      animId = requestAnimationFrame(draw);
-
-      // Release animation resources once intro finishes
-      const observer = new MutationObserver(() => {
-        if (introEl.classList.contains('hide')) {
-          if (animId) cancelAnimationFrame(animId);
-          observer.disconnect();
-        }
-      });
-      observer.observe(introEl, { attributes: true, attributeFilter: ['class'] });
-    })();
-
-    /* ===== INTRO RUNNER (6 SECONDS DURATION) ===== */
-    window.addEventListener('load', () => {
-      const intro = document.getElementById('intro');
-      let hideTimeout = setTimeout(() => {
-        if (intro) intro.classList.add('hide');
-      }, 6000);
-
-      const skipBtn = document.getElementById('introSkipBtn');
-      if (skipBtn && intro) {
-        skipBtn.addEventListener('click', () => {
-          clearTimeout(hideTimeout);
-          intro.classList.add('hide');
-        });
-      }
-
-      if (window.lucide) lucide.createIcons();
-    });
-
-    /* ===== REGISTRATION LINK HANDLER ===== */
-    const REGISTRATION_URL = ""; // Fill in your registration Google Form / Portal URL here
-
-    document.querySelectorAll('.register-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        if (REGISTRATION_URL && REGISTRATION_URL.trim() !== "") {
-          window.open(REGISTRATION_URL, '_blank', 'noopener,noreferrer');
-          e.preventDefault();
-        } else {
-          e.preventDefault();
-          alert("Registration link will be updated soon!");
-        }
-      });
-    });
-
-    /* ===== NAV TOGGLE ===== */
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const open = navLinks.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', open);
-      });
-      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded', false);
-      }));
-    }
-
-    /* ===== SCROLL REVEAL ===== */
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    document.querySelectorAll('.card.reveal').forEach(el => io.observe(el));
-
-    /* ===== THEME SWITCHER ===== */
-    const themeButtons = document.querySelectorAll('.theme-btn');
-    const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-    function applyTheme(setting) {
-      let effectiveTheme = setting;
-      if (setting === 'system') {
-        effectiveTheme = mediaQueryDark.matches ? 'dark' : 'light';
-      }
-      document.documentElement.setAttribute('data-theme', effectiveTheme);
-      document.documentElement.setAttribute('data-theme-setting', setting);
-      localStorage.setItem('aurafeast_theme', setting);
-
-      themeButtons.forEach(btn => {
-        const isActive = btn.getAttribute('data-theme-set') === setting;
-        btn.classList.toggle('active', isActive);
-        btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
-      });
-    }
-
-    // Initial sync with stored preference or default system
-    const activeSetting = localStorage.getItem('aurafeast_theme') || localStorage.getItem('genesis_theme') || 'system';
-    applyTheme(activeSetting);
-
-    themeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        applyTheme(btn.getAttribute('data-theme-set'));
-      });
-    });
-
-    // React if user is on system mode and OS theme changes
-    mediaQueryDark.addEventListener('change', () => {
-      const current = localStorage.getItem('aurafeast_theme') || localStorage.getItem('genesis_theme') || 'system';
-      if (current === 'system') {
-        applyTheme('system');
-      }
-    });
-
-    /* ===== CYBER NETWORK BACKGROUND ANIMATION ===== */
-    (function initCyberBackground() {
-      const canvas = document.getElementById('cyberCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      let width = 0;
-      let height = 0;
-      let dpr = 1;
-      let nodes = [];
-      let packets = [];
-      let shockwaves = [];
-      let animId = null;
-      let mouse = { x: -1000, y: -1000, active: false, radius: 170 };
-
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-      function resize() {
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        ctx.scale(dpr, dpr);
-        initNodes();
-      }
-
-      function initNodes() {
-        nodes = [];
-        packets = [];
-        const count = Math.max(32, Math.min(70, Math.floor((width * height) / 20000)));
-        for (let i = 0; i < count; i++) {
-          nodes.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.6,
-            vy: (Math.random() - 0.5) * 0.6,
-            radius: Math.random() > 0.85 ? 3 : Math.random() > 0.4 ? 2 : 1.2,
-            isHub: Math.random() > 0.82,
-            pulse: Math.random() * Math.PI * 2,
-            pulseSpeed: 0.02 + Math.random() * 0.03
-          });
-        }
-      }
-
-      function spawnPacket(fromNode, toNode) {
-        if (packets.length > 25) return;
-        packets.push({
-          from: fromNode,
-          to: toNode,
-          progress: 0,
-          speed: 0.016 + Math.random() * 0.025,
-          size: 2.2
-        });
-      }
-
-      function render() {
-        ctx.clearRect(0, 0, width, height);
-
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-
-        // Cyber Color Palette
-        const nodeColor = isDark ? '#38bdf8' : '#2F5CFF';
-        const hubColor = isDark ? '#60a5fa' : '#1d46dd';
-        const lineColorBase = isDark ? '56, 189, 248' : '47, 92, 255';
-        const packetColor = isDark ? '#e0f2fe' : '#2563eb';
-        const maxDist = 140;
-        const maxDistSq = maxDist * maxDist;
-
-        // 1. Shockwaves
-        for (let s = shockwaves.length - 1; s >= 0; s--) {
-          const sw = shockwaves[s];
-          sw.radius += sw.speed;
-          sw.alpha -= 0.02;
-          if (sw.alpha <= 0 || sw.radius > sw.maxRadius) {
-            shockwaves.splice(s, 1);
-            continue;
-          }
-          ctx.beginPath();
-          ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(${lineColorBase}, ${sw.alpha * (isDark ? 0.7 : 0.45)})`;
-          ctx.lineWidth = 1.8;
-          ctx.stroke();
-
-          // Push nodes gently
-          for (let i = 0; i < nodes.length; i++) {
-            const n = nodes[i];
-            const dx = n.x - sw.x;
-            const dy = n.y - sw.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (Math.abs(dist - sw.radius) < 30 && dist > 1) {
-              n.vx += (dx / dist) * 0.45;
-              n.vy += (dy / dist) * 0.45;
-            }
-          }
-        }
-
-        // 2. Nodes & Mouse Connections
-        for (let i = 0; i < nodes.length; i++) {
-          const n = nodes[i];
-          if (!prefersReducedMotion.matches) {
-            n.x += n.vx;
-            n.y += n.vy;
-            n.pulse += n.pulseSpeed;
-
-            if (n.x < 0 || n.x > width) n.vx *= -1;
-            if (n.y < 0 || n.y > height) n.vy *= -1;
-
-            n.vx *= 0.99;
-            n.vy *= 0.99;
-            if (Math.abs(n.vx) < 0.2) n.vx += (Math.random() - 0.5) * 0.08;
-            if (Math.abs(n.vy) < 0.2) n.vy += (Math.random() - 0.5) * 0.08;
-          }
-
-          // Mouse attraction & connection
-          if (mouse.active) {
-            const mdx = mouse.x - n.x;
-            const mdy = mouse.y - n.y;
-            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-            if (mdist < mouse.radius) {
-              const force = (1 - mdist / mouse.radius) * 0.35;
-              n.vx += (mdx / mdist) * force;
-              n.vy += (mdy / mdist) * force;
-
-              const mouseLineAlpha = (1 - mdist / mouse.radius) * (isDark ? 0.45 : 0.25);
-              ctx.beginPath();
-              ctx.moveTo(n.x, n.y);
-              ctx.lineTo(mouse.x, mouse.y);
-              ctx.strokeStyle = `rgba(${lineColorBase}, ${mouseLineAlpha})`;
-              ctx.lineWidth = 1.1;
-              ctx.stroke();
-            }
-          }
-
-          // Draw Node
-          const currentRadius = n.radius + (n.isHub ? Math.sin(n.pulse) * 0.8 : 0);
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, currentRadius, 0, Math.PI * 2);
-          ctx.fillStyle = n.isHub ? hubColor : nodeColor;
-          ctx.fill();
-
-          // Glowing Halo on Hub nodes
-          if (n.isHub) {
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, currentRadius * 2.8, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(${lineColorBase}, ${isDark ? 0.22 : 0.12})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-
-            const ch = 5;
-            ctx.beginPath();
-            ctx.moveTo(n.x - ch, n.y);
-            ctx.lineTo(n.x + ch, n.y);
-            ctx.moveTo(n.x, n.y - ch);
-            ctx.lineTo(n.x, n.y + ch);
-            ctx.strokeStyle = `rgba(${lineColorBase}, ${isDark ? 0.35 : 0.2})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-
-        // 3. Circuit Lines
-        for (let i = 0; i < nodes.length; i++) {
-          for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const distSq = dx * dx + dy * dy;
-
-            if (distSq < maxDistSq) {
-              const dist = Math.sqrt(distSq);
-              const alpha = (1 - dist / maxDist) * (isDark ? 0.32 : 0.16);
-              ctx.beginPath();
-              ctx.moveTo(nodes[i].x, nodes[i].y);
-              ctx.lineTo(nodes[j].x, nodes[j].y);
-              ctx.strokeStyle = `rgba(${lineColorBase}, ${alpha})`;
-              ctx.lineWidth = 0.9;
-              ctx.stroke();
-
-              // Spawn data packet
-              if (!prefersReducedMotion.matches && Math.random() < 0.00045) {
-                spawnPacket(nodes[i], nodes[j]);
-              }
-            }
-          }
-        }
-
-        // 4. Data Packets
-        for (let p = packets.length - 1; p >= 0; p--) {
-          const pkt = packets[p];
-          pkt.progress += pkt.speed;
-          if (pkt.progress >= 1) {
-            packets.splice(p, 1);
-            continue;
-          }
-          const curX = pkt.from.x + (pkt.to.x - pkt.from.x) * pkt.progress;
-          const curY = pkt.from.y + (pkt.to.y - pkt.from.y) * pkt.progress;
-
-          ctx.beginPath();
-          ctx.arc(curX, curY, pkt.size, 0, Math.PI * 2);
-          ctx.fillStyle = packetColor;
-          ctx.shadowColor = packetColor;
-          ctx.shadowBlur = isDark ? 8 : 4;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        }
-
-        // 5. Mouse reticle
-        if (mouse.active) {
-          ctx.beginPath();
-          ctx.arc(mouse.x, mouse.y, 16, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(${lineColorBase}, ${isDark ? 0.4 : 0.2})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
-          ctx.fillStyle = isDark ? '#38bdf8' : '#2F5CFF';
-          ctx.fill();
-        }
-
-        if (!prefersReducedMotion.matches) {
-          animId = requestAnimationFrame(render);
-        }
-      }
-
-      window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        mouse.active = true;
-      }, { passive: true });
-
-      window.addEventListener('mouseleave', () => {
-        mouse.active = false;
-      });
-
-      window.addEventListener('click', (e) => {
-        shockwaves.push({
-          x: e.clientX,
-          y: e.clientY,
-          radius: 5,
-          maxRadius: 180,
-          speed: 4.5,
-          alpha: 1
-        });
-        nodes.forEach(n => {
-          const dx = n.x - e.clientX;
-          const dy = n.y - e.clientY;
-          if (dx * dx + dy * dy < 200 * 200) {
-            const partner = nodes[Math.floor(Math.random() * nodes.length)];
-            if (partner !== n) spawnPacket(n, partner);
-          }
-        });
-      });
-
-      window.addEventListener('resize', resize, { passive: true });
-
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          if (animId) cancelAnimationFrame(animId);
-        } else {
-          if (!prefersReducedMotion.matches) animId = requestAnimationFrame(render);
-        }
-      });
-
-      resize();
-      if (!prefersReducedMotion.matches) {
-        animId = requestAnimationFrame(render);
-      } else {
-        render();
-      }
-    })();
-  </script>
+  <!-- Master Script -->
+  <script src="script.js"></script>
 </body>
 
 </html>
