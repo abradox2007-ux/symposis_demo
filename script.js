@@ -1,28 +1,29 @@
 /* ==========================================================================
-   ⚡ AuraFeast'26 — Master Client Script
+   ⚡ Aurafest'26 — Master Client Script
    Zero backend dependencies. Pure Vanilla JavaScript.
    ========================================================================== */
 
 // 🔗 Centralized Registration Link (Update here if needed)
-const REGISTRATION_URL = "https://forms.gle/aurafeast2026";
+const REGISTRATION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdMr-D0D3Y5-nAXSpiwK2A6ERJShkyeVgWcmJjPk3jHYydm-w/viewform?usp=publish-editor";
 
-/* ===== COMPLETE EVENT DATABASE (12 EVENTS) ===== */
+/* ===== COMPLETE EVENT DATABASE (11 EVENTS) ===== */
 const EVENTS_DATA = [
-  // --- TECHNICAL EVENTS (6) ---
+  // --- TECHNICAL EVENTS (5) ---
   {
-    id: "tech-paper-presentation",
+    id: "tech-paper-pres",
     title: "Paper Presentation",
     category: "technical",
     categoryLabel: "Technical Track",
     image: "ref_images/paper_presentation.jpg",
     summary: "Showcase original research, breakthrough technical insights, and architectural innovations before an expert jury of academicians and industry veterans.",
-    desc1: "Paper Presentation at AuraFeast'26 invites aspiring researchers, student engineers, and technical innovators to present their original findings, theoretical insights, and implementation prototypes before a distinguished jury of senior academicians and industry veterans. Participants are encouraged to explore cutting-edge engineering domains including Generative AI, Quantum Computing, Blockchain Architectures, Cloud-Native Distributed Systems, IoT, Edge Analytics, and Sustainable Computing.",
-    desc2: "Each registered team must deliver a structured 8-minute slide deck presentation followed by a rigorous 4-minute defense session answering targeted questions from the jury and audience. Critical emphasis is placed on conceptual originality, real-world engineering feasibility, depth of mathematical/empirical validation, and clarity of articulation. Outstanding presentations will receive top honors, cash awards, and certificates of excellence.",
-    teamSize: "1 – 3 Members",
-    timing: "10:30 AM – 01:00 PM",
-    venue: "Seminar Hall 1",
-    coordinator: "Staff & Student Leads: +91 98401 XXXXX",
+    desc1: "Paper Presentation at Aurafest'26 invites aspiring researchers, student engineers, and technical innovators to present their original findings, theoretical insights, and implementation prototypes before a distinguished jury of senior academicians and industry veterans. Participants are encouraged to explore cutting-edge engineering domains including Generative AI, Quantum Computing, Blockchain Architectures, Cloud-Native Distributed Systems, IoT, Edge Analytics, and Sustainable Computing.",
+    desc2: "Each registered team must deliver a structured 8-minute slide deck presentation followed by a rigorous 4-minute defense session answering targeted questions from the jury and audience. Critical emphasis is placed on conceptual originality, real-world engineering feasibility, depth of mathematical/empirical validation, and clarity of articulation. Outstanding presentations will receive top honors, winner medals, and certificates of excellence.",
+    teamSize: "1 – 2 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 2 members per team (Max 2).",
       "Manuscripts should strictly follow standard IEEE 2-column format (max 6 pages).",
       "8 minutes presentation time + 4 minutes Q&A with jury.",
       "Bring 2 hard copies and a soft copy in PDF/PPT format on a pen drive.",
@@ -30,19 +31,20 @@ const EVENTS_DATA = [
     ]
   },
   {
-    id: "tech-coding-challenge",
-    title: "Coding Challenge",
+    id: "tech-syntax-master",
+    title: "Syntax Master",
     category: "technical",
     categoryLabel: "Technical Track",
-    image: "ref_images/coding_challenge.jpg",
+    image: "ref_images/Syntax_master.png",
     summary: "The flagship algorithmic battleground designed to push competitive programmers and problem-solvers to their absolute limits.",
-    desc1: "The Coding Challenge is the flagship algorithmic battleground of AuraFeast'26, designed to push competitive programmers, software crafters, and problem-solvers to their absolute intellectual limits in a high-intensity timed environment. Spread across multi-tiered rounds of increasing computational complexity, the contest features problem statements spanning dynamic programming, graph theory traversal, advanced tree structures, combinatorial optimization, and greedy heuristics.",
+    desc1: "Syntax Master is the flagship algorithmic battleground of Aurafest'26, designed to push competitive programmers, software crafters, and problem-solvers to their absolute intellectual limits in a high-intensity timed environment. Spread across multi-tiered rounds of increasing computational complexity, the contest features problem statements spanning dynamic programming, graph theory traversal, advanced tree structures, combinatorial optimization, and greedy heuristics.",
     desc2: "Round 1 begins with a fast-paced MCQ and rapid-fire debugging elimination challenge. Top qualifiers advance to the high-stakes live coding arena where automated test suites evaluate solution correctness, runtime execution speed, and memory consumption. Supported programming languages include C, C++, Java, and Python.",
-    teamSize: "Solo (1 Member)",
-    timing: "10:30 AM – 12:45 PM",
-    venue: "CSE Programming Lab 1 & 2",
-    coordinator: "Tech Leads: +91 98402 XXXXX",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4).",
       "Supported languages: C, C++, Java, Python 3.",
       "Round 1: 30 minutes algorithmic aptitude & code snippet debugging.",
       "Round 2: 60 minutes live problem solving on an offline platform.",
@@ -55,96 +57,81 @@ const EVENTS_DATA = [
     category: "technical",
     categoryLabel: "Technical Track",
     image: "ref_images/web_designs.jpg",
-    summary: "Transform on-the-spot thematic problem statements into responsive, high-aesthetic, and accessible web experiences.",
-    desc1: "The Web Design Challenge challenges creative developers and front-end architects to transform on-the-spot thematic problem statements into responsive, high-aesthetic, and accessible web experiences under strict time limits. Participants must craft functional web applications using pure HTML5, CSS3, and modern Vanilla JavaScript, emphasizing typography, visual hierarchy, mobile adaptability, and interactive animations.",
-    desc2: "Submissions are judged on semantic HTML markup, cross-browser responsiveness, UI finesse, creative adherence to the surprise theme, and clean code organization. Standout projects demonstrating state-of-the-art aesthetics and micro-interactions will walk away with top prizes.",
-    teamSize: "1 – 2 Members",
-    timing: "10:30 AM – 01:00 PM",
-    venue: "IT Web Technologies Lab",
-    coordinator: "Design Leads: +91 98403 XXXXX",
+    summary: "Transform on-the-spot thematic problem statements into responsive, high-aesthetic web experiences using any development tools of choice.",
+    desc1: "The Web Design Challenge challenges creative developers and full-stack architects to transform on-the-spot thematic problem statements into responsive, high-aesthetic, and functional web applications under timed conditions. Participants have the complete freedom to use any tools, frameworks, and modern technologies to build their website.",
+    desc2: "Submissions will be evaluated on overall frontend visual aesthetics, UI/UX responsiveness, and solid backend structure. The team that crafts the most exceptional frontend design combined with an efficient backend architecture wins the competition. Event coordinators and judges will review all builds and announce the final winner.",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4).",
       "Surprise theme will be announced on the spot.",
-      "Allowed technologies: HTML5, CSS3, Vanilla JS (No pre-built templates or heavy UI frameworks).",
-      "Total duration: 2 Hours for complete design and coding.",
-      "Designs must be fully responsive across mobile and desktop viewports."
+      "Participants are free to use any development tools, libraries, or frameworks to build the website.",
+      "Evaluation Criteria: The team with the superior frontend design, UI responsiveness, and robust backend structure wins.",
+      "Total duration: 1 Hours for complete design and development.",
+      "The event coordinators and judges will review all submissions and announce the final winner."
     ]
   },
   {
-    id: "tech-uixpert",
-    title: "UIXpert",
+    id: "tech-quiz",
+    title: "Tech Quiz",
     category: "technical",
     categoryLabel: "Technical Track",
-    image: "ref_images/UIXpert.jpg",
-    summary: "A premier product and UI/UX design battleground testing user research, wireframing, component design systems, and interactive prototypes.",
-    desc1: "UIXpert is the premier product and UI/UX design battleground testing user research, wireframing, component design systems, and interactive prototypes. Designers receive an end-user scenario and must conceptualize a seamless digital product that solves user pain points with exceptional ergonomics and visual craft.",
-    desc2: "Participants will utilize Figma to build wireframes, interactive user flows, accessible color palettes, and polished micro-interactions. The evaluation evaluates design rationale, user empathy, accessibility adherence (WCAG standards), and visual delight.",
-    teamSize: "1 – 2 Members",
-    timing: "11:00 AM – 01:15 PM",
-    venue: "Design Lab / CAD Lab",
-    coordinator: "UI/UX Leads: +91 98404 XXXXX",
+    image: "ref_images/tech_quiz.jpg",
+    summary: "Test your technical acumen, computing history, emerging tech breakthroughs, and programming knowledge in a thrilling multi-round battle of tech wits.",
+    desc1: "Tech Quiz at Aurafest'26 is the ultimate cerebral battleground designed for tech enthusiasts, geek minds, and computer science aficionados. Spanning the entire spectrum of computing—from computer architectures, operating systems, and programming paradigms to Generative AI, cloud infrastructure, cybersecurity history, and tech industry milestones—this competition puts your speed and knowledge to the test.",
+    desc2: "The event begins with a fast-paced preliminary round to shortlist the top qualifiers. Finalists advance to the live buzzer stage featuring audio-visual clues, connect rounds, rapid-fire questions, and high-stakes wager rounds.",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
-      "Tool: Figma (web/desktop).",
-      "Deliverables: Low-fidelity user flow wireframe + High-fidelity interactive prototype.",
-      "Time allotted: 90 minutes designing + 5 minutes prototype presentation to judges.",
-      "Judging criteria: Usability, Visual Aesthetics, Design System Consistency, and User Flow Logic."
+      "Team size: 1 to 4 members per team (Max 4).",
+      "Round 1: 25-minute written / digital prelims covering core CS, AI, tech trivia, and industry innovations.",
+      "Round 2: Stage finals with audio-visual, buzzer, and rapid-fire rounds.",
+      "Use of mobile phones, smart watches, or search engines is strictly prohibited during the quiz.",
+      "Quiz Master's decision is final and binding."
     ]
   },
   {
-    id: "tech-bug-finders",
-    title: "Bug Busters (Bug Finder)",
+    id: "tech-startup-ideas",
+    title: "Startup Ideas",
     category: "technical",
     categoryLabel: "Technical Track",
-    image: "ref_images/bug_finder.jpg",
-    summary: "Hunt down cryptic logic errors, syntax faults, memory leaks, and concurrency deadlocks hidden inside obfuscated codebases.",
-    desc1: "Bug Busters is an adrenaline-fueled code audit and debugging showdown designed for sharp-eyed developers. Competitors are handed multi-file codebases plagued with subtle logic errors, off-by-one edge cases, race conditions, memory leaks, and runtime exceptions.",
-    desc2: "Your mission is to inspect, diagnose, rectify, and refactor the faulty snippets in record time while ensuring all automated test assertions pass without regression. Speed, analytical precision, and deep language comprehension are paramount.",
-    teamSize: "Solo (1 Member)",
-    timing: "11:30 AM – 01:00 PM",
-    venue: "Systems Lab",
-    coordinator: "QA Leads: +91 98405 XXXXX",
+    image: "ref_images/STARTUP.png",
+    summary: "Pitch your breakthrough business model, tech-driven venture, or innovative product prototype before venture mentors and industry judges.",
+    desc1: "Startup Ideas at Aurafest'26 provides aspiring student entrepreneurs and tech visionaries a launchpad to pitch their innovative business concepts, disruptive products, and tech startup models before an esteemed panel of incubation mentors, angel investors, and industry founders.",
+    desc2: "Teams will pitch their business model, target market, revenue stream, technology architecture, and go-to-market strategy in an intense 7-minute pitch followed by 3 minutes of rigorous Q&A with the jury. Feasibility, market potential, technological innovation, and financial viability are the key evaluation pillars.",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
-      "Codebases provided in C/C++, Java, and Python.",
-      "Round 1: Rapid error identification in 20 short snippets (25 minutes).",
-      "Round 2: Deep logic bug hunting and patch submission in a complex program (45 minutes).",
-      "Fastest accurate submissions receive highest score multipliers."
-    ]
-  },
-  {
-    id: "tech-cyberquest",
-    title: "CyberQuest",
-    category: "technical",
-    categoryLabel: "Technical Track",
-    image: "ref_images/CyberQuest.jpg",
-    summary: "Jeopardy-style Capture The Flag (CTF) tournament spanning cryptography, web exploitation, network forensics, and steganography.",
-    desc1: "CyberQuest is a fast-paced Jeopardy-style Capture The Flag (CTF) tournament challenging ethical hackers, security enthusiasts, and cyber defenders. Teams navigate a dynamic board of security challenges spanning web vulnerabilities, cryptographic ciphers, reverse engineering, digital forensics, and packet analysis.",
-    desc2: "Each successfully captured flag unlocks points and reveals increasingly intricate challenge tiers. Real-time live scoreboard tracking keeps the tension soaring until the final buzzer sounds.",
-    teamSize: "1 – 2 Members",
-    timing: "10:30 AM – 01:15 PM",
-    venue: "Cyber Security Lab",
-    coordinator: "Security Leads: +91 98406 XXXXX",
-    rules: [
-      "Jeopardy CTF format with dynamic flag scoring.",
-      "Categories: Web Security, Cryptography, Forensics, OSINT, and Reverse Engineering.",
-      "Attacking the tournament infrastructure or fellow participants will lead to immediate disqualification.",
-      "Flag format: AF26{...}."
+      "Team size: 1 to 4 members per team (Max 4).",
+      "Pitch format: 7 minutes slide deck presentation + 3 minutes jury Q&A.",
+      "Bring PPT/PDF presentation on a USB drive and optional working prototype/demo if available.",
+      "Evaluation metrics: Problem Statement & Innovation, Market Feasibility, Business & Revenue Model, and Presentation Clarity.",
+      "Judges' decision is final and binding."
     ]
   },
 
   // --- NON-TECHNICAL EVENTS (6) ---
   {
     id: "nontech-photography",
-    title: "Photo Hunt (Photography)",
+    title: "Capture X",
     category: "non-technical",
     categoryLabel: "Non-Technical Track",
     image: "ref_images/photography.jpg",
     summary: "Capture the raw emotions, architectural symmetry, and dynamic energy of the symposium through your creative lens.",
-    desc1: "Photo Hunt at AuraFeast'26 is the premier visual arts and campus photography competition inviting shutterbugs, visual storytellers, and mobile photographers to document the vibrancy, candid spirit, and visual energy of the symposium.",
+    desc1: "Capture X at Aurafest'26 is the premier visual arts and campus photography competition inviting shutterbugs, visual storytellers, and mobile photographers to document the vibrancy, candid spirit, and visual energy of the symposium.",
     desc2: "Participants receive thematic photo prompts in the morning and have the campus grounds as their canvas. Submissions are judged by professional photographers on composition, lighting nuance, storytelling depth, framing originality, and visual impact.",
-    teamSize: "Solo (1 Member)",
-    timing: "Full Day (Submissions by 02:00 PM)",
-    venue: "Campus Wide & Media Desk",
-    coordinator: "Media Leads: +91 98407 XXXXX",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4).",
       "DSLR, Mirrorless cameras, and Mobile phones permitted.",
       "Photos must be captured within the college campus on the day of the symposium.",
       "Basic color grading and exposure adjustments allowed; heavy AI manipulation or composite generation is prohibited.",
@@ -156,15 +143,16 @@ const EVENTS_DATA = [
     title: "Film Fest (Short Film)",
     category: "non-technical",
     categoryLabel: "Non-Technical Track",
-    image: "ref_images/film_fest.jpg",
+    image: "ref_images/FLIM FEST.png",
     summary: "Step behind the lens and showcase your original short films, creative cinematography, direction, and storytelling on the big screen.",
-    desc1: "Film Fest at AuraFeast'26 is the ultimate stage for aspiring filmmakers, cinematographers, screenwriters, and digital creators to showcase their visual masterpieces on the grand auditorium screen. From thought-provoking social narratives and sci-fi thrillers to gripping dramas and hilarious comedies, let your storytelling captivate a live audience and an esteemed panel of cine experts.",
+    desc1: "Film Fest at Aurafest'26 is the ultimate stage for aspiring filmmakers, cinematographers, screenwriters, and digital creators to showcase their visual masterpieces on the grand auditorium screen. From thought-provoking social narratives and sci-fi thrillers to gripping dramas and hilarious comedies, let your storytelling captivate a live audience and an esteemed panel of cine experts.",
     desc2: "All submitted short films will be screened before the jury followed by an interactive Q&A session with the director and cast. Entries will be evaluated on originality of concept, scriptwriting, technical cinematography, audio/BGM design, editing flow, and overall emotional and artistic impact.",
     teamSize: "1 – 4 Members",
-    timing: "10:30 AM – 01:30 PM",
-    venue: "Main Auditorium / AV Hall",
-    coordinator: "Film & Media Leads: +91 98408 XXXXX",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4).",
       "Duration of the short film: 5 to 15 minutes (including opening and closing credits).",
       "Must be original student work; plagiarism or unauthorized full clips will lead to disqualification.",
       "Video format: MP4 or MKV (Full HD 1080p minimum resolution) brought on a USB drive.",
@@ -178,18 +166,20 @@ const EVENTS_DATA = [
     category: "non-technical",
     categoryLabel: "Non-Technical Track",
     image: "ref_images/playverse.jpg",
-    summary: "The ultimate dual-arena esports battleground featuring high-speed Online Chess showdowns and high-octane BGMI battle royale squad wars.",
-    desc1: "playVerse is AuraFeast'26's premier esports tournament bringing together tactical grandmasters and mobile gaming champions across two dynamic competitive leagues: 1. Online Blitz & Rapid Chess and 2. BGMI (Battlegrounds Mobile India) Custom Room Squad Warfare.",
-    desc2: "In the Chess Arena, players duel in timed Swiss-system online brackets with zero room for error. In the BGMI Arena, 4-player squads drop onto custom room battlegrounds (Erangel/Miramar) in high-stakes tactical survival, positioning, and gunplay matches where survival points and frag multipliers dictate the leaderboard champions.",
-    teamSize: "Solo (Chess) / 4 Members Squad (BGMI)",
-    timing: "11:00 AM – 01:30 PM",
-    venue: "eSports Arena / IT Seminar Hall",
-    coordinator: "Gaming Leads: +91 98409 XXXXX",
+    summary: "The ultimate multi-arena esports battleground featuring high-speed Online Chess showdowns, high-octane BGMI battle royale squad wars, and action-packed Free Fire Max battles.",
+    desc1: "playVerse is Aurafest'26's premier esports tournament bringing together tactical grandmasters and mobile gaming champions across three dynamic competitive leagues: 1. Online Blitz & Rapid Chess, 2. BGMI (Battlegrounds Mobile India) Custom Room Squad Warfare, and 3. Free Fire Max Custom Room Clash.",
+    desc2: "In the Chess Arena, players duel in timed Swiss-system online brackets with zero room for error. In the Battle Royale Arenas: Every elimination must come from a single-bullet headshot, while body shots and continuous weapon spraying are completely banned. Players may only use high-damage, single-shot weapons, typically limited to the Desert Eagle, M1887 shotgun, Woodpecker, or SVD. Matches utilize the Clash Squad mode, set to a best-of-7 or best-of-13 rounds structure to determine the winner. Default match coins are set to 1500 to allow players to purchase their preferred weapons in the very first round. The Limited Ammo setting is turned off to grant players infinite gloo walls for quick cover and movement practice. Weapon skins and attributes are disabled in the room settings to ensure completely balanced gun stats for both players. Active and passive character abilities are turned off to keep the match focused purely on aiming and mechanical skill. Finally, camping inside safe zones or rushing directly into the opponent's spawn area before the fight begins is strictly prohibited.",
+    teamSize: "1 – 4 Members (Solo for Chess / Squad for BGMI & Free Fire)",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4; Solo for Chess).",
       "Gaming Track 1 (Chess): Played online on Chess.com / Lichess under 5+3 Blitz / Rapid rules.",
       "Gaming Track 2 (BGMI): Custom room matches in Squad mode (Erangel/Miramar). BYOD (Bring Your Own Device). Mobile only.",
+      "Gaming Track 3 (Free Fire Max): Custom room matches in Squad mode (Bermuda/Purgatory). BYOD. Mobile only.",
       "Strict anti-cheat policy: Emulators, iPad view tools, trigger accessories, or third-party plugins are banned.",
-      "Stable campus Wi-Fi access will be provided, but participants are encouraged to have mobile data backup.",
+      "participants are encouraged to have mobile data for internet connection.",
       "Leaderboard is calculated on official placement points + frag kills."
     ]
   },
@@ -198,15 +188,16 @@ const EVENTS_DATA = [
     title: "Flip the Channel",
     category: "non-technical",
     categoryLabel: "Non-Technical Track",
-    image: "ref_images/flip_the_channel.jpg",
+    image: "ref_images/flip_the_channel.png",
     summary: "The ultimate impromptu acting showdown where actors must switch characters, genres, and emotions the instant the host flips the channel!",
     desc1: "Flip the Channel is a high-energy theatrical, comedic, and impromptu acting battleground that tests instant adaptability, stage presence, and spontaneous humor. Teams take the stage to act out an ongoing scene, but the twist is: the host will randomly announce 'Flip!' and call out a completely new TV channel or genre!",
     desc2: "From Breaking News, Dramatic Soap Operas, and Anime Battles to Horror Movies, Teleshopping Ads, Sports Commentary, and Cartoon Shows, participants must immediately morph their characters, body language, and dialogue without breaking stride. The team with the sharpest comedic timing, quickest reflexes, and most entertaining performance takes the crown!",
-    teamSize: "2 – 3 Members",
-    timing: "11:30 AM – 01:00 PM",
-    venue: "Seminar Hall 2 / Stage Area",
-    coordinator: "Drama & Theatre Leads: +91 98410 XXXXX",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4).",
       "Each team gets 3 to 5 minutes of total stage time.",
       "The host/judges will call out random channel switches every 30 to 45 seconds.",
       "Actors must adapt their role, tone, and genre instantly without halting the performance flow.",
@@ -216,18 +207,19 @@ const EVENTS_DATA = [
   },
   {
     id: "nontech-movquiz",
-    title: "MOVQuiz (Cinema Trivia)",
+    title: "Lights , Camera , Guess!",
     category: "non-technical",
     categoryLabel: "Non-Technical Track",
     image: "ref_images/movquiz.png",
     summary: "Celebrate world cinema, blockbuster soundtracks, iconic dialogues, and director trivia in an electrifying movie buff showdown.",
-    desc1: "MOVQuiz is the ultimate cinephile battleground celebrating the magic of cinema across Kollywood, Bollywood, and Hollywood. Test your knowledge of iconic film dialogues, legendary background scores, hidden director easter eggs, and unforgettable box office moments.",
+    desc1: "Lights, Camera, Guess! is the ultimate cinephile battleground celebrating the magic of cinema across Kollywood, Bollywood, and Hollywood. Test your knowledge of iconic film dialogues, legendary background scores, hidden director easter eggs, and unforgettable box office moments.",
     desc2: "The competition features dialogue identification, slowed/reversed soundtrack clues, frame-by-frame scene guessing, and high-energy director-actor connect rounds.",
-    teamSize: "2 Members",
-    timing: "11:00 AM – 01:15 PM",
-    venue: "Auditorium Main Stage",
-    coordinator: "Cine Leads: +91 98411 XXXXX",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
+      "Team size: 1 to 4 members per team (Max 4).",
       "Rounds include: BGM identification, Frame guessing, Dialogue recall, and Filmography connections.",
       "Written prelims followed by 5 rounds of live stage showdown.",
       "Use of mobile phones or Shazam/sound identifier apps will lead to instant disqualification."
@@ -242,12 +234,13 @@ const EVENTS_DATA = [
     summary: "An action-packed 3-round offline carnival featuring Damsharas (Dumb Charades), Pictionary/Relay, and the Grand Campus Treasure Hunt.",
     desc1: "Funclash is a three-tiered entertainment and team challenge showdown packed with laughter, fast thinking, and campus exploration. Gather your squad to battle through three consecutive knockout rounds that test non-verbal communication, artistic guessing, and puzzle-solving agility.",
     desc2: "Round 1: Damsharas (Dumb Charades - act and guess cinema & tech terms without speaking). Round 2: Pictionary / Mini-Relay Challenge (draw or solve tactile clues against a ticking clock). Round 3: The Grand Campus Treasure Hunt (unravel cryptic riddles hidden across campus landmarks to locate the golden chest first).",
-    teamSize: "2 – 4 Members",
-    timing: "10:30 AM – 02:30 PM",
-    venue: "Campus Quadrangle & Activity Lawn",
-    coordinator: "Event Leads: +91 98412 XXXXX",
+    teamSize: "1 – 4 Members",
+    timing: "Will be announced on 24th September",
+    venue: "Will be announced on 24th September",
+    coordinator: "Co-Coordinator: +91 7418182049",
     rules: [
-      "Teams of 2 to 4 members compete across 3 consecutive rounds.",
+      "Team size: 1 to 4 members per team (Max 4).",
+      "Teams compete across 3 consecutive rounds.",
       "Round 1: Damsharas (Dumb Charades) — No lip-syncing or spelling allowed (2 mins per prompt).",
       "Round 2: Pictionary / Mystery Mini Challenge — Fastest teams to solve visual clues qualify for the finale.",
       "Round 3: Grand Treasure Hunt — Teams receive clue maps across campus zones; first team to find the artifact wins.",
@@ -388,15 +381,15 @@ function initIntroAnimation() {
           if (percentage < 18) {
             stepText.textContent = "INITIALIZING NEURAL CORES & SUB-SYSTEMS...";
           } else if (percentage < 38) {
-            stepText.textContent = "CALIBRATING 12 COMPETITION ARENAS...";
+            stepText.textContent = "CALIBRATING 11 COMPETITION ARENAS...";
           } else if (percentage < 60) {
             stepText.textContent = "SYNCHRONIZING PSVPEC CAMPUS MAINFRAME...";
           } else if (percentage < 82) {
             stepText.textContent = "AUTHENTICATING CSE & IT PROTOCOLS...";
           } else if (percentage < 97) {
-            stepText.textContent = "SYSTEM ARMED & READY // 15.09.2026";
+            stepText.textContent = "SYSTEM ARMED & READY // 26.09.2026";
           } else {
-            stepText.textContent = "LAUNCHING AURAFEAST '26 EXPERIENCE...";
+            stepText.textContent = "LAUNCHING AURAFEST '26 EXPERIENCE...";
           }
         }
       }
@@ -439,7 +432,7 @@ function initIntroAnimation() {
 
   function triggerHeroEntrance() {
     const heroElements = document.querySelectorAll(
-      ".hero .eyebrow, .hero .h1-stack, .hero .hero-sub, .hero .hero-actions, .hero .hero-badge-card"
+      ".hero .eyebrow, .hero .hero-title-wrap, .hero .h1-stack, .hero .hero-sub, .hero .hero-actions, .hero .hero-badge-card"
     );
     heroElements.forEach((el, index) => {
       el.classList.remove("hero-stagger-in");
@@ -626,7 +619,7 @@ function openEventModal(eventId) {
       <img src="${event.image}" alt="${event.title}">
       <button type="button" class="modal-close-btn" onclick="closeModal()" aria-label="Close modal">✕</button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" data-event="${event.id}">
       <span class="modal-category-tag">${event.categoryLabel}</span>
       <h2 class="modal-title">${event.title}</h2>
       
@@ -680,7 +673,7 @@ function closeModal() {
 window.closeModal = closeModal;
 
 /* ==========================================================================
-   Countdown Timer (Target: Sept 15, 2026)
+   Countdown Timer (Target: Sept 26, 2026)
    ========================================================================== */
 function initCountdown() {
   const daysEl = document.getElementById("cdDays");
@@ -690,7 +683,7 @@ function initCountdown() {
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  const targetDate = new Date("September 15, 2026 09:00:00").getTime();
+  const targetDate = new Date("September 26, 2026 09:00:00").getTime();
 
   function update() {
     const now = new Date().getTime();
@@ -881,4 +874,36 @@ function initCanvas() {
   } else {
     render();
   }
+}
+
+/* ==========================================================================
+   Mobile Navigation Drawer Controller
+   ========================================================================== */
+function initMobileNav() {
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  if (!menuBtn || !navLinks) return;
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  // Close menu when clicking any nav item
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (navLinks.classList.contains("open") && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+  });
 }

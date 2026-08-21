@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ⚡ AuraFeast'26 — Master Stylesheet
+   ⚡ Aurafest'26 — Master Stylesheet
    Vibrant Editorial + Modern Cyber Glassmorphism Design System
    ========================================================================== */
 
@@ -360,7 +360,7 @@ header.site-header {
 
 .brand-badge {
   width: auto;
-  height: clamp(48px, 4.5vw, 64px);
+  height: clamp(44px, 4.2vw, 58px);
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -375,16 +375,170 @@ header.site-header {
   border-radius: 6px;
 }
 
+.brand-divider {
+  width: 1.5px;
+  height: 28px;
+  background: var(--line-strong);
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+.brand-fest-logo {
+  height: clamp(34px, 3.8vw, 48px);
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(124, 58, 237, 0.35));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.brand:hover .brand-fest-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 14px rgba(255, 46, 136, 0.5));
+}
+
 .brand-text {
-  font-family: var(--font-display);
+  font-family: 'Unbounded', 'Syne', var(--font-display), sans-serif;
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .brand-text span {
-  color: var(--secondary);
+  color: var(--secondary-br);
+}
+
+.footer-fest-logo {
+  height: clamp(34px, 3.8vw, 48px);
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 10px rgba(124, 58, 237, 0.35));
+  transition: transform 0.25s ease;
+}
+
+.footer-brand:hover .footer-fest-logo {
+  transform: scale(1.04);
+}
+
+.hero-fest-logo {
+  width: clamp(340px, 58vw, 680px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 10px 28px rgba(124, 58, 237, 0.45)) drop-shadow(0 0 45px rgba(255, 46, 136, 0.25));
+  animation: heroLogoFloat 6s ease-in-out infinite alternate;
+  will-change: transform, filter;
+  transition: transform 0.3s ease;
+}
+
+.hero-fest-logo:hover {
+  transform: translateY(-4px) scale(1.02);
+  filter: drop-shadow(0 14px 36px rgba(124, 58, 237, 0.6)) drop-shadow(0 0 55px rgba(0, 229, 255, 0.35));
+}
+
+.hero-centered {
+  text-align: center;
+}
+
+.hero-top-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-logo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px auto 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-meta-panel-centered {
+  max-width: 860px;
+  width: 100%;
+  margin: 10px auto 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.hero-sub-centered {
+  margin: 0 auto 28px;
+  text-align: center;
+  max-width: 68ch;
+}
+
+.hero-actions-centered {
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.countdown-box-centered {
+  margin: 4px auto 0;
+}
+
+@keyframes heroLogoFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.4deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.intro-aurafest-logo {
+  width: clamp(280px, 80vw, 680px);
+  max-width: 95%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 36px rgba(124, 58, 237, 0.85)) drop-shadow(0 0 65px rgba(0, 229, 255, 0.5));
+  animation: introLogoGlow 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes introLogoGlow {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 28px rgba(124, 58, 237, 0.75)) drop-shadow(0 0 50px rgba(0, 229, 255, 0.4));
+    transform: scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 46px rgba(255, 46, 136, 0.9)) drop-shadow(0 0 80px rgba(0, 229, 255, 0.65));
+    transform: scale(1.03);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .navlinks {
@@ -484,62 +638,93 @@ header.site-header {
   margin-top: 24px;
 }
 
-/* --- Signature Poster Misregistration Duotone Headline --- */
-.h1-stack {
+/* --- Ultra-Modern Cyberpunk / Futuristic Hero Title --- */
+.hero-title-wrap {
   position: relative;
-  margin: 12px 0 16px;
-  line-height: 0.92;
+  margin: 12px 0 20px;
+  display: inline-block;
 }
 
-.h1-stack h1 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(44px, 7.5vw, 92px);
-  letter-spacing: -0.03em;
+.hero-main-title {
+  font-family: 'Unbounded', 'Syne', var(--font-display), sans-serif;
+  font-size: clamp(42px, 7.5vw, 88px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
   margin: 0;
   position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+.title-word-aura {
   color: var(--ink);
-  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--ink) 25%, var(--primary-dk) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  letter-spacing: -0.02em;
 }
 
-.h1-stack .layer {
+[data-theme="dark"] .title-word-aura {
+  background: linear-gradient(135deg, #FFFFFF 30%, #C4B5FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-word-fest {
+  background: linear-gradient(135deg, #FF2E88 0%, #7C3AED 45%, #00E5FF 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: festivalGradientFlow 6s ease infinite;
+  filter: drop-shadow(0 2px 14px rgba(255, 46, 136, 0.3));
+}
+
+.title-year-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(22px, 3.8vw, 44px);
+  font-weight: 700;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary-br) 100%);
+  padding: 3px 14px;
+  border-radius: var(--radius-sm);
+  margin-left: 12px;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateY(-4px) rotate(-3deg);
+  box-shadow: 0 6px 18px -3px var(--primary-glow), 0 0 0 1.5px rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.title-year-badge:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.08);
+  box-shadow: 0 10px 24px -2px rgba(255, 46, 136, 0.45);
+}
+
+.hero-title-backdrop-glow {
   position: absolute;
-  inset: 0;
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(44px, 7.5vw, 92px);
-  letter-spacing: -0.03em;
-  line-height: 0.92;
-  text-transform: uppercase;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 85%;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.22) 0%, rgba(255, 46, 136, 0.12) 50%, transparent 75%);
+  filter: blur(28px);
+  z-index: 1;
   pointer-events: none;
-  user-select: none;
-  animation: posterDrift 7s ease-in-out infinite;
 }
 
-.h1-stack .layer.l1 {
-  color: var(--secondary-br);
-  opacity: 0.75;
-  transform: translate(6px, 6px);
-  animation-delay: 0s;
-}
-
-.h1-stack .layer.l2 {
-  color: var(--cyan-br);
-  opacity: 0.65;
-  transform: translate(-5px, 4px);
-  animation-name: posterDrift2;
-  animation-delay: -3.5s;
-}
-
-@keyframes posterDrift {
-  0%, 100% { transform: translate(6px, 6px); }
-  50% { transform: translate(10px, 3px); }
-}
-
-@keyframes posterDrift2 {
-  0%, 100% { transform: translate(-5px, 4px); }
-  50% { transform: translate(-8px, 8px); }
+@keyframes festivalGradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero-sub {
@@ -1094,12 +1279,18 @@ header.site-header {
 }
 
 .card-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: -0.01em;
+  font-family: 'Unbounded', 'Syne', var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: 8px;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.event-card:hover .card-title {
+  color: var(--primary);
 }
 
 .card-summary {
@@ -1250,6 +1441,51 @@ header.site-header {
   color: var(--graphite);
 }
 
+.timeline-wishes-banner {
+  max-width: 680px;
+  margin: 36px auto 0;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, var(--card-bg)), color-mix(in srgb, var(--secondary-br) 10%, var(--card-bg)));
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  box-shadow: 0 10px 24px -8px var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-wishes-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -6px var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.timeline-wishes-banner .wishes-icon {
+  font-size: 1.25rem;
+  animation: pulseWishes 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseWishes {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.25) rotate(12deg); }
+}
+
+.timeline-wishes-banner .wishes-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
 /* ==========================================================================
    Registration CTA Section
    ========================================================================== */
@@ -1312,25 +1548,143 @@ header.site-header {
 .cta-fee-box {
   background: var(--card-bg);
   border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 28px;
-  text-align: center;
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  text-align: left;
   box-shadow: 0 12px 30px -10px var(--shadow);
 }
 
-.fee-amount {
+.fee-box-header {
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.fee-badge-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--secondary);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.fee-box-title {
   font-family: var(--font-display);
-  font-size: 2.8rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+}
+
+.combo-tiers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.combo-tier-card {
+  position: relative;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.combo-tier-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 16px -4px var(--shadow);
+}
+
+.combo-tier-card.featured {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(255, 46, 136, 0.05));
+}
+
+.combo-tier-card.best-value {
+  border-color: var(--secondary-br);
+  background: linear-gradient(135deg, rgba(255, 46, 136, 0.09), rgba(0, 229, 255, 0.05));
+}
+
+.combo-badge {
+  position: absolute;
+  top: -9px;
+  right: 12px;
+  background: var(--primary);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.combo-badge.best {
+  background: var(--secondary-br);
+}
+
+.combo-tier-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.combo-tier-name {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.combo-tier-desc {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--graphite);
+}
+
+.combo-tier-price {
+  text-align: right;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.price-val {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--ink);
   line-height: 1;
-  margin: 8px 0;
 }
 
-.fee-sub {
+.original-price {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   color: var(--graphite);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+.fee-note {
+  font-size: 0.8rem;
+  color: var(--graphite);
+  text-align: center;
+  line-height: 1.45;
+  margin-top: 12px;
 }
 
 /* ==========================================================================
@@ -1510,9 +1864,10 @@ header.site-header {
 }
 
 .modal-title {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-family: 'Unbounded', 'Syne', var(--font-display), sans-serif;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
   font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--ink);
   line-height: 1.2;
   margin-bottom: 16px;
@@ -1651,12 +2006,16 @@ footer.site-footer {
 }
 
 /* ==========================================================================
-   Mobile Nav Drawer & Responsive Adjustments
+   📱 COMPREHENSIVE MOBILE RESPONSIVE FIXES (Zero Collisions & Overlaps)
    ========================================================================== */
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+  .hero-meta-panel-centered {
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
   .register-cta-grid {
     grid-template-columns: 1fr;
@@ -1671,9 +2030,15 @@ footer.site-footer {
 }
 
 @media (max-width: 768px) {
+  /* Navbar & Header */
+  .navbar {
+    padding: 10px 0;
+    gap: 12px;
+  }
+
   .navlinks {
     position: fixed;
-    top: 65px;
+    top: 60px;
     left: 0;
     right: 0;
     background: var(--card-bg);
@@ -1681,10 +2046,13 @@ footer.site-footer {
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--line);
     flex-direction: column;
-    padding: 24px;
-    gap: 18px;
+    padding: 20px 24px;
+    gap: 16px;
     display: none;
     box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    max-height: calc(100vh - 65px);
+    overflow-y: auto;
   }
 
   .navlinks.open {
@@ -1693,15 +2061,452 @@ footer.site-footer {
 
   .mobile-menu-btn {
     display: grid;
+    flex-shrink: 0;
   }
 
+  /* Events Filter Bar */
   .events-filter-bar {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
 
   .filter-tabs {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px;
+    justify-content: flex-start;
+  }
+
+  .filter-tab {
+    flex: 1 1 auto;
+    text-align: center;
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  .filter-search {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Timeline */
+  .timeline-wrap {
+    padding: 12px 0;
+  }
+  
+  .timeline-wrap::before {
+    left: 20px;
+  }
+
+  .timeline-dot {
+    left: 12px;
+    top: 18px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .timeline-card {
+    margin-left: 48px !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    padding: 16px 18px;
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    padding: 12px;
+  }
+
+  .modal-card {
+    max-height: 90vh;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-header-img {
+    height: 180px;
+  }
+
+  .modal-body {
+    padding: 20px 16px;
+  }
+
+  .modal-meta-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Container Padding */
+  .wrap {
+    padding: 0 16px;
+  }
+
+  /* Section Spacing */
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-head {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Brand Logos Scaling */
+  .brand {
+    gap: 8px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .brand-badge {
+    height: 36px;
+    max-width: 90px;
+  }
+
+  .brand-badge img {
+    height: 100%;
+    max-height: 36px;
+  }
+
+  .brand-divider {
+    height: 20px;
+    width: 1px;
+  }
+
+  .brand-fest-logo {
+    height: 28px;
+    max-width: 115px;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 32px 0 24px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  .hero-logo-center {
+    margin: 10px auto 14px;
+  }
+
+  .hero-fest-logo {
+    width: 100%;
+    max-width: 310px;
+  }
+
+  .hero-meta-panel-centered {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 8px;
+    margin: 8px auto 18px;
+    width: 100%;
+  }
+
+  .meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  .meta-row .label {
+    font-size: 0.75rem;
+  }
+
+  .meta-row .value {
+    font-size: 0.86rem;
+    word-break: break-word;
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  /* Hero Action Buttons */
+  .hero-actions-centered {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 20px;
+    gap: 10px;
+  }
+
+  .hero-actions-centered .btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.92rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Countdown */
+  .countdown-box-centered {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    width: 100%;
+    max-width: 310px;
+    margin: 0 auto;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+    width: 100%;
     justify-content: center;
+  }
+
+  .countdown-num {
+    font-size: 1.2rem;
+  }
+
+  .countdown-text {
+    font-size: 0.6rem;
+  }
+
+  .countdown-sep {
+    font-size: 1rem;
+    margin-top: -4px;
+  }
+
+  /* Institution Announcement */
+  .orgs-announcement-card {
+    padding: 20px 14px;
+    margin-top: 28px;
+    border-radius: var(--radius-md);
+  }
+
+  .announcement-pill {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .main-institution-logo-wrap {
+    max-width: 220px;
+    margin: 0 auto 12px;
+  }
+
+  .main-institution-logo {
+    max-height: 110px;
+  }
+
+  .dept-name {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .college-name {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .dept-divider.center-aligned {
+    max-width: 220px;
+  }
+
+  /* Event Cards */
+  .card-img-wrap {
+    height: 170px;
+  }
+
+  .card-body {
+    padding: 16px 14px;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+  }
+
+  .card-summary {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .card-footer .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Registration CTA Card */
+  .register-cta-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .register-cta-grid {
+    gap: 20px;
+  }
+
+  .cta-perks {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .register-link-btn.btn-lg {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.92rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .cta-fee-box {
+    padding: 16px 12px;
+  }
+
+  .combo-tier-card {
+    padding: 10px 10px;
+    gap: 8px;
+  }
+
+  .combo-tier-name {
+    font-size: 0.82rem;
+  }
+
+  .combo-tier-desc {
+    font-size: 0.68rem;
+  }
+
+  .price-val {
+    font-size: 1.15rem;
+  }
+
+  /* Timeline Banner */
+  .timeline-wishes-banner {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    text-align: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Venue Card */
+  .venue-info-card {
+    padding: 20px 14px;
+  }
+
+  .venue-info-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .venue-map-card {
+    min-height: 260px;
+    height: 260px;
+  }
+
+  /* About Cards */
+  .about-card {
+    padding: 20px 14px;
+  }
+
+  .about-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .about-card p {
+    font-size: 0.88rem;
+  }
+
+  /* FAQ */
+  .faq-summary {
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+
+  .faq-content {
+    padding: 0 16px 16px;
+    font-size: 0.88rem;
+  }
+
+  /* Footer */
+  footer.site-footer {
+    padding: 40px 0 24px;
+  }
+
+  .footer-grid {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .footer-brand .brand-badge {
+    height: 32px;
+  }
+
+  .footer-fest-logo {
+    height: 26px;
+    max-width: 110px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Prevent Navbar Collision: hide navbar extra register button so hamburger + brand never collide */
+  .nav-actions .register-link-btn {
+    display: none;
+  }
+
+  .modal-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .combo-badge {
+    font-size: 0.6rem;
+    padding: 2px 6px;
   }
 }
 
@@ -2197,11 +3002,11 @@ footer.site-footer {
 
 .intro-glitch-title {
   position: relative;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 8vw, 6.4rem);
-  font-weight: 800;
+  font-family: 'Unbounded', 'Syne', var(--font-display), sans-serif;
+  font-size: clamp(2.6rem, 7.5vw, 6.2rem);
+  font-weight: 900;
   line-height: 0.95;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: #FFFFFF;
   text-shadow: 
     0 0 20px rgba(124, 58, 237, 0.8),
@@ -2442,42 +3247,6 @@ footer.site-footer {
 @keyframes heroStaggerIn {
   0% { opacity: 0; transform: translateY(24px); }
   100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile Responsiveness for Intro Screen */
-@media (max-width: 600px) {
-  .intro-topbar {
-    top: 16px;
-    left: 16px;
-    right: 16px;
-  }
-  .intro-college-badge {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .intro-college-meta {
-    align-items: center;
-    text-align: center;
-  }
-  .intro-inst-name {
-    font-size: 0.68rem;
-  }
-  .intro-dept-name {
-    font-size: 0.74rem;
-  }
-  .intro-glitch-title {
-    font-size: clamp(2.4rem, 12vw, 3.8rem);
-  }
-  .intro-tagline-wrap {
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-  .intro-hud-loader {
-    max-width: 90%;
-  }
 }
 
 /* Reduced motion preference */

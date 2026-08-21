@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AuraFeast'26 — National-Level Inter College Symposium | PSVPEC</title>
+  <title>Aurafest'26 — National-Level Inter College Symposium | PSVPEC</title>
   <meta name="description"
-    content="AuraFeast'26 — Premier National Level Inter-College Symposium organized by the Department of Computer Science & Engineering and Department of Information Technology, Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), Ponmar, Chennai. 15th September 2026.">
+    content="Aurafest'26 — Premier National Level Inter-College Symposium organized by the Department of Computer Science & Engineering and Department of Information Technology, Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), Ponmar, Chennai. 26th September 2026.">
 
   <!-- Google Fonts Preconnect & Variable Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Chakra+Petch:wght@600;700&family=Orbitron:wght@700;800;900&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Righteous&family=Space+Mono:wght@400;700&family=Syne:wght@700;800;900&family=Unbounded:wght@700;800;900&display=swap"
     rel="stylesheet">
 
   <!-- Master Stylesheet -->
@@ -22,7 +22,7 @@
 
 <body>
   <!-- ===================== CINEMATIC INTRO SCREEN ===================== -->
-  <aside id="introScreen" class="intro-screen" aria-label="AuraFeast'26 Intro Animation" role="dialog" aria-modal="true">
+  <aside id="introScreen" class="intro-screen" aria-label="Aurafest'26 Intro Animation" role="dialog" aria-modal="true">
     <!-- Ambient Sci-Fi Glow Backdrop -->
     <div class="intro-bg">
       <div class="intro-glow intro-glow-1"></div>
@@ -92,19 +92,16 @@
         <img src="ref_images/psvpec_logo_without_bg.png" alt="PSVPEC" class="intro-college-logo">
       </div>
 
-      <!-- Main Holographic Title with Glitch & Chromatic Aberration -->
+      <!-- Main Holographic Title with Official Aurafest'26 Graphic -->
       <div class="intro-title-wrapper">
-        <div class="intro-glitch-title" data-text="AURAFEAST'26">
-          <span class="intro-char-layer intro-base">AURAFEAST'26</span>
-          <span class="intro-char-layer intro-glitch-r" aria-hidden="true">AURAFEAST'26</span>
-          <span class="intro-char-layer intro-glitch-b" aria-hidden="true">AURAFEAST'26</span>
-        </div>
+        <img src="ref_images/aurafest_final_nobg.png" alt="AURAFEST'26 - Unleash Your Inner Spark"
+          class="intro-aurafest-logo">
       </div>
 
       <!-- Tagline & Badges -->
       <div class="intro-tagline-wrap">
         <span class="intro-tag-pill">NATIONAL LEVEL INTER-COLLEGE SYMPOSIUM</span>
-        <span class="intro-date-pill">⚡ SEPT 15, 2026 &middot; CHENNAI</span>
+        <span class="intro-date-pill">⚡ SEPT 26, 2026 &middot; CHENNAI</span>
       </div>
 
       <!-- High-Tech Progress HUD Loader -->
@@ -142,10 +139,12 @@
     <div class="wrap">
       <nav class="navbar" aria-label="Primary Navigation">
         <!-- Brand Logo -->
-        <a href="#home" class="brand" aria-label="AuraFeast'26 Home">
+        <a href="#home" class="brand" aria-label="Aurafest'26 Home">
           <div class="brand-badge">
             <img src="ref_images/psvpec_logo_final_no_bg.png" alt="PSVPEC Logo">
           </div>
+          <div class="brand-divider" aria-hidden="true"></div>
+          <img src="ref_images/aurafest_final_nobg.png" alt="Aurafest'26" class="brand-fest-logo">
         </a>
 
         <!-- Navigation Links -->
@@ -154,22 +153,16 @@
           <li><a href="#events">Events</a></li>
           <li><a href="#schedule">Schedule</a></li>
           <li><a href="#register">Register</a></li>
+          <li><a href="#venue">Venue</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
 
-        <!-- Nav Actions: Replay Intro, Register Button & Mobile Menu -->
+        <!-- Nav Actions: Register Button & Mobile Menu -->
         <div class="nav-actions">
-          <button type="button" class="btn btn-ghost btn-sm replay-intro-btn" id="replayIntroBtn" title="Replay Intro Animation" aria-label="Replay Intro Animation">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="margin-right: 4px; vertical-align: middle;">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            Intro
-          </button>
-
           <!-- Direct Register Button -->
-          <a href="https://forms.gle/aurafeast2026" class="btn btn-primary btn-sm register-link-btn" target="_blank"
-            rel="noopener noreferrer">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMr-D0D3Y5-nAXSpiwK2A6ERJShkyeVgWcmJjPk3jHYydm-w/viewform?usp=publish-editor"
+            class="btn btn-primary btn-sm register-link-btn" target="_blank" rel="noopener noreferrer">
             Register ↗
           </a>
 
@@ -189,75 +182,31 @@
   <!-- ===================== MAIN CONTENT ===================== -->
   <main id="main">
     <!-- ===================== HERO SECTION ===================== -->
-    <section id="home" class="hero">
+    <section id="home" class="hero hero-centered">
       <div class="wrap">
-        <span class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          15th September 2026 &middot; PSVPEC Mini Auditorium
-        </span>
+        <div class="hero-top-center">
+          <span class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            26th September 2026 &middot; PSVPEC
+          </span>
 
-        <div class="hero-grid">
-          <div>
-            <!-- Signature Poster Misregistration Duotone Headline -->
-            <div class="h1-stack">
-              <h1 aria-hidden="true" class="layer l1">AURAFEAST'26</h1>
-              <h1 aria-hidden="true" class="layer l2">AURAFEAST'26</h1>
-              <h1>AURAFEAST'26</h1>
-            </div>
-
-            <p class="hero-sub">
-              The national-level inter-college symposium presented jointly by the <strong>Department of Computer
-                Science &amp; Engineering</strong> and <strong>Department of Information Technology</strong>, Prince
-              Shri Venkateshwara Padmavathy Engineering College — six technical tracks, six non-technical tracks, one
-              unforgettable day.
-            </p>
-
-            <div class="hero-actions">
-              <a href="https://forms.gle/aurafeast2026" class="btn btn-primary btn-lg register-link-btn" target="_blank"
-                rel="noopener noreferrer">
-                Register for Symposium ↗
-              </a>
-              <a href="#events" class="btn btn-outline btn-lg">
-                Explore 12 Events
-              </a>
-            </div>
-
-            <!-- Live Countdown Timer -->
-            <div class="countdown-box">
-              <span class="countdown-label">Event Countdown</span>
-              <div class="countdown-grid">
-                <div class="countdown-unit">
-                  <div class="countdown-num" id="cdDays">00</div>
-                  <div class="countdown-text">Days</div>
-                </div>
-                <span class="countdown-sep">:</span>
-                <div class="countdown-unit">
-                  <div class="countdown-num" id="cdHours">00</div>
-                  <div class="countdown-text">Hours</div>
-                </div>
-                <span class="countdown-sep">:</span>
-                <div class="countdown-unit">
-                  <div class="countdown-num" id="cdMins">00</div>
-                  <div class="countdown-text">Mins</div>
-                </div>
-                <span class="countdown-sep">:</span>
-                <div class="countdown-unit">
-                  <div class="countdown-num" id="cdSecs">00</div>
-                  <div class="countdown-text">Secs</div>
-                </div>
-              </div>
-            </div>
+          <!-- Centered Official Aurafest'26 Graphic Logo -->
+          <div class="hero-title-wrap hero-logo-center">
+            <h1 class="visually-hidden">Aurafest'26 — Unleash Your Inner Spark</h1>
+            <img src="ref_images/aurafest_final_nobg.png" alt="Aurafest'26 - Unleash Your Inner Spark"
+              class="hero-fest-logo">
+            <div class="hero-title-backdrop-glow" aria-hidden="true"></div>
           </div>
 
-          <!-- Hero Meta Panel (Ticket style) -->
-          <div class="hero-meta-panel">
+          <!-- Hero Meta Panel (Placed directly below the Aurafest'26 logo) -->
+          <div class="hero-meta-panel hero-meta-panel-centered">
             <div class="meta-row">
               <span class="label">📅 Date</span>
-              <span class="value">15th September 2026</span>
+              <span class="value">26th September 2026</span>
             </div>
             <div class="meta-row">
               <span class="label">📍 Venue</span>
-              <span class="value">PSVPEC Mini Auditorium</span>
+              <span class="value">PSVPEC</span>
             </div>
             <div class="meta-row">
               <span class="label">🏛️ Organizers</span>
@@ -265,15 +214,59 @@
             </div>
             <div class="meta-row">
               <span class="label">🎓 Eligibility</span>
-              <span class="value">1st &amp; 2nd Year Students</span>
+              <span class="value">All Years Students</span>
             </div>
             <div class="meta-row">
               <span class="label">🎟️ Entry Fee</span>
-              <span class="value"><span class="meta-badge-fee">&#8377;200 / Participant</span></span>
+              <span class="value"><span class="meta-badge-fee">Starts from &#8377;300, with exciting
+                  combos</span></span>
             </div>
             <div class="meta-row">
               <span class="label">🏆 Perks</span>
-              <span class="value">Cash Prizes, Lunch &amp; Kits</span>
+              <span class="value">🍱 Free Lunch &amp; Certificates with Medals for winners</span>
+            </div>
+          </div>
+
+          <p class="hero-sub hero-sub-centered">
+            The national-level inter-college symposium presented jointly by the <strong>Department of Computer
+              Science &amp; Engineering</strong> and <strong>Department of Information Technology</strong>, Prince
+            Shri Venkateshwara Padmavathy Engineering College — five technical tracks, six non-technical tracks, one
+            unforgettable day.
+          </p>
+
+          <div class="hero-actions hero-actions-centered">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMr-D0D3Y5-nAXSpiwK2A6ERJShkyeVgWcmJjPk3jHYydm-w/viewform?usp=publish-editor"
+              class="btn btn-primary btn-lg register-link-btn" target="_blank" rel="noopener noreferrer">
+              Register for Symposium ↗
+            </a>
+            <a href="#events" class="btn btn-outline btn-lg">
+              Explore 11 Events
+            </a>
+          </div>
+
+          <!-- Live Countdown Timer -->
+          <div class="countdown-box countdown-box-centered">
+            <span class="countdown-label">Event Countdown</span>
+            <div class="countdown-grid">
+              <div class="countdown-unit">
+                <div class="countdown-num" id="cdDays">00</div>
+                <div class="countdown-text">Days</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-unit">
+                <div class="countdown-num" id="cdHours">00</div>
+                <div class="countdown-text">Hours</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-unit">
+                <div class="countdown-num" id="cdMins">00</div>
+                <div class="countdown-text">Mins</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-unit">
+                <div class="countdown-num" id="cdSecs">00</div>
+                <div class="countdown-text">Secs</div>
+              </div>
             </div>
           </div>
         </div>
@@ -318,9 +311,9 @@
       <div class="wrap">
         <div class="section-head">
           <span class="section-tag">// EVENTS SHOWCASE</span>
-          <h2 class="section-title">Compete &amp; Innovate Across 12 Events</h2>
+          <h2 class="section-title">Compete &amp; Innovate Across 11 Events</h2>
           <p class="section-subtitle">
-            Six technical competitions for sharp engineering minds and six non-technical battles celebrating strategy,
+            Five technical competitions for sharp engineering minds and six non-technical battles celebrating strategy,
             trivia, arts, and wit.
           </p>
         </div>
@@ -328,8 +321,8 @@
         <!-- Category Filter & Search Bar -->
         <div class="events-filter-bar">
           <div class="filter-tabs" role="tablist">
-            <button type="button" class="filter-tab active" data-category="all" role="tab">All Events (12)</button>
-            <button type="button" class="filter-tab" data-category="technical" role="tab">⚡ Technical (6)</button>
+            <button type="button" class="filter-tab active" data-category="all" role="tab">All Events (11)</button>
+            <button type="button" class="filter-tab" data-category="technical" role="tab">⚡ Technical (5)</button>
             <button type="button" class="filter-tab" data-category="non-technical" role="tab">🎯 Non-Technical
               (6)</button>
           </div>
@@ -366,10 +359,10 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
-              <span class="timeline-time">08:30 AM – 09:30 AM</span>
+              <span class="timeline-time">09:00 AM – 10:00 AM</span>
               <h3 class="timeline-title">Registration Desk &amp; Kit Distribution</h3>
               <p class="timeline-desc">Check-in at the registration desk, collect your delegate kit, and head to the
-                auditorium.</p>
+                designated event halls.</p>
             </div>
           </div>
 
@@ -377,11 +370,10 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
-              <span class="timeline-time">09:30 AM – 10:15 AM</span>
-              <h3 class="timeline-title">Grand Inaugural Ceremony</h3>
-              <p class="timeline-desc">Welcome address by dignitaries, keynotes from industry leaders, and official
-                opening
-                declaration.</p>
+              <span class="timeline-time">10:00 AM – 12:30 PM</span>
+              <h3 class="timeline-title">Round 1: Technical &amp; Non-Technical Tracks</h3>
+              <p class="timeline-desc">Simultaneous competitive rounds across computer labs, seminar halls, and
+                designated arenas.</p>
             </div>
           </div>
 
@@ -389,11 +381,10 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
-              <span class="timeline-time">10:30 AM – 01:00 PM</span>
-              <h3 class="timeline-title">Round 1: Technical &amp; Non-Technical Tracks</h3>
-              <p class="timeline-desc">Simultaneous competitive rounds across computer labs, seminar halls, and
-                designated
-                arenas.</p>
+              <span class="timeline-time">12:30 PM – 01:00 PM</span>
+              <h3 class="timeline-title">Networking Lunch &amp; Feast</h3>
+              <p class="timeline-desc">Enjoy complimentary lunch feast and connect with student innovators from across
+                institutions.</p>
             </div>
           </div>
 
@@ -401,10 +392,10 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
-              <span class="timeline-time">01:00 PM – 02:00 PM</span>
-              <h3 class="timeline-title">Networking Lunch &amp; Feast</h3>
-              <p class="timeline-desc">Enjoy complimentary lunch feast and connect with student innovators from across
-                institutions.</p>
+              <span class="timeline-time">01:00 PM – 02:45 PM</span>
+              <h3 class="timeline-title">Final Knockouts &amp; Stage Showdowns</h3>
+              <p class="timeline-desc">High-stakes final rounds for top qualifiers across technical and non-technical
+                tracks.</p>
             </div>
           </div>
 
@@ -412,23 +403,18 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
-              <span class="timeline-time">02:00 PM – 03:45 PM</span>
-              <h3 class="timeline-title">Final Knockouts &amp; Stage Showdowns</h3>
-              <p class="timeline-desc">High-stakes final rounds for top qualifiers in Paper Defense, Coding Arena, playVerse Arena, and Flip the Channel.</p>
+              <span class="timeline-time">02:45 PM – 04:00 PM</span>
+              <h3 class="timeline-title">Valedictory Ceremony &amp; Award Distribution</h3>
+              <p class="timeline-desc">Awarding winner medals, certificates of merit, and official participation
+                certificates to top performers.</p>
             </div>
           </div>
+        </div>
 
-          <!-- Timeline Item 6 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <span class="timeline-time">03:45 PM – 05:00 PM</span>
-              <h3 class="timeline-title">Valedictory Ceremony &amp; Prize Distribution</h3>
-              <p class="timeline-desc">Awarding championship trophies, cash prizes, and certificates of excellence to
-                top
-                performers.</p>
-            </div>
-          </div>
+        <!-- Inspiring Timeline Wishes Banner -->
+        <div class="timeline-wishes-banner">
+          <span class="wishes-icon">✨</span>
+          <p class="wishes-text">All the best for all the participants to Grow and Enjoy their Day!</p>
         </div>
       </div>
     </section>
@@ -439,14 +425,14 @@
         <div class="register-cta-card">
           <div class="register-cta-grid">
             <div>
-              <span class="section-tag" style="color: var(--secondary-br);">// JOIN THE FEAST</span>
+              <span class="section-tag" style="color: var(--secondary-br);">// JOIN THE FEST &amp; COMBO OFFERS</span>
               <h2 class="section-title" style="font-size: clamp(28px, 4vw, 42px);">
-                Ready to make your mark at AuraFeast'26?
+                Ready to make your mark at Aurafest'26?
               </h2>
               <p style="color: var(--graphite); margin-top: 10px; font-size: 1rem; line-height: 1.6;">
-                Grab your spot now! A single registration grants you access to participate across your preferred
-                technical
-                and non-technical tracks.
+                Grab your spot solo or squad up with our exclusive combo discounts! Every participant gets to
+                participate and compete in <strong>all the events they like</strong> across technical and non-technical
+                tracks with zero restrictions.
               </p>
 
               <div class="cta-perks">
@@ -456,11 +442,11 @@
                 </div>
                 <div class="perk-item">
                   <div class="perk-icon">✓</div>
-                  <span>Delicious Lunch Feast</span>
+                  <span>🍱 Complimentary Lunch Feast</span>
                 </div>
                 <div class="perk-item">
                   <div class="perk-icon">✓</div>
-                  <span>Cash Awards &amp; Trophies</span>
+                  <span>Certificates &amp; Medals for Winners</span>
                 </div>
                 <div class="perk-item">
                   <div class="perk-icon">✓</div>
@@ -469,24 +455,147 @@
               </div>
 
               <div style="margin-top: 24px;">
-                <a href="https://forms.gle/aurafeast2026" class="btn btn-accent btn-lg register-link-btn"
-                  target="_blank" rel="noopener noreferrer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMr-D0D3Y5-nAXSpiwK2A6ERJShkyeVgWcmJjPk3jHYydm-w/viewform?usp=publish-editor"
+                  class="btn btn-accent btn-lg register-link-btn" target="_blank" rel="noopener noreferrer">
                   Complete Registration on Google Forms ↗
                 </a>
               </div>
             </div>
 
             <div class="cta-fee-box">
-              <span
-                style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--secondary); font-weight: 700;">
-                All-Inclusive Registration Fee
-              </span>
-              <div class="fee-amount">&#8377;200</div>
-              <div class="fee-sub">per participant &middot; unlimited access</div>
-              <p style="font-size: 0.85rem; color: var(--graphite); margin-top: 14px;">
-                On-spot desk verification &amp; instant pass collection upon arrival on September 15.
+              <div class="fee-box-header">
+                <span class="fee-badge-tag">🔥 EXCLUSIVE TICKET TIERS</span>
+                <h3 class="fee-box-title">Passes &amp; Combo Offers</h3>
+              </div>
+
+              <div class="combo-tiers-list">
+                <!-- Tier 1: Single Pass -->
+                <div class="combo-tier-card">
+                  <div class="combo-tier-info">
+                    <span class="combo-tier-name">👤 Single Pass</span>
+                    <span class="combo-tier-desc">1 Person &middot; Participate in all events you like</span>
+                  </div>
+                  <div class="combo-tier-price">
+                    <span class="price-val">&#8377;300</span>
+                  </div>
+                </div>
+
+                <!-- Tier 2: 2 Persons Combo (Popular) -->
+                <div class="combo-tier-card featured">
+                  <div class="combo-badge">Save &#8377;100</div>
+                  <div class="combo-tier-info">
+                    <span class="combo-tier-name">👥 2 Persons Combo</span>
+                    <span class="combo-tier-desc">&#8377;250/person &middot; Participate in all events you like</span>
+                  </div>
+                  <div class="combo-tier-price">
+                    <span class="price-val">&#8377;500</span>
+                    <span class="original-price">&#8377;600</span>
+                  </div>
+                </div>
+
+                <!-- Tier 3: 3 Persons Trio Combo -->
+                <div class="combo-tier-card">
+                  <div class="combo-badge">Save &#8377;151</div>
+                  <div class="combo-tier-info">
+                    <span class="combo-tier-name">👥 3 Persons Trio Combo</span>
+                    <span class="combo-tier-desc">&#8377;250/person &middot; Participate in all events you like</span>
+                  </div>
+                  <div class="combo-tier-price">
+                    <span class="price-val">&#8377;749</span>
+                    <span class="original-price">&#8377;900</span>
+                  </div>
+                </div>
+
+                <!-- Tier 4: 4 Persons Team Combo (Best Value) -->
+                <div class="combo-tier-card best-value">
+                  <div class="combo-badge best">Save &#8377;201</div>
+                  <div class="combo-tier-info">
+                    <span class="combo-tier-name">⚡ 4 Persons Team Combo</span>
+                    <span class="combo-tier-desc">Full 4-member squad &middot; Participate in all events you like</span>
+                  </div>
+                  <div class="combo-tier-price">
+                    <span class="price-val">&#8377;999</span>
+                    <span class="original-price">&#8377;1,200</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="fee-note">
+                🍱 <strong>Free Lunch Feast</strong>, delegate kit &amp; certificates included with every registration!
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VENUE & CAMPUS MAP SECTION ===================== -->
+    <section id="venue" class="section">
+      <div class="wrap">
+        <div class="section-head" style="text-align: center;">
+          <span class="section-tag">// LOCATION &amp; REACH</span>
+          <h2 class="section-title">Campus Venue &amp; Route Map</h2>
+          <p class="section-subtitle">
+            Prince Shri Venkateshwara Padmavathy Engineering College &middot; Ponmar, Chennai
+          </p>
+        </div>
+
+        <div class="venue-grid">
+          <!-- Left Info Card -->
+          <div class="venue-info-card">
+            <div>
+              <div
+                style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); font-size: 0.85rem; font-weight: 700; margin-bottom: 18px;">
+                🏛️ PSVPEC Campus
+              </div>
+              <h3
+                style="font-size: 1.35rem; font-weight: 800; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">
+                Prince Shri Venkateshwara Padmavathy Engineering College
+              </h3>
+              <p style="color: var(--graphite); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                Situated on the Medavakkam &ndash; Mambakkam Main Road in Ponmar, Chennai. The campus has excellent bus
+                connectivity from major transit hubs across Chennai.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                  <span style="font-size: 1.1rem;">📍</span>
+                  <span style="font-size: 0.9rem; color: var(--ink); line-height: 1.5;">
+                    <strong>Address:</strong> Medavakkam - Mambakkam Main Road, Ponmar, Chennai, Tamil Nadu 600127
+                  </span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                  <span style="font-size: 1.1rem;">🚌</span>
+                  <span style="font-size: 0.9rem; color: var(--ink); line-height: 1.5;">
+                    <strong>Transit Hubs:</strong> Connected via Tambaram, Medavakkam, Velachery &amp; Koyambedu
+                  </span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                  <span style="font-size: 1.1rem;">📞</span>
+                  <span style="font-size: 0.9rem; color: var(--ink); line-height: 1.5;">
+                    <strong>Co-Coordinator:</strong> <a href="tel:+917418182049"
+                      style="color: var(--primary); font-weight: 600;">+91 7418182049</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a href="https://maps.google.com/?q=Prince+Shri+Venkateshwara+Padmavathy+Engineering+College+Ponmar+Chennai"
+                target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-md"
+                style="width: 100%; text-align: center; justify-content: center;">
+                Get Directions on Google Maps ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Map Frame -->
+          <div class="venue-map-card">
+            <iframe
+              src="https://maps.google.com/maps?q=Prince+Shri+Venkateshwara+Padmavathy+Engineering+College+Ponmar+Chennai&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="100%" style="border: 0; min-height: 380px; display: block;" allowfullscreen=""
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PSVPEC Campus Location Map">
+            </iframe>
           </div>
         </div>
       </div>
@@ -545,40 +654,65 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary class="faq-summary">
-              <span>Who is eligible to participate in AuraFeast'26?</span>
+              <span>Who is eligible to participate in Aurafest'26?</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </summary>
             <div class="faq-content">
-              1st and 2nd year undergraduate students belonging to any recognized engineering, technology, arts, and
+              All years undergraduate students (1st, 2nd, 3rd, and final year) belonging to any recognized engineering,
+              technology, arts, and
               science institutions are eligible to register and participate.
             </div>
           </details>
 
           <details class="faq-item">
             <summary class="faq-summary">
-              <span>Can I participate in multiple events?</span>
+              <span>What are the registration fees and Combo Offers?</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </summary>
             <div class="faq-content">
-              Yes! You can participate in multiple events as long as the event schedules do not clash. We recommend
-              selecting 1 Technical and 1 or 2 Non-Technical events.
+              We offer single and team combo packages:
+              <ul style="margin-top: 8px; padding-left: 20px; line-height: 1.7;">
+                <li><strong>Single Pass:</strong> &#8377;300 / person (Participate in all events you like)</li>
+                <li><strong>2 Persons Combo:</strong> &#8377;500 total (Save &#8377;100 &mdash; &#8377;250 per person,
+                  participate in all events you like)</li>
+                <li><strong>3 Persons Trio Combo:</strong> &#8377;749 total (Save &#8377;151 &mdash; &#8377;250 per
+                  person, participate in all events you like)</li>
+                <li><strong>4 Persons Team Combo:</strong> &#8377;999 total (Save &#8377;201 &mdash; Full squad pass,
+                  participate in all events you like)</li>
+              </ul>
+              All passes include lunch feast, welcome delegate kits, and certificates for every participant.
             </div>
           </details>
 
           <details class="faq-item">
             <summary class="faq-summary">
-              <span>Will lunch and participation certificates be provided?</span>
+              <span>How many events can I participate in after paying the registration fee?</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </summary>
             <div class="faq-content">
-              Yes. All registered attendees receive an official Certificate of Participation, a welcome kit, and a
-              networking lunch feast.
+              There is no restriction! When you pay the registration fee of &#8377;300/- (or register via any combo
+              pass), each participant can participate in <strong>every event they like</strong> across all 11 technical
+              and non-technical competitions.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Is lunch provided with the registration fee?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="faq-content">
+              <strong>Yes, absolutely!</strong> A delicious complimentary networking lunch feast is fully included with
+              every registration pass (both single &#8377;300 passes and combo offers) along with official certificates
+              and welcome delegate kits.
             </div>
           </details>
 
@@ -605,7 +739,7 @@
               </svg>
             </summary>
             <div class="faq-content">
-              PSVPEC is conveniently located at Ponmar (near Medavakkam / Mambakkam), Chennai. College buses and public
+              PSVPEC is conveniently located at Ponmar (near Medavakkam / Mambakkam), Chennai. public
               MTC transport routes are readily available from major city hubs including Tambaram, Medavakkam, and
               Koyambedu.
             </div>
@@ -629,11 +763,12 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#home" class="brand" style="margin-bottom: 8px;">
+          <a href="#home" class="brand" style="margin-bottom: 12px;" aria-label="Aurafest'26 Home">
             <div class="brand-badge">
               <img src="ref_images/psvpec_logo_final_no_bg.png" alt="PSVPEC Logo">
             </div>
-            <span class="brand-text">AURAFEAST<span>'26</span></span>
+            <div class="brand-divider" aria-hidden="true"></div>
+            <img src="ref_images/aurafest_final_nobg.png" alt="Aurafest'26" class="footer-fest-logo">
           </a>
           <p>
             National-Level Inter-College Symposium organized by the Department of Computer Science &amp; Engineering
@@ -646,11 +781,13 @@
           <h4>Quick Links</h4>
           <ul class="footer-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#events">All 12 Events</a></li>
+            <li><a href="#events">All 11 Events</a></li>
             <li><a href="#schedule">Timeline Agenda</a></li>
             <li><a href="#register">Register for Symposium</a></li>
+            <li><a href="#venue">Campus Venue &amp; Route Map</a></li>
             <li><a href="#faq">FAQ &amp; Guidelines</a></li>
-            <li><a href="#replay-intro" id="footerReplayIntroBtn" style="color: var(--primary); font-weight: 600;">🎬 Replay Intro Animation</a></li>
+            <li><a href="#replay-intro" id="footerReplayIntroBtn" style="color: var(--primary); font-weight: 600;">🎬
+                Replay Intro Animation</a></li>
           </ul>
         </div>
 
@@ -660,15 +797,18 @@
             <strong>Prince Shri Venkateshwara Padmavathy Engineering College</strong><br>
             Medavakkam - Mambakkam Main Road, Ponmar, Chennai &ndash; 600 127.
           </p>
-          <p style="color: var(--graphite); font-size: 0.88rem;">
+          <p style="color: var(--graphite); font-size: 0.88rem; line-height: 1.6;">
             <strong>Convenors:</strong> HOD CSE &amp; HOD IT<br>
-            <strong>Email:</strong> aurafeast2026@psvpec.in
+            <strong>Coordinator:</strong> &ndash;<br>
+            <strong>Co-Coordinator:</strong> <a href="tel:+917418182049"
+              style="color: var(--primary); font-weight: 600;">+91 7418182049</a><br>
+            <strong>Email:</strong> aurafest2026@psvpec.in
           </p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; 2026 AuraFeast. Department of CSE &amp; Department of IT, PSVPEC. All rights reserved.</span>
+        <span>&copy; 2026 Aurafest. Department of CSE &amp; Department of IT, PSVPEC. All rights reserved.</span>
         <span>Zero Backend &middot; Static Web Architecture</span>
       </div>
     </div>
