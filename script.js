@@ -21,7 +21,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 2 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 2 members per team (Max 2).",
       "Manuscripts should strictly follow standard IEEE 2-column format (max 6 pages).",
@@ -42,7 +42,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Supported languages: C, C++, Java, Python 3.",
@@ -63,7 +63,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Surprise theme will be announced on the spot.",
@@ -85,7 +85,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Round 1: 25-minute written / digital prelims covering core CS, AI, tech trivia, and industry innovations.",
@@ -106,7 +106,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Pitch format: 7 minutes slide deck presentation + 3 minutes jury Q&A.",
@@ -129,7 +129,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "DSLR, Mirrorless cameras, and Mobile phones permitted.",
@@ -150,7 +150,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Duration of the short film: 5 to 15 minutes (including opening and closing credits).",
@@ -172,7 +172,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members (Solo for Chess / Squad for BGMI & Free Fire)",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4; Solo for Chess).",
       "Gaming Track 1 (Chess): Played online on Chess.com / Lichess under 5+3 Blitz / Rapid rules.",
@@ -195,7 +195,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Each team gets 3 to 5 minutes of total stage time.",
@@ -217,7 +217,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Rounds include: BGM identification, Frame guessing, Dialogue recall, and Filmography connections.",
@@ -237,7 +237,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
+    coordinator: "Staff Organizers: Mrs. Umamaheswari B (+91 99621 03890), Mrs. Reena R (+91 98409 88141)",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Teams compete across 3 consecutive rounds.",
@@ -249,19 +249,21 @@ const EVENTS_DATA = [
   }
 ];
 
-/* ==========================================================================
-   Initializations on DOM Ready
-   ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-  initIntroAnimation();
-  renderEvents("all", "");
-  initFilterControls();
-  initModal();
-  initCountdown();
-  initCanvas();
-  initMobileNav();
-  setupRegistrationLinks();
-});
+function initApp() {
+  try { initCountdown(); } catch (e) { console.warn("Countdown init:", e); }
+  try { initIntroAnimation(); } catch (e) { console.warn("Intro init:", e); }
+  try { renderEvents("all", ""); } catch (e) { console.warn("Events render:", e); }
+  try { initFilterControls(); } catch (e) { console.warn("Filters init:", e); }
+  try { initModal(); } catch (e) { console.warn("Modal init:", e); }
+  try { initMobileNav(); } catch (e) { console.warn("MobileNav init:", e); }
+  try { setupRegistrationLinks(); } catch (e) { console.warn("Links init:", e); }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
 
 /* ==========================================================================
    🎬 CINEMATIC INTRO ANIMATION CONTROLLER (6.0s Pure Visual Engine)
@@ -683,13 +685,14 @@ function initCountdown() {
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  const targetDate = new Date("September 26, 2026 09:00:00").getTime();
+  // 26th September 2026 at 09:00 AM IST (Month index 8 = September)
+  const targetDate = new Date(2026, 8, 26, 9, 0, 0).getTime();
 
   function update() {
-    const now = new Date().getTime();
+    const now = Date.now();
     const distance = targetDate - now;
 
-    if (distance < 0) {
+    if (distance <= 0) {
       daysEl.textContent = "00";
       hoursEl.textContent = "00";
       minsEl.textContent = "00";
@@ -735,146 +738,8 @@ function initMobileNav() {
 /* ==========================================================================
    Interactive Background Canvas (Vibrant Cyber Constellation & Colors)
    ========================================================================== */
-function initCanvas() {
-  const canvas = document.getElementById("cyberCanvas");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  let width, height;
-  let nodes = [];
-  const nodeCount = 42;
-  const maxDist = 145;
-  const maxDistSq = maxDist * maxDist;
-  let mouse = { x: -1000, y: -1000, active: false };
-
-  const vibrantColors = [
-    { hex: "#A78BFA", rgb: "167, 139, 250" }, // Electric Violet
-    { hex: "#FF2E88", rgb: "255, 46, 136" },  // Cyber Magenta
-    { hex: "#00E5FF", rgb: "0, 229, 255" },   // Neon Cyan
-    { hex: "#D4FF3D", rgb: "212, 255, 61" },  // Electric Lime
-    { hex: "#C084FC", rgb: "192, 132, 252" }  // Bright Purple
-  ];
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    createNodes();
-  }
-
-  function createNodes() {
-    nodes = [];
-    for (let i = 0; i < nodeCount; i++) {
-      const colorObj = vibrantColors[i % vibrantColors.length];
-      nodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.55,
-        vy: (Math.random() - 0.5) * 0.55,
-        radius: 2.0 + Math.random() * 2.0,
-        color: colorObj.hex,
-        rgb: colorObj.rgb,
-        pulseOffset: Math.random() * Math.PI * 2
-      });
-    }
-  }
-
-  // Mouse interaction
-  window.addEventListener("pointermove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-    mouse.active = true;
-  }, { passive: true });
-
-  window.addEventListener("pointerleave", () => {
-    mouse.active = false;
-  }, { passive: true });
-
-  let time = 0;
-
-  function render() {
-    ctx.clearRect(0, 0, width, height);
-    time += 0.02;
-
-    const isDarkTheme = document.documentElement.getAttribute("data-theme") === "dark";
-
-    // Update positions and draw glowing nodes
-    for (let i = 0; i < nodes.length; i++) {
-      const n = nodes[i];
-      if (!prefersReduced.matches) {
-        n.x += n.vx;
-        n.y += n.vy;
-
-        // Mouse gentle push/attraction
-        if (mouse.active) {
-          const mdx = mouse.x - n.x;
-          const mdy = mouse.y - n.y;
-          const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-          if (mdist < 180 && mdist > 0) {
-            const force = (1 - mdist / 180) * 0.08;
-            n.x += (mdx / mdist) * force * 5;
-            n.y += (mdy / mdist) * force * 5;
-          }
-        }
-
-        if (n.x < 0) n.x = width;
-        else if (n.x > width) n.x = 0;
-        if (n.y < 0) n.y = height;
-        else if (n.y > height) n.y = 0;
-      }
-
-      // Dynamic glowing node pulse
-      const currentRadius = n.radius + Math.sin(time + n.pulseOffset) * 0.6;
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, Math.max(1, currentRadius), 0, Math.PI * 2);
-      ctx.fillStyle = n.color;
-      ctx.shadowColor = n.color;
-      ctx.shadowBlur = isDarkTheme ? 10 : 6;
-      ctx.fill();
-      ctx.shadowBlur = 0; // reset shadow
-    }
-
-    // Draw multi-color connecting lines
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const distSq = dx * dx + dy * dy;
-
-        if (distSq < maxDistSq) {
-          const dist = Math.sqrt(distSq);
-          const alpha = (1 - dist / maxDist) * (isDarkTheme ? 0.35 : 0.22);
-
-          // Create vibrant gradient between connecting nodes
-          const grad = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
-          grad.addColorStop(0, `rgba(${nodes[i].rgb}, ${alpha})`);
-          grad.addColorStop(1, `rgba(${nodes[j].rgb}, ${alpha})`);
-
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 1.0;
-          ctx.stroke();
-        }
-      }
-    }
-
-    if (!prefersReduced.matches) {
-      requestAnimationFrame(render);
-    }
-  }
-
-  window.addEventListener("resize", resize, { passive: true });
-  resize();
-
-  if (!prefersReduced.matches) {
-    requestAnimationFrame(render);
-  } else {
-    render();
-  }
-}
+/* Background Canvas removed per request */
+function initCanvas() {}
 
 /* ==========================================================================
    Mobile Navigation Drawer Controller
