@@ -21,7 +21,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 2 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 2 members per team (Max 2).",
       "Manuscripts should strictly follow standard IEEE 2-column format (max 6 pages).",
@@ -42,7 +42,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Supported languages: C, C++, Java, Python 3.",
@@ -63,7 +63,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Surprise theme will be announced on the spot.",
@@ -85,7 +85,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Round 1: 25-minute written / digital prelims covering core CS, AI, tech trivia, and industry innovations.",
@@ -106,7 +106,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Pitch format: 7 minutes slide deck presentation + 3 minutes jury Q&A.",
@@ -129,7 +129,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "DSLR, Mirrorless cameras, and Mobile phones permitted.",
@@ -150,7 +150,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Duration of the short film: 5 to 15 minutes (including opening and closing credits).",
@@ -172,7 +172,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members (Solo for Chess / Squad for BGMI & Free Fire)",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4; Solo for Chess).",
       "Gaming Track 1 (Chess): Played online on Chess.com / Lichess under 5+3 Blitz / Rapid rules.",
@@ -195,7 +195,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Each team gets 3 to 5 minutes of total stage time.",
@@ -217,7 +217,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Rounds include: BGM identification, Frame guessing, Dialogue recall, and Filmography connections.",
@@ -237,7 +237,7 @@ const EVENTS_DATA = [
     teamSize: "1 – 4 Members",
     timing: "Will be announced on 24th September",
     venue: "Will be announced on 24th September",
-    coordinator: "Co-Coordinator: +91 7418182049",
+    coordinator: "Staff Organizers: Uma Maheshwari, Poornima Devi",
     rules: [
       "Team size: 1 to 4 members per team (Max 4).",
       "Teams compete across 3 consecutive rounds.",
@@ -640,7 +640,7 @@ function openEventModal(eventId) {
           <div class="val">${event.venue}</div>
         </div>
         <div class="modal-meta-item">
-          <div class="label">Contact</div>
+          <div class="label">Organizers</div>
           <div class="val">${event.coordinator}</div>
         </div>
       </div>
