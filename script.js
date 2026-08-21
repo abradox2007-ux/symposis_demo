@@ -69,7 +69,7 @@ const EVENTS_DATA = [
       "Surprise theme will be announced on the spot.",
       "Participants are free to use any development tools, libraries, or frameworks to build the website.",
       "Evaluation Criteria: The team with the superior frontend design, UI responsiveness, and robust backend structure wins.",
-      "Total duration: 1 Hours for complete design and development.",
+      "Total duration: 1 Hour for complete design and development.",
       "The event coordinators and judges will review all submissions and announce the final winner."
     ]
   },
@@ -179,7 +179,7 @@ const EVENTS_DATA = [
       "Gaming Track 2 (BGMI): Custom room matches in Squad mode (Erangel/Miramar). BYOD (Bring Your Own Device). Mobile only.",
       "Gaming Track 3 (Free Fire Max): Custom room matches in Squad mode (Bermuda/Purgatory). BYOD. Mobile only.",
       "Strict anti-cheat policy: Emulators, iPad view tools, trigger accessories, or third-party plugins are banned.",
-      "participants are encouraged to have mobile data for internet connection.",
+      "Participants are encouraged to have mobile data for internet connection.",
       "Leaderboard is calculated on official placement points + frag kills."
     ]
   },
@@ -207,7 +207,7 @@ const EVENTS_DATA = [
   },
   {
     id: "nontech-movquiz",
-    title: "Lights , Camera , Guess!",
+    title: "Lights, Camera, Guess!",
     category: "non-technical",
     categoryLabel: "Non-Technical Track",
     image: "ref_images/movquiz.png",
@@ -591,16 +591,19 @@ function initFilterControls() {
 /* ==========================================================================
    Event Details Modal Handling
    ========================================================================== */
-let modalBackdrop, modalContentContainer, modalCloseBtn;
+let modalBackdrop, modalContentContainer;
 
 function initModal() {
   modalBackdrop = document.getElementById("eventModal");
   modalContentContainer = document.getElementById("modalDetailsContainer");
-  modalCloseBtn = document.getElementById("modalCloseBtn");
 
   if (!modalBackdrop) return;
 
-  modalCloseBtn.addEventListener("click", closeModal);
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", closeModal);
+  }
+
   modalBackdrop.addEventListener("click", (e) => {
     if (e.target === modalBackdrop) closeModal();
   });
@@ -623,7 +626,7 @@ function openEventModal(eventId) {
     </div>
     <div class="modal-body" data-event="${event.id}">
       <span class="modal-category-tag">${event.categoryLabel}</span>
-      <h2 class="modal-title">${event.title}</h2>
+      <h2 class="modal-title" id="modalEventTitle">${event.title}</h2>
       
       <p class="modal-desc">${event.desc1}</p>
       <p class="modal-desc">${event.desc2}</p>
@@ -716,32 +719,6 @@ function initCountdown() {
 }
 
 /* ==========================================================================
-   Mobile Nav Drawer
-   ========================================================================== */
-function initMobileNav() {
-  const toggleBtn = document.getElementById("mobileMenuBtn");
-  const navLinks = document.getElementById("navLinks");
-
-  if (!toggleBtn || !navLinks) return;
-
-  toggleBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-
-  navLinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-    });
-  });
-}
-
-/* ==========================================================================
-   Interactive Background Canvas (Vibrant Cyber Constellation & Colors)
-   ========================================================================== */
-/* Background Canvas removed per request */
-function initCanvas() {}
-
-/* ==========================================================================
    Mobile Navigation Drawer Controller
    ========================================================================== */
 function initMobileNav() {
@@ -772,3 +749,4 @@ function initMobileNav() {
     }
   });
 }
+
