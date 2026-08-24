@@ -289,45 +289,49 @@ button {
 }
 
 .btn-primary {
-  background: var(--ink);
-  color: var(--paper);
-  box-shadow: 4px 4px 0 var(--accent);
-  border: 2px solid var(--ink);
+  background: linear-gradient(135deg, #181126 0%, #0F091A 100%);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(167, 139, 250, 0.4);
+  box-shadow: 0 4px 16px -2px rgba(124, 58, 237, 0.4);
 }
 
 .btn-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--accent);
-  color: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.65), 0 0 16px rgba(124, 58, 237, 0.3);
+  border-color: var(--primary);
+  color: #FFFFFF;
 }
 
 .btn-primary:active {
-  transform: translate(0, 0);
-  box-shadow: 2px 2px 0 var(--accent);
+  transform: translateY(0);
+  box-shadow: 0 2px 8px -2px rgba(124, 58, 237, 0.4);
 }
 
 .btn-accent {
-  background: var(--accent);
-  color: var(--accent-text);
-  box-shadow: 4px 4px 0 var(--primary);
-  border: 2px solid var(--accent);
+  background: linear-gradient(135deg, #C6FF00 0%, #B2FF00 100%);
+  color: #0E1700;
+  border: 1.5px solid rgba(198, 255, 0, 0.6);
+  box-shadow: 0 4px 16px -2px rgba(198, 255, 0, 0.45);
 }
 
 .btn-accent:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(198, 255, 0, 0.7), 0 0 16px rgba(198, 255, 0, 0.35);
 }
 
 .btn-outline {
-  background: transparent;
+  background: color-mix(in srgb, var(--card-bg) 80%, transparent);
   color: var(--ink);
-  border: 2px solid var(--ink);
+  border: 1.5px solid var(--line-strong);
+  box-shadow: 0 2px 8px -2px var(--shadow);
 }
 
 .btn-outline:hover {
   background: var(--ink);
   color: var(--paper);
+  border-color: var(--ink);
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px -4px var(--shadow-lg);
 }
 
 .btn-ghost {
@@ -347,9 +351,14 @@ button {
   font-size: 0.85rem;
 }
 
+.btn-md {
+  padding: 11px 22px;
+  font-size: 0.92rem;
+}
+
 .btn-lg {
-  padding: 16px 34px;
-  font-size: 1.1rem;
+  padding: 15px 32px;
+  font-size: 1.05rem;
 }
 
 /* ==========================================================================
@@ -1766,6 +1775,147 @@ header.site-header {
 }
 
 /* ==========================================================================
+   Venue & Route Map Section
+   ========================================================================== */
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.venue-info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 8px 24px -10px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.venue-campus-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.venue-college-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.venue-college-desc {
+  color: var(--graphite);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.venue-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.venue-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.venue-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.venue-text {
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.bus-routes-tags {
+  display: inline-flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 4px 0;
+}
+
+.bus-badge {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.bus-subtext {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--graphite);
+  margin-top: 2px;
+}
+
+.venue-phone-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.venue-phone-link:hover {
+  text-decoration: underline;
+  color: var(--secondary);
+}
+
+.venue-directions-wrap {
+  margin-top: 8px;
+}
+
+.venue-directions-btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.venue-map-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 24px -10px var(--shadow);
+  min-height: 380px;
+}
+
+.venue-map-card iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: 0;
+  display: block;
+}
+
+/* ==========================================================================
    About & FAQ Sections
    ========================================================================== */
 .about-grid {
@@ -1905,11 +2055,51 @@ header.site-header {
   background: rgba(99, 102, 241, 0.08);
   color: var(--primary);
   margin-bottom: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.committee-role-badge.staff-badge {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.25);
 }
 
 .committee-role-badge.student-badge {
   background: rgba(14, 165, 233, 0.1);
   color: #0284c7;
+  border-color: rgba(14, 165, 233, 0.25);
+}
+
+.committee-phone-wrap {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.committee-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: color-mix(in srgb, var(--primary) 10%, var(--card-bg));
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.committee-phone-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .student-card .committee-icon {
@@ -1923,12 +2113,6 @@ header.site-header {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   margin-top: 12px;
-}
-
-@media (max-width: 768px) {
-  .student-org-split {
-    grid-template-columns: 1fr;
-  }
 }
 
 .student-dept-card {
@@ -1972,6 +2156,10 @@ header.site-header {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.student-dept-title-wrap .dept-icon {
+  font-size: 1.25rem;
 }
 
 .student-dept-title-wrap h4 {
@@ -2024,12 +2212,77 @@ header.site-header {
   box-shadow: 0 4px 12px -4px var(--shadow);
 }
 
+.student-head-item {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: color-mix(in srgb, var(--primary) 9%, var(--paper)) !important;
+  border: 1.5px solid rgba(124, 58, 237, 0.35) !important;
+}
+
+.student-head-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-head-name {
+  color: var(--ink);
+  font-size: 0.95rem;
+  display: block;
+}
+
+.student-head-role {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.student-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.student-phone-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
 .student-item-icon {
   font-size: 1rem;
   color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.mobile-nav-register-item {
+  display: none;
+  margin-top: 10px;
+}
+
+.mobile-nav-register-btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 12px 18px;
+  font-size: 0.95rem;
 }
 
 .committee-name {
@@ -2471,518 +2724,6 @@ footer.site-footer {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--graphite);
-}
-
-/* ==========================================================================
-   📱 COMPREHENSIVE MOBILE RESPONSIVE FIXES (Zero Collisions & Overlaps)
-   ========================================================================== */
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .hero-meta-panel-centered {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-
-  .register-cta-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-@media (max-width: 768px) {
-
-  /* Navbar & Header */
-  .navbar {
-    padding: 10px 0;
-    gap: 12px;
-  }
-
-  .navlinks {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    padding: 20px 24px;
-    gap: 16px;
-    display: none;
-    box-shadow: var(--shadow-lg);
-    z-index: 9999;
-    max-height: calc(100vh - 65px);
-    overflow-y: auto;
-  }
-
-  .navlinks.open {
-    display: flex;
-  }
-
-  .mobile-menu-btn {
-    display: grid;
-    flex-shrink: 0;
-  }
-
-  /* Events Filter Bar */
-  .events-filter-bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-
-  .filter-tabs {
-    width: 100%;
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 4px;
-    justify-content: flex-start;
-  }
-
-  .filter-tab {
-    flex: 1 1 auto;
-    text-align: center;
-    white-space: nowrap;
-    padding: 8px 14px;
-    font-size: 0.82rem;
-  }
-
-  .filter-search {
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .events-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  /* Timeline */
-  .timeline-wrap {
-    padding: 12px 0;
-  }
-
-  .timeline-wrap::before {
-    left: 20px;
-  }
-
-  .timeline-dot {
-    left: 12px;
-    top: 18px;
-    width: 16px;
-    height: 16px;
-  }
-
-  .timeline-card {
-    margin-left: 48px !important;
-    margin-right: 0 !important;
-    text-align: left !important;
-    padding: 16px 18px;
-  }
-
-  /* Modal */
-  .modal-backdrop {
-    padding: 12px;
-  }
-
-  .modal-card {
-    max-height: 90vh;
-    border-radius: var(--radius-md);
-  }
-
-  .modal-header-img {
-    height: 180px;
-  }
-
-  .modal-body {
-    padding: 20px 16px;
-  }
-
-  .modal-meta-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 12px;
-  }
-
-  .modal-footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .modal-footer .btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
-
-  /* Container Padding */
-  .wrap {
-    padding: 0 16px;
-  }
-
-  /* Section Spacing */
-  .section {
-    padding: 40px 0;
-  }
-
-  .section-head {
-    margin-bottom: 24px;
-  }
-
-  .section-title {
-    font-size: clamp(22px, 6vw, 32px);
-  }
-
-  .section-subtitle {
-    font-size: 0.9rem;
-  }
-
-  /* Brand Logos Scaling */
-  .brand {
-    gap: 8px;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .brand-badge {
-    height: 36px;
-    max-width: 90px;
-  }
-
-  .brand-badge img {
-    height: 100%;
-    max-height: 36px;
-  }
-
-  .brand-divider {
-    height: 20px;
-    width: 1px;
-  }
-
-  .brand-fest-logo {
-    height: 28px;
-    max-width: 115px;
-  }
-
-  /* Hero Section */
-  .hero {
-    padding: 32px 0 24px;
-  }
-
-  .eyebrow {
-    font-size: 0.72rem;
-    padding: 6px 12px;
-    max-width: 100%;
-    white-space: normal;
-    text-align: center;
-    line-height: 1.35;
-  }
-
-  .hero-logo-center {
-    margin: 10px auto 14px;
-  }
-
-  .hero-fest-logo {
-    width: 100%;
-    max-width: 310px;
-  }
-
-  .hero-meta-panel-centered {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 8px;
-    margin: 8px auto 18px;
-    width: 100%;
-  }
-
-  .meta-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding: 8px 12px;
-    text-align: left;
-  }
-
-  .meta-row .label {
-    font-size: 0.75rem;
-  }
-
-  .meta-row .value {
-    font-size: 0.86rem;
-    word-break: break-word;
-  }
-
-  .hero-sub {
-    font-size: 0.88rem;
-    line-height: 1.55;
-    margin-bottom: 20px;
-  }
-
-  /* Hero Action Buttons */
-  .hero-actions-centered {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto 20px;
-    gap: 10px;
-  }
-
-  .hero-actions-centered .btn {
-    width: 100%;
-    padding: 12px 18px;
-    font-size: 0.92rem;
-    white-space: normal;
-    text-align: center;
-  }
-
-  /* Countdown */
-  .countdown-box-centered {
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px 14px;
-    width: 100%;
-    max-width: 310px;
-    margin: 0 auto;
-  }
-
-  .countdown-grid {
-    gap: 8px;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .countdown-num {
-    font-size: 1.2rem;
-  }
-
-  .countdown-text {
-    font-size: 0.6rem;
-  }
-
-  .countdown-sep {
-    font-size: 1rem;
-    margin-top: -4px;
-  }
-
-  /* Institution Announcement */
-  .orgs-announcement-card {
-    padding: 20px 14px;
-    margin-top: 28px;
-    border-radius: var(--radius-md);
-  }
-
-  .announcement-pill {
-    font-size: 0.72rem;
-    padding: 5px 12px;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .main-institution-logo-wrap {
-    max-width: 220px;
-    margin: 0 auto 12px;
-  }
-
-  .main-institution-logo {
-    max-height: 110px;
-  }
-
-  .dept-name {
-    font-size: 1rem;
-    line-height: 1.25;
-  }
-
-  .college-name {
-    font-size: 0.82rem;
-    line-height: 1.4;
-  }
-
-  .dept-divider.center-aligned {
-    max-width: 220px;
-  }
-
-  /* Event Cards */
-  .card-img-wrap {
-    height: 170px;
-  }
-
-  .card-body {
-    padding: 16px 14px;
-  }
-
-  .card-title {
-    font-size: 1.15rem;
-  }
-
-  .card-summary {
-    font-size: 0.85rem;
-    margin-bottom: 14px;
-  }
-
-  .card-footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-
-  .card-footer .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Registration CTA Card */
-  .register-cta-card {
-    padding: 20px 14px;
-    border-radius: var(--radius-md);
-  }
-
-  .register-cta-grid {
-    gap: 20px;
-  }
-
-  .cta-perks {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin: 16px 0;
-  }
-
-  .register-link-btn.btn-lg {
-    width: 100%;
-    padding: 12px 18px;
-    font-size: 0.92rem;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .cta-fee-box {
-    padding: 16px 12px;
-  }
-
-  .combo-tier-card {
-    padding: 10px 10px;
-    gap: 8px;
-  }
-
-  .combo-tier-name {
-    font-size: 0.82rem;
-  }
-
-  .combo-tier-desc {
-    font-size: 0.68rem;
-  }
-
-  .price-val {
-    font-size: 1.15rem;
-  }
-
-  /* Timeline Banner */
-  .timeline-wishes-banner {
-    padding: 12px 16px;
-    border-radius: var(--radius-md);
-    font-size: 0.85rem;
-    text-align: center;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  /* Venue Card */
-  .venue-info-card {
-    padding: 20px 14px;
-  }
-
-  .venue-info-card h3 {
-    font-size: 1.15rem;
-  }
-
-  .venue-map-card {
-    min-height: 260px;
-    height: 260px;
-  }
-
-  /* About Cards */
-  .about-card {
-    padding: 20px 14px;
-  }
-
-  .about-card h3 {
-    font-size: 1.15rem;
-  }
-
-  .about-card p {
-    font-size: 0.88rem;
-  }
-
-  /* FAQ */
-  .faq-summary {
-    padding: 14px 16px;
-    font-size: 0.92rem;
-  }
-
-  .faq-content {
-    padding: 0 16px 16px;
-    font-size: 0.88rem;
-  }
-
-  /* Footer */
-  footer.site-footer {
-    padding: 40px 0 24px;
-  }
-
-  .footer-grid {
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-
-  .footer-brand .brand-badge {
-    height: 32px;
-  }
-
-  .footer-fest-logo {
-    height: 26px;
-    max-width: 110px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-    font-size: 0.72rem;
-  }
-}
-
-@media (max-width: 480px) {
-
-  /* Prevent Navbar Collision: hide navbar extra register button so hamburger + brand never collide */
-  .nav-actions .register-link-btn {
-    display: none;
-  }
-
-  .modal-meta-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .combo-badge {
-    font-size: 0.6rem;
-    padding: 2px 6px;
-  }
 }
 
 /* ==========================================================================
@@ -3554,8 +3295,8 @@ footer.site-footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -30px;
-  margin-bottom: clamp(-145px, -19vw, -220px);
+  margin-top: 0;
+  margin-bottom: clamp(10px, 3vw, 24px);
   opacity: 0;
   transform: translate3d(0, -18px, 0);
   animation: introSlideDown 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
@@ -3567,10 +3308,10 @@ footer.site-footer {
 }
 
 .intro-college-logo {
-  width: clamp(800px, 95vw, 1250px);
-  max-width: 98%;
+  width: clamp(220px, 60vw, 680px);
+  max-width: 95%;
   height: auto;
-  max-height: clamp(340px, 45vw, 540px);
+  max-height: clamp(100px, 25vw, 240px);
   object-fit: contain;
   background: transparent;
   border-radius: 0;
@@ -3604,6 +3345,17 @@ footer.site-footer {
   transform: scale(0.92) translateZ(0);
   animation: introPopTitle 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
   will-change: transform, opacity;
+}
+
+.intro-aurafest-logo {
+  width: clamp(340px, 80vw, 720px);
+  max-width: 95vw;
+  height: auto;
+  max-height: clamp(180px, 35vh, 340px);
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.8)) drop-shadow(0 0 45px rgba(255, 46, 136, 0.6)) drop-shadow(0 0 80px rgba(0, 229, 255, 0.45));
+  animation: introLogoPulse 3s ease-in-out infinite alternate;
+  will-change: filter, transform;
 }
 
 .intro-glitch-title {
@@ -4007,5 +3759,1578 @@ footer.site-footer {
 
   .intro-screen {
     display: none !important;
+  }
+}
+
+/* ==========================================================================
+   📱 MASTER COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   Pixel-perfect mobile alignment, flawless cards, touch targets & typography
+   ========================================================================== */
+
+/* Drawer Animation */
+@keyframes navDrawerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 1. TABLET SCREENS (<= 900px) --- */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-meta-panel-centered {
+    grid-template-columns: 1fr;
+    padding: 14px;
+    max-width: 680px;
+  }
+
+  .venue-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .register-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- 2. SMALL TABLETS & PHABLETS (<= 768px) --- */
+@media (max-width: 768px) {
+  /* Navbar Header */
+  .navbar {
+    padding: 10px 0;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .brand-badge {
+    height: 44px;
+    max-width: 120px;
+  }
+
+  .brand-badge img {
+    height: 44px;
+    max-height: 100%;
+    width: auto;
+  }
+
+  .brand-divider {
+    height: 22px;
+    width: 1.5px;
+  }
+
+  .brand-fest-logo {
+    height: 36px;
+    max-width: 160px;
+    width: auto;
+  }
+
+  .navlinks {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--modal-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    flex-direction: column;
+    padding: 20px 24px 28px;
+    gap: 10px;
+    display: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    z-index: 9999;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .navlinks.open {
+    display: flex;
+    animation: navDrawerIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .navlinks li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .navlinks a {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.02rem;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--paper) 70%, var(--card-bg));
+    border: 1px solid var(--line);
+    color: var(--ink);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .navlinks a:hover,
+  .navlinks a.active {
+    background: color-mix(in srgb, var(--primary) 12%, var(--card-bg));
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateX(4px);
+  }
+
+  .navlinks a::after {
+    display: none;
+  }
+
+  .mobile-nav-register-item {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .mobile-nav-register-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    text-align: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-btn {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    background: var(--card-bg);
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+    cursor: pointer;
+    box-shadow: 0 2px 8px -2px var(--shadow);
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--card-hover);
+  }
+
+  /* Events Grid & Filter */
+  .events-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-tabs {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px;
+    justify-content: flex-start;
+  }
+
+  .filter-tab {
+    flex: 1 1 auto;
+    text-align: center;
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  .filter-search {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Schedule Timeline */
+  .timeline-wrap {
+    padding: 10px 0;
+  }
+
+  .timeline-wrap::before {
+    left: 16px;
+  }
+
+  .timeline-dot {
+    left: 8px;
+    top: 16px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-card {
+    margin-left: 42px !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    padding: 16px 18px;
+  }
+
+  /* Committee Section */
+  .committee-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .committee-staff-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .student-org-split {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    padding: 14px;
+  }
+
+  .modal-card {
+    max-height: 90vh;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-header-img {
+    height: 180px;
+  }
+
+  .modal-body {
+    padding: 20px 16px;
+  }
+
+  .modal-meta-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* --- 3. STANDARD MOBILE VIEW (<= 600px) --- */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section {
+    padding: 38px 0;
+  }
+
+  .section-head {
+    margin-bottom: 22px;
+    text-align: center;
+  }
+
+  .section-tag {
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 6vw, 1.85rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 6px auto 0;
+    max-width: 100%;
+  }
+
+  /* Header & Brand (Tight fit prevention) */
+  .navbar {
+    padding: 8px 0;
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 6px;
+    min-width: 0;
+    max-width: calc(100% - 92px);
+    align-items: center;
+  }
+
+  .brand-badge {
+    height: 38px;
+    max-width: 105px;
+    flex-shrink: 0;
+  }
+
+  .brand-badge img {
+    height: 38px;
+    max-height: 100%;
+    width: auto;
+  }
+
+  .brand-divider {
+    height: 18px;
+    width: 1px;
+    opacity: 0.4;
+  }
+
+  .brand-fest-logo {
+    height: 28px;
+    max-width: 125px;
+    width: auto;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-actions .register-link-btn {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* ==================== HERO SECTION (MOBILE) ==================== */
+  .hero {
+    padding: 20px 0 16px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    padding: 5px 14px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .hero-logo-center {
+    margin: 4px auto 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-fest-logo {
+    width: 100%;
+    max-width: min(280px, 82vw);
+    height: auto;
+    filter: drop-shadow(0 6px 20px rgba(124, 58, 237, 0.45));
+  }
+
+  /* Fully Aligned Hero Meta Panel */
+  .hero-meta-panel-centered {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 10px;
+    margin: 8px auto 16px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 9px 12px;
+    text-align: left;
+    border-radius: var(--radius-sm);
+    gap: 4px;
+    background: color-mix(in srgb, var(--primary) 5%, var(--card-bg));
+    border: 1px solid var(--line);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .meta-row .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    gap: 6px;
+    color: var(--secondary);
+    letter-spacing: 0.06em;
+  }
+
+  .meta-row .value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: left;
+    word-break: break-word;
+    width: 100%;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .meta-badge-fee {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(198, 255, 0, 0.22), rgba(124, 58, 237, 0.15));
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  .hero-sub {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    max-width: 100%;
+    color: var(--graphite);
+  }
+
+  /* Hero Action Buttons */
+  .hero-actions-centered {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 18px;
+    gap: 10px;
+  }
+
+  .hero-actions-centered .btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+  }
+
+  /* Countdown Box */
+  .countdown-box-centered {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+  }
+
+  .countdown-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--secondary);
+    text-transform: uppercase;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .countdown-unit {
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .countdown-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .countdown-text {
+    font-size: 0.58rem;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+    color: var(--graphite);
+    text-transform: uppercase;
+  }
+
+  .countdown-sep {
+    font-size: 1rem;
+    margin-top: -4px;
+    color: var(--primary);
+  }
+
+  /* ==================== ANNOUNCEMENT BANNER CARD (MOBILE) ==================== */
+  .orgs-announcement-card {
+    padding: 18px 14px;
+    margin-top: 26px;
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .announcement-header {
+    margin-bottom: 10px;
+  }
+
+  .announcement-pill {
+    font-size: 0.68rem;
+    padding: 5px 12px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    letter-spacing: 0.05em;
+  }
+
+  .main-institution-logo-wrap {
+    max-width: 190px;
+    margin: 8px auto 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-institution-logo {
+    max-height: 70px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .dept-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 2px;
+    color: var(--ink);
+  }
+
+  .college-name {
+    font-size: 0.74rem;
+    line-height: 1.4;
+    color: var(--graphite);
+  }
+
+  .dept-divider.center-aligned {
+    max-width: 160px;
+    margin: 6px auto;
+  }
+
+  .dept-divider span {
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
+  }
+
+  /* ==================== EVENT CARDS (MOBILE) ==================== */
+  .events-filter-bar {
+    gap: 10px;
+    margin-bottom: 18px;
+    width: 100%;
+  }
+
+  .filter-tabs {
+    padding: 4px;
+    gap: 4px;
+    border-radius: var(--radius-full);
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .filter-tab {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .filter-search input {
+    font-size: 0.85rem;
+    padding: 9px 14px 9px 36px;
+    border-radius: var(--radius-full);
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .event-card {
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 16px -4px var(--shadow);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card-img-wrap {
+    height: 150px;
+    width: 100%;
+  }
+
+  .card-tag {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .card-body {
+    padding: 14px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 2px;
+    color: var(--ink);
+  }
+
+  .card-summary {
+    font-size: 0.82rem;
+    line-height: 1.48;
+    margin-bottom: 8px;
+    -webkit-line-clamp: 3;
+    color: var(--graphite);
+  }
+
+  .card-meta-pills {
+    gap: 5px;
+    margin-top: auto;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .card-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .card-footer .btn {
+    flex: 1;
+    min-height: 40px;
+    text-align: center;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+  }
+
+  /* ==================== SCHEDULE TIMELINE (MOBILE) ==================== */
+  .timeline-wrap {
+    padding: 6px 0;
+    width: 100%;
+  }
+
+  .timeline-wrap::before {
+    left: 14px;
+    width: 2px;
+  }
+
+  .timeline-dot {
+    left: 6px;
+    top: 16px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-card {
+    margin-left: 36px !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+  }
+
+  .timeline-time {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--secondary);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .timeline-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 3px;
+    line-height: 1.3;
+  }
+
+  .timeline-desc {
+    font-size: 0.78rem;
+    line-height: 1.42;
+    color: var(--graphite);
+    margin: 0;
+  }
+
+  .timeline-wishes-banner {
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .timeline-wishes-banner .wishes-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .timeline-wishes-banner .wishes-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  /* ==================== REGISTRATION CTA CARD (MOBILE) ==================== */
+  .register-cta-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-md);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .register-cta-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .register-cta-card .section-title {
+    font-size: 1.3rem !important;
+    line-height: 1.25;
+  }
+
+  .register-cta-card p {
+    font-size: 0.84rem !important;
+    line-height: 1.5;
+    margin-top: 6px;
+    color: var(--graphite);
+  }
+
+  .cta-perks {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .perk-item {
+    font-size: 0.8rem;
+    font-weight: 600;
+    gap: 8px;
+    color: var(--ink);
+  }
+
+  .perk-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
+  }
+
+  .register-link-btn.btn-lg {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+  }
+
+  .cta-fee-box {
+    padding: 16px 12px;
+    border-radius: var(--radius-md);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .fee-box-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+  }
+
+  .fee-badge-tag {
+    font-size: 0.68rem;
+  }
+
+  .combo-tiers-list {
+    gap: 12px;
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .combo-tier-card {
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .combo-tier-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .combo-tier-desc {
+    font-size: 0.7rem;
+    color: var(--graphite);
+  }
+
+  .price-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .original-price {
+    font-size: 0.68rem;
+  }
+
+  .combo-badge {
+    font-size: 0.62rem;
+    padding: 2px 7px;
+    top: -8px;
+    right: 10px;
+  }
+
+  .fee-note {
+    font-size: 0.74rem;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* ==================== VENUE & CAMPUS MAP (MOBILE) ==================== */
+  .venue-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .venue-info-card {
+    padding: 18px 14px;
+    border-radius: var(--radius-md);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .venue-campus-pill {
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+
+  .venue-college-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .venue-college-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--graphite);
+    margin-bottom: 14px;
+  }
+
+  .venue-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .venue-detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .venue-directions-btn {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .venue-map-card {
+    min-height: 220px;
+    height: 220px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ==================== ABOUT & COMMITTEE (MOBILE - BULLETPROOF ALIGNMENT) ==================== */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .about-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .about-card p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--graphite);
+    margin-bottom: 6px;
+  }
+
+  .committee-section {
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .committee-title-wrap {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .committee-title-wrap h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .committee-title-wrap p {
+    font-size: 0.8rem;
+  }
+
+  .committee-subgroup-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    margin: 18px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .committee-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+  }
+
+  .committee-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 16px 14px !important;
+    border-radius: var(--radius-md) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+  }
+
+  .committee-icon {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.2rem !important;
+    margin: 0 auto 6px !important;
+    display: grid !important;
+    place-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .committee-role-badge {
+    font-size: 0.68rem !important;
+    padding: 2px 8px !important;
+    margin-bottom: 4px !important;
+    display: inline-block !important;
+  }
+
+  .committee-name {
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+    color: var(--ink) !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .committee-sub {
+    font-size: 0.78rem !important;
+    color: var(--graphite) !important;
+    line-height: 1.35 !important;
+    margin: 2px 0 0 !important;
+    width: 100% !important;
+  }
+
+  .committee-phone-wrap {
+    margin-top: 8px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .committee-phone-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    color: var(--primary) !important;
+    font-weight: 700 !important;
+    font-size: 0.82rem !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+    padding: 6px 16px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(99, 102, 241, 0.25) !important;
+    text-decoration: none !important;
+    width: auto !important;
+    min-width: 160px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .student-org-split {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .student-dept-card {
+    padding: 14px 12px !important;
+    border-radius: var(--radius-md) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .student-dept-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .student-dept-title-wrap h4 {
+    font-size: 0.92rem !important;
+  }
+
+  .student-dept-badge {
+    font-size: 0.65rem !important;
+    padding: 2px 7px !important;
+  }
+
+  .student-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .student-head-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+    border-radius: var(--radius-sm) !important;
+    background: color-mix(in srgb, var(--primary) 10%, var(--paper)) !important;
+    border: 1.5px solid rgba(124, 58, 237, 0.35) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .student-head-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .student-head-name {
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    color: var(--ink) !important;
+  }
+
+  .student-head-role {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
+  }
+
+  .student-phone-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    border-radius: var(--radius-full) !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .student-list-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ==================== FAQ (MOBILE) ==================== */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .faq-item {
+    border-radius: var(--radius-sm);
+    width: 100%;
+  }
+
+  .faq-summary {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.35;
+    gap: 10px;
+  }
+
+  .faq-content {
+    padding: 0 14px 12px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--graphite);
+  }
+
+  /* ==================== FOOTER (MOBILE) ==================== */
+  footer.site-footer {
+    padding: 32px 0 18px;
+    width: 100%;
+  }
+
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-brand .brand-badge {
+    height: 32px;
+  }
+
+  .footer-fest-logo {
+    height: 26px;
+    max-width: 110px;
+  }
+
+  .footer-brand p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.92rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    padding: 3px 0;
+  }
+
+  .footer-social-section {
+    margin-top: 12px;
+  }
+
+  .footer-social-heading {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .footer-social-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    font-size: 0.82rem;
+    border-radius: var(--radius-md);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .footer-info-block {
+    margin-bottom: 12px;
+  }
+
+  .footer-info-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .footer-info-text,
+  .footer-details-list {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    font-size: 0.7rem;
+    padding-top: 14px;
+  }
+
+  /* ==================== INTRO SCREEN (MOBILE - 2X LARGER & IMPACTFUL) ==================== */
+  .intro-container {
+    width: 98% !important;
+    max-width: 96vw !important;
+    padding: 8px 4px !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+  }
+
+  .intro-college-badge {
+    margin-top: 0 !important;
+    margin-bottom: 6px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .intro-college-logo {
+    width: min(440px, 88vw) !important;
+    max-height: 140px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .intro-title-wrapper {
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .intro-aurafest-logo {
+    width: min(460px, 94vw) !important;
+    max-height: 200px !important;
+    min-height: 120px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 0 24px rgba(124, 58, 237, 0.9)) drop-shadow(0 0 50px rgba(255, 46, 136, 0.7)) drop-shadow(0 0 85px rgba(0, 229, 255, 0.5)) !important;
+  }
+
+  .intro-tagline-wrap {
+    gap: 6px !important;
+    margin-bottom: 16px !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .intro-tag-pill,
+  .intro-date-pill {
+    font-size: 0.68rem !important;
+    padding: 5px 12px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .intro-hud-loader {
+    width: 92vw !important;
+    max-width: 360px !important;
+    gap: 6px !important;
+  }
+
+  .intro-hud-metrics {
+    font-size: 0.68rem !important;
+  }
+
+  .intro-hud-step {
+    font-size: 0.62rem !important;
+  }
+
+  .intro-hud-percent {
+    font-size: 0.7rem !important;
+  }
+
+  .intro-topbar {
+    padding: 12px 16px !important;
+  }
+
+  .intro-status-chip {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+  }
+
+  .intro-skip-btn {
+    font-size: 0.72rem !important;
+    padding: 6px 14px !important;
+    border-radius: var(--radius-full) !important;
+  }
+
+  .intro-speaker-module {
+    display: none !important;
+  }
+
+  /* ==================== EVENT DETAILS MODAL (MOBILE) ==================== */
+  .modal-backdrop {
+    padding: 10px;
+    z-index: 99999;
+  }
+
+  .modal-card {
+    max-height: 88vh;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-header-img {
+    height: 160px;
+  }
+
+  .modal-body {
+    padding: 16px 12px;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .modal-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .modal-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 10px;
+    margin: 14px 0;
+  }
+
+  .modal-meta-item .label {
+    font-size: 0.68rem;
+  }
+
+  .modal-meta-item .val {
+    font-size: 0.82rem;
+  }
+
+  .modal-rules-box {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .modal-rules-box h4 {
+    font-size: 0.92rem;
+  }
+
+  .modal-rules-box ul {
+    padding-left: 16px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* --- 4. COMPACT & NARROW MOBILE (<= 420px) --- */
+@media (max-width: 420px) {
+  .wrap {
+    padding: 0 12px;
+  }
+
+  .hero-fest-logo {
+    max-width: 240px;
+  }
+
+  .countdown-box-centered {
+    max-width: 280px;
+    padding: 8px 10px;
+  }
+
+  .countdown-num {
+    font-size: 1.12rem;
+  }
+
+  .countdown-unit {
+    min-width: 36px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-footer .btn {
+    width: 100%;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-meta-grid {
+    grid-template-columns: 1fr;
   }
 }
